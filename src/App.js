@@ -1,6 +1,3 @@
-import logo from './logo.svg';
-// import './App.css';
-
 import './index.css'
 import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'

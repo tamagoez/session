@@ -3,7 +3,7 @@ import { supabase } from './supabaseClient'
 
 export default function Auth() {
   const [loading, setLoading] = useState(false)
-  const [email, setEmail] = useState('')
+  const [acid, setAcid, password, setPassword] = useState('')
 
   const handleLogin = async (email, password) => {
     try {
@@ -29,7 +29,7 @@ export default function Auth() {
             type="text"
             placeholder="Your mail or ID"
             value={acid}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setAcid(e.target.value)}
           />
         </div>
         <div>
@@ -38,7 +38,7 @@ export default function Auth() {
             type="password"
             placeholder="Your password"
             value={password}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div>

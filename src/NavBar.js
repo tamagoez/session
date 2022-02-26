@@ -1,4 +1,5 @@
 // import './tailwind.css'
+import './index.css'
 
 export default function NavBar() {
   return (

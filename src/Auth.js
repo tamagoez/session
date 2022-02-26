@@ -50,7 +50,7 @@ export default function Auth() {
             className={'button block'}
             disabled={loading}
           >
-            {loading ? <span>Loading</span> : <span>Send magic link</span>}
+            {loading ? <span>Loading</span> : <span>Login</span>}
           </button>
         </div>
       </div>

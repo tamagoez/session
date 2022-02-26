@@ -3,6 +3,7 @@ import './App.css'
 // import { supabase } from './supabaseClient'
 // import Auth from './Auth'
 // import Account from './Account'
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 export default function Home() {

@@ -4,10 +4,10 @@ import './App.css'
 // import Auth from './Auth'
 // import Account from './Account'
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 export default function Home() {
-  const location = useLocation();
+  // const location = useLocation();
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
       <p className="text-2xl">Session</p>

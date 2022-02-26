@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
       <p className="text-2xl">Session</p>
-      {!session ? return ("<a href="login">Login</a>")}
+      {!session ? "<a href="login">Login</a>"}
     </div>
   )
 }

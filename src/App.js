@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import login from './pages/login';
-import toppage from './pages/top';
+import toppage from './pages/toppage';
  
  
 class App extends React.Component {

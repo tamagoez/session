@@ -8,6 +8,13 @@ import Toppage from './pages/toppage';
 import NotFound from './components/404';
  
 export default function App() {
+  const [session, setSession] = useState(null)
+  useEffect(() => {
+    setSession(supabase.auth.session())
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
   render(){
    return (
      <BrowserRouter>

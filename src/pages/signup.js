@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
-export default function Login() {
+export default function Signup() {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid, password, setPassword] = useState('')
 

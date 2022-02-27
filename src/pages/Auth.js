@@ -6,45 +6,63 @@ import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
-export default function Login() {
+export default function Login(props) {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid] = useState('')
   const [password, setPassword] = useState('')
   var mailaddress = ''
+  const othertype = (props.type === 'login') ? "signup" : "login";
   
-  const handleLogin = async (request_email, request_password) => {
+  const handleAuth = async (request_email, request_password) => {   
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
     if (pattern.test(request_email)) {
       mailaddress = request_email
     } else {
       mailaddress = request_email + "@web-sessions.vercel.app"
     }
-    try {
-      setLoading(true)
-      const { error } = await supabase.auth.signIn({
-        email: mailaddress,
-        password: request_password
-      });
-      if (error) throw error
-      console.log('Login successed')
-    } catch (error) {
-      alert(error.error_description || error.message)
-    } finally {
-      setLoading(false)
+    
+    if (props.type === 'login'){
+      try {
+        setLoading(true)
+        const { error } = await supabase.auth.signIn({
+          email: mailaddress,
+          password: request_password
+        });
+        if (error) throw error
+        console.log('Login successed')
+      } catch (error) {
+        alert(error.error_description || error.message)
+      } finally {
+        setLoading(false)
+      }
+    } else {
+      try {
+        setLoading(true)
+        const { error } = await supabase.auth.signUp({
+          email: mailaddress,
+          password: request_password,
+        });
+        if (error) throw error
+        alert('Nice! Your account was confirmed!')
+      } catch (error) {
+        alert(error.error_description || error.message)
+      } finally {
+        setLoading(false)
+      }
     }
   }
   
   const submitOnEnter = (event) => {
     // Watch for enter key
     if (event.keyCode === 13) {
-      handleLogin(acid, password);
+      handleAuth(acid, password);
     }
   }
 
   return (
     <div className="row flex flex-center">
       <div className="col-7 form-widget">
-        <h1 className="header text-5xl">Login</h1>
+        <h1 className="header text-5xl">{props.type}</h1>
         <div>
           <p><MdAlternateEmail /> Email address or ID</p>
           <input
@@ -75,10 +93,10 @@ export default function Login() {
             className={'button block'}
             disabled={loading}
           > 
-            {loading ? <span>Loading</span> : <span>Login</span>}
+            {loading ? <span>Loading...</span> : <span>{props.type}</span>}
           </button>
           <br />
-          <Link to="/signup" className="button block">or Sign up</Link>
+          <Link to="/{othertype}" className="button block">or {othertype}</Link>
         </div>
       </div>
     </div>

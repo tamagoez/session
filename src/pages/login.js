@@ -33,6 +33,7 @@ export default function Login() {
             type="text"
             placeholder="Your mail or ID"
             value={acid}
+            required
             onChange={(e) => setAcid(e.target.value)}
           />
         </div>
@@ -43,6 +44,7 @@ export default function Login() {
             type="password"
             placeholder="Your password"
             value={password}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>

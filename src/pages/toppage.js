@@ -13,6 +13,8 @@ export toppage extends React.Component {
         <p className="text-2xl">Session</p>
         <a href="login">Login</a>
       </div>
-    )
-  }
+    );
+  };
 }
+
+export default toppage;

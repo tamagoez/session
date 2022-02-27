@@ -88,7 +88,7 @@ export default function Login(props) {
           <button
             onClick={(e) => {
               e.preventDefault()
-              handleLogin(acid, password)
+              handleAuth(acid, password)
             }}
             className={'button block'}
             disabled={loading}

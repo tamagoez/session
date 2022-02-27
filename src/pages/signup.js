@@ -26,7 +26,7 @@ export default function Signup() {
         password: request_password,
       });
       if (error) throw error
-      alert('Check your email for the login link!')
+      alert('Nice! Your account was confirmed!')
     } catch (error) {
       alert(error.error_description || error.message)
     } finally {

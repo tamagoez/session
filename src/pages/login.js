@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { supabase } from '../supabaseClient'
 
+import React from 'react';
+import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
+
 export default function Login() {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid, password, setPassword] = useState('')
@@ -21,7 +24,7 @@ export default function Login() {
   return (
     <div className="row flex flex-center">
       <div className="col-6 form-widget">
-        <h1 className="header">Supabase + React</h1>
+        <h1 className="header text-5xl">Login</h1>
         <p className="description">Sign in with your email or ID</p>
         <div>
           <input
@@ -49,9 +52,10 @@ export default function Login() {
             }}
             className={'button block'}
             disabled={loading}
-          >
+          > 
             {loading ? <span>Loading</span> : <span>Login</span>}
           </button>
+          <Link to="/signup" className="button block">Sign up</Link>
         </div>
       </div>
     </div>

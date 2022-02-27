@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
-import { Redirect, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function AccountData({ session }) {
   const [loading, setLoading] = useState(true)
@@ -122,7 +122,7 @@ export default function Account() {
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <Redirect to={{ pathname: "/login", state: { from: location } }} /> : <AccountData key={session.user.id} session={session} />}
+      {!session ? history.push("/login") : <AccountData key={session.user.id} session={session} />}
     </div>
   )
 }

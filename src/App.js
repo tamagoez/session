@@ -13,7 +13,8 @@ class App extends React.Component {
        <Routes>
          <Route path="/" element={<Toppage />} />
          <Route path="/login" element={<Login />} />
-         <Route element={<NotFound />} />;
+         // https://reffect.co.jp/react/react-router-6
+         <Route path="*" element={<NotFound />} />;
        </Routes>
      </BrowserRouter>
    );

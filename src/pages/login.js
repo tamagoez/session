@@ -31,8 +31,7 @@ export default function Login() {
       <div className="col-7 form-widget">
         <h1 className="header text-5xl">Login</h1>
         <div>
-          <p className="description">Email address or ID</p>
-          <MdAlternateEmail />
+          <p><MdAlternateEmail /> Email address or ID</p>
           <input
             className="inputField"
             type="text"
@@ -43,8 +42,7 @@ export default function Login() {
           />
         </div>
         <div>
-          <p className="description">Password</p>
-          <MdPassword />
+          <p><MdPassword /> Password</p>
           <input
             className="inputField"
             type="password"

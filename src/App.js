@@ -5,7 +5,7 @@ import Toppage from './pages/toppage';
 
 // https://zenn.dev/kenara/articles/3677b9a899cfb9
 // https://reffect.co.jp/react/react-router-6
-import NotFound from './components/404'
+import NotFound from './components/404';
  
 export default function App() {
   render(){

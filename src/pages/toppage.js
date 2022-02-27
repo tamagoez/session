@@ -12,7 +12,7 @@ class Toppage extends React.Component {
     return (
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
         <p className="text-5xl">Session</p>
-        <Link to={`/login`} className="text-3xl">Login</Link>
+        <Link to={`/login`} activeClassName="text-3xl">Login</Link>
       </div>
     );
   };

@@ -10,11 +10,18 @@ import Account from './pages/Account'
 import NotFound from './components/404'
  
 class App extends React.Component {
-  const [session, setSession] = useState(null)
+  // https://tyotto-good.com/blog/reaseons-to-use-function-component
+  constructor(props) {
+    super(props);
+  		// thisを用いてstateを参照しなくてはならない
+    this.state = { session: null };
+    this.handleCount = this.handleCount.bind(this);
+  }
+ 
   useEffect(() => {
-    setSession(supabase.auth.session())
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
+    this.setState({ session: supabase.auth.session() })
+    supabase.auth.onAuthStateChange((_event, this.state.session) => {
+       this.setState({ session: session })
     })
   }, [])
   if (!session) {

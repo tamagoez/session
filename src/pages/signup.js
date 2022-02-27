@@ -8,8 +8,9 @@ import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
 export default function Signup() {
   const [loading, setLoading] = useState(false)
-  const [acid, setAcid, password, setPassword, mailaddress] = useState('')
-
+  const [acid, setAcid, password, setPassword] = useState('')
+  var mailaddress = useState('')
+  
   const handleSignup = async (request_email, request_password) => {
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
     if (pattern.test(request_email)) {

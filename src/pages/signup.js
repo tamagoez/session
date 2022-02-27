@@ -65,6 +65,7 @@ export default function Signup() {
             value={password}
             required
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={(e) => submitOnEnter(e)}
           />
         </div>
         <div>

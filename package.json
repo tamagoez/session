@@ -18,8 +18,8 @@
     "react-icons": "^4.3.1"
   },
   "scripts": {
-    "start": "yarn run start",
-    "build": "yarn run build",
+    "start": "yarn start",
+    "build": "yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -13,7 +13,7 @@ export default function NavBar() {
       </button>
     </div>
     <div className="flex-1">
-      <Link to={`https://web-sessions.vercel.app/`} activeClassName="btn btn-ghost normal-case text-xl">Sessions</Link>
+      <a href="https://web-sessions.vercel.app/" className="btn btn-ghost normal-case text-xl">Sessions</a>
     </div>
     <div className="flex-none">
       <button className="btn btn-square btn-ghost">

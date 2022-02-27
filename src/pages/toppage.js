@@ -5,6 +5,7 @@ import '../App.css'
 // import Account from './Account'
 
 import React from 'react';
+import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 class Toppage extends React.Component {
   render() {

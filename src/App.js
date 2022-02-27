@@ -14,8 +14,8 @@ class App extends React.Component {
      <BrowserRouter>
        <Routes>
          <Route path="/" element={<Toppage />} />
-         <Route path="/login" element={<Login />} />
-         <Route path="/signup" element={<Signup />} />
+         <Route path="/login" element={<Auth type="login" />} />
+         <Route path="/signup" element={<Auth type="signup" />} />
          <Route path="*" element={<NotFound />} />;
        </Routes>
      </BrowserRouter>

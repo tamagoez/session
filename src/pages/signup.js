@@ -10,12 +10,18 @@ export default function Signup() {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid, password, setPassword] = useState('')
 
-  const handleSignup = async (email, password) => {
+  const handleSignup = async (request_email, request_password) => {
+    var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
+    if (pattern.test(request_email)) {
+      var mailaddress = request_email
+    } else {
+      var mailaddress = request_email + "@web-sessions.vercel.app"
+    }
     try {
       setLoading(true)
       const { error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
+        email: mailaddress,
+        password: request_password,
       })
       if (error) throw error
       alert('Check your email for the login link!')

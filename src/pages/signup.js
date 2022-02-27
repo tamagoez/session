@@ -9,7 +9,7 @@ import { MdPassword, MdAlternateEmail } from "react-icons/md";
 export default function Signup() {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid] = useState('')
-  conse [password, setPassword] = useState('')
+  const [password, setPassword] = useState('')
   var mailaddress = useState('')
   
   const handleSignup = async (request_email, request_password) => {
@@ -31,6 +31,13 @@ export default function Signup() {
       alert(error.error_description || error.message)
     } finally {
       setLoading(false)
+    }
+  }
+  
+  const submitOnEnter = (event) => {
+    // Watch for enter key
+    if (event.keyCode === 13) {
+      handleSignup(acid, password);
     }
   }
 

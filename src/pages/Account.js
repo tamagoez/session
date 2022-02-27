@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
+import { useLocation } from "react-router-dom";
 
-export default function Account({ session }) {
+function AccountData({ session }) {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [statustext, setStatustext] = useState(null)
@@ -105,6 +106,23 @@ export default function Account({ session }) {
           Sign Out
         </button>
       </div>
+    </div>
+  )
+}
+
+export default function Account() {
+  const location = useLocation();
+  const [session, setSession] = useState(null)
+  useEffect(() => {
+    setSession(supabase.auth.session())
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
+
+  return (
+    <div className="container" style={{ padding: '50px 0 100px 0' }}>
+      {!session ? <Redirect to={{ pathname: "/login", state: { from: location } }} /> : <AccountData key={session.user.id} session={session} />}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from './supabaseClient'
 
-export default function Auth() {
+export default function login() {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid, password, setPassword] = useState('')
 

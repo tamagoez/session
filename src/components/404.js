@@ -12,7 +12,7 @@ class NotFound extends React.Component {
     return (
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
         <h1 className="text-5xl">404 - Not Found</h1>
-        <Link to={`/`}><p className="text-3xl">Go to top page</p></Link>
+        <Link to={`/`} className="button block">Back to top page</Link>
       </div>
     );
   };

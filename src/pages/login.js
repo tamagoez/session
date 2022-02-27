@@ -13,7 +13,7 @@ export default function Login() {
   const handleLogin = async (email, password) => {
     try {
       setLoading(true)
-      const { user, error } = await supabase.auth.signIn({
+      const { error } = await supabase.auth.signIn({
         email: email,
         password: password,
       })

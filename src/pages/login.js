@@ -8,8 +8,9 @@ import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
 export default function Login() {
   const [loading, setLoading] = useState(false)
-  const [acid, setAcid, password, setPassword] = useState('')
-  var mailaddress = useState('')
+  const [acid, setAcid] = useState('')
+  const [password, setPassword] = useState('')
+  var mailaddress = ''
   
   const handleLogin = async (request_email, request_password) => {
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
@@ -44,7 +45,6 @@ export default function Login() {
             type="text"
             placeholder="mail@example.com or example"
             value={acid}
-            required
             onChange={(e) => setAcid(e.target.value)}
           />
         </div>
@@ -55,7 +55,6 @@ export default function Login() {
             type="password"
             placeholder="password"
             value={password}
-            required
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>

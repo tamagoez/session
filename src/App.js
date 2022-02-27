@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import login from './pages/login';
-import toppage from './pages/toppage';
+import Login from './pages/login';
+import Toppage from './pages/toppage';
  
  
 class App extends React.Component {
@@ -9,8 +9,8 @@ class App extends React.Component {
    return (
      <BrowserRouter>
        <Routes>
-         <Route exact path="/" component={toppage} />
-         <Route exact path="/login" component={login} />
+         <Route exact path="/" component={Toppage} />
+         <Route exact path="/login" component={Login} />
        </Routes>
      </BrowserRouter>
    );

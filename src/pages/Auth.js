@@ -96,7 +96,7 @@ export default function Login(props) {
             {loading ? <span>Loading...</span> : <span>{props.type}</span>}
           </button>
           <br />
-          <Link to="/{othertype}" className="button block">or {othertype}</Link>
+          <Link to={"/" + othertype} className="button block">or {othertype}</Link>
         </div>
       </div>
     </div>

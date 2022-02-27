@@ -4,7 +4,7 @@ import { supabase } from '../supabaseClient'
 import React from 'react';
 import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
-import { MdPassword, MdAlternateEmail } from "react-icons"
+import { MdPassword, MdAlternateEmail } from 'react-icons';
 
 export default function Login() {
   const [loading, setLoading] = useState(false)

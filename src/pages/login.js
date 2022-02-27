@@ -26,11 +26,18 @@ export default function Login() {
         password: request_password
       });
       if (error) throw error
-      alert('Check your email for the login link!')
+      console.log('Login successed')
     } catch (error) {
       alert(error.error_description || error.message)
     } finally {
       setLoading(false)
+    }
+  }
+  
+  const submitOnEnter = (event) => {
+    // Watch for enter key
+    if (event.keyCode === 13) {
+      handleLogin(acid, password);
     }
   }
 
@@ -56,6 +63,7 @@ export default function Login() {
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={(e) => submitOnEnter(e)}
           />
         </div>
         <div>

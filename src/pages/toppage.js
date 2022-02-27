@@ -6,7 +6,7 @@ import '../App.css'
 
 import React from 'react';
 
-export toppage extends React.Component {
+class Toppage extends React.Component {
   render() {
     return (
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
@@ -17,4 +17,4 @@ export toppage extends React.Component {
   };
 }
 
-export default toppage;
+export default Toppage;

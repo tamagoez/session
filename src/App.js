@@ -14,7 +14,8 @@ export default function App() {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
     })
-  }, [])
+  }, []);
+ 
   render(){
    return (
      <BrowserRouter>

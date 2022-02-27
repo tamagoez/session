@@ -12,10 +12,11 @@ export default function Signup() {
 
   const handleSignup = async (request_email, request_password) => {
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
+    var mailaddress = useState('')
     if (pattern.test(request_email)) {
-      var mailaddress = request_email
+      mailaddress = request_email
     } else {
-      var mailaddress = request_email + "@web-sessions.vercel.app"
+      mailaddress = request_email + "@web-sessions.vercel.app"
     }
     try {
       setLoading(true)

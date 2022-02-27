@@ -25,8 +25,9 @@ export default function Login() {
     <div className="row flex flex-center">
       <div className="col-7 form-widget">
         <h1 className="header text-5xl">Login</h1>
-        <p className="description">Sign in with your email or ID</p>
+        <p className="description">Sign in with your email or ID and password</p>
         <div>
+          <p className="description">Your email address or ID</p>
           <input
             className="inputField"
             type="text"
@@ -36,6 +37,7 @@ export default function Login() {
           />
         </div>
         <div>
+          <p className="description">Your password</p>
           <input
             className="inputField"
             type="password"

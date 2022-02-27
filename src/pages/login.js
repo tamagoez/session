@@ -23,7 +23,7 @@ export default function Login() {
 
   return (
     <div className="row flex flex-center">
-      <div className="col-6 form-widget">
+      <div className="col-7 form-widget">
         <h1 className="header text-5xl">Login</h1>
         <p className="description">Sign in with your email or ID</p>
         <div>
@@ -55,7 +55,8 @@ export default function Login() {
           > 
             {loading ? <span>Loading</span> : <span>Login</span>}
           </button>
-          <Link to="/signup" className="button block">Sign up</Link>
+          <br />
+          <Link to="/signup" className="button block">or Sign up</Link>
         </div>
       </div>
     </div>

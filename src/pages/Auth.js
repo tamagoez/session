@@ -62,7 +62,7 @@ export default function Login(props) {
   return (
     <div className="row flex flex-center">
       <div className="col-7 form-widget">
-        <h1 className="header text-5xl">{props.type}</h1>
+        <h1 className="header text-5xl">{(props.type === 'login') ? "Login" : "Signup";}</h1>
         <div>
           <p><MdAlternateEmail /> Email address or ID</p>
           <input

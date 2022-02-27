@@ -10,7 +10,7 @@ export default function NavBar() {
       </button>
     </div>
     <div className="flex-1">
-      <a href="https://web-sessions.vercel.app/" className="btn btn-ghost normal-case text-xl">daisyUI</a>
+      <Link to={`https://web-sessions.vercel.app/`} className="btn btn-ghost normal-case text-xl">Sessions</Link>
     </div>
     <div className="flex-none">
       <button className="btn btn-square btn-ghost">

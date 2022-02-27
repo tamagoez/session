@@ -2,7 +2,7 @@
 import './index.css'
 
 import React from 'react';              //Reactを読み込んでいる
-import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
+// import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 export default function NavBar() {
   return (
@@ -13,7 +13,7 @@ export default function NavBar() {
       </button>
     </div>
     <div className="flex-1">
-      <Link to={`/`}><p className="btn btn-ghost normal-case text-xl">Sessions</p></Link>
+      <a href="/" className="btn btn-ghost normal-case text-xl">Sessions</a>
     </div>
     <div className="flex-none">
       <button className="btn btn-square btn-ghost">

@@ -4,11 +4,15 @@ import '../App.css'
 // import Auth from './Auth'
 // import Account from './Account'
 
-export default function toppage() {
-  return (
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      <p className="text-2xl">Session</p>
-      <a href="login">Login</a>
-    </div>
-  )
+import React from 'react';
+
+export toppage extends React.Component {
+  render() {
+    return (
+      <div className="container" style={{ padding: '50px 0 100px 0' }}>
+        <p className="text-2xl">Session</p>
+        <a href="login">Login</a>
+      </div>
+    )
+  }
 }

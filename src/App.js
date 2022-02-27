@@ -4,6 +4,7 @@ import Login from './pages/login';
 import Toppage from './pages/toppage';
 
 // https://zenn.dev/kenara/articles/3677b9a899cfb9
+// https://reffect.co.jp/react/react-router-6
 import NotFound from './components/404'
  
 class App extends React.Component {
@@ -13,7 +14,6 @@ class App extends React.Component {
        <Routes>
          <Route path="/" element={<Toppage />} />
          <Route path="/login" element={<Login />} />
-         // https://reffect.co.jp/react/react-router-6
          <Route path="*" element={<NotFound />} />;
        </Routes>
      </BrowserRouter>

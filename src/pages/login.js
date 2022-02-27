@@ -13,7 +13,10 @@ export default function Login() {
   const handleLogin = async (email, password) => {
     try {
       setLoading(true)
-      const { error } = await supabase.auth.signIn({ email, password })
+      const { user, error } = await supabase.auth.signIn({
+        email: email,
+        password: password,
+      })
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error) {

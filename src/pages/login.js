@@ -4,6 +4,8 @@ import { supabase } from '../supabaseClient'
 import React from 'react';
 import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
+import { MdPassword, MdAlternateEmail } from "react-icons"
+
 export default function Login() {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid, password, setPassword] = useState('')
@@ -25,24 +27,23 @@ export default function Login() {
     <div className="row flex flex-center">
       <div className="col-7 form-widget">
         <h1 className="header text-5xl">Login</h1>
-        <h4 className="text-xl">Sign in with your email or ID and password</h4>
         <div>
-          <p className="description">Your email address or ID</p>
+          <p className="description"><MdAlternateEmail /> Email address or ID</p>
           <input
             className="inputField"
             type="text"
-            placeholder="Your mail or ID"
+            placeholder="mail@example.com or example"
             value={acid}
             required
             onChange={(e) => setAcid(e.target.value)}
           />
         </div>
         <div>
-          <p className="description">Your password</p>
+          <p className="description"><MdPassword /> Password</p>
           <input
             className="inputField"
             type="password"
-            placeholder="Your password"
+            placeholder="password"
             value={password}
             required
             onChange={(e) => setPassword(e.target.value)}

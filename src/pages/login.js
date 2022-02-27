@@ -25,7 +25,7 @@ export default function Login() {
     <div className="row flex flex-center">
       <div className="col-7 form-widget">
         <h1 className="header text-5xl">Login</h1>
-        <h4 className="text-2xl">Sign in with your email or ID and password</h4>
+        <h4 className="text-xl">Sign in with your email or ID and password</h4>
         <div>
           <p className="description">Your email address or ID</p>
           <input

@@ -8,7 +8,8 @@ import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
 export default function Signup() {
   const [loading, setLoading] = useState(false)
-  const [acid, setAcid, password, setPassword] = useState('')
+  const [acid, setAcid] = useState('')
+  conse [password, setPassword] = useState('')
   var mailaddress = useState('')
   
   const handleSignup = async (request_email, request_password) => {
@@ -23,7 +24,7 @@ export default function Signup() {
       const { error } = await supabase.auth.signUp({
         email: mailaddress,
         password: request_password,
-      })
+      });
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error) {

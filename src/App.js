@@ -6,11 +6,11 @@ import './App.css'
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+const location = useLocation();
 export default function Home() {
-  const location = useLocation();
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      <p className="text-1xl">{{location}}</p>
+      <p className="text-1xl">{location}</p>
       <p className="text-2xl">Session</p>
       <a href="login">Login</a>
     </div>

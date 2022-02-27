@@ -56,7 +56,7 @@ export default function Signup() {
           <button
             onClick={(e) => {
               e.preventDefault()
-              handleLogin(acid, password)
+              handleSignup(acid, password)
             }}
             className={'button block'}
             disabled={loading}

@@ -14,9 +14,9 @@ export default function App() {
        <Routes>
          <Route path="/" element={<Toppage />} />
          <Route path="/login" element={<Login />} />
-         <Route path="*" element={<NotFound />} />;
+         <Route path="*" element={<NotFound />} />
        </Routes>
      </BrowserRouter>
    );
-  };
-}
+ };
+};

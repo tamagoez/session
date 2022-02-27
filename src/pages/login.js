@@ -21,10 +21,7 @@ export default function Login() {
     }
     try {
       setLoading(true)
-      const { error } = await supabase.auth.signIn({
-        email: mailaddress,
-        password: request_password,
-      })
+      const { error } = await supabase.auth.signIn({ mailaddress, request_password });
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error) {

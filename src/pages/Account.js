@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
-import { useLocation } from "react-router-dom";
+import { RedirectuseLocation } from "react-router-dom";
 
 function AccountData({ session }) {
   const [loading, setLoading] = useState(true)

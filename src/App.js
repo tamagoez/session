@@ -4,13 +4,17 @@ import login from './pages/login';
 import toppage from './pages/toppage';
  
  
-export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" component={toppage} />
-        <Route exact path="/login" component={login} />
-      </Routes>
-    </BrowserRouter>
-  );
+class App extends React.Component {
+  render(){
+   return (
+     <BrowserRouter>
+       <Routes>
+         <Route exact path="/" component={toppage} />
+         <Route exact path="/login" component={login} />
+       </Routes>
+     </BrowserRouter>
+   );
+  };
 }
+
+export default App;

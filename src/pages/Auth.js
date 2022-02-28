@@ -58,7 +58,8 @@ function AuthPage(props) {
           avatar_url: 'default.png',
           website: '',
           signed_at: new Date(),
-          last_login: new Date()
+          last_login: new Date(),
+          login_id: request_email
         }
 
         let { error_upsert } = await supabase.from('profiles').upsert(updates, {

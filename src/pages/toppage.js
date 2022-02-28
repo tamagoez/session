@@ -11,8 +11,13 @@ class Toppage extends React.Component {
   render() {
     return (
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      　<h1 className="text-4xl">Sessions</h1>
-        <Link to={`/login`} className="button block primary">Open App</Link>
+        <div>
+        　<h1 className="text-4xl">Sessions</h1>
+          <h3 className="description">Way to Collaborate with your Community.</h3>
+        </div>
+        <div>
+          <Link to={`/login`} className="button block primary">Open App</Link>
+        </div>
       </div>
     );
   };

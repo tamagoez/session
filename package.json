@@ -19,8 +19,8 @@
     "postcss-cli": "^9.1.0"
   },
   "scripts": {
-    "build:tailwindcss": "postcss src/index.css -o src/assets/css/tailwind.css",
-    "watch:tailwindcss": "postcss src/index.css -o src/assets/css/tailwind.css -w",
+    "build:tailwindcss": "postcss src/index.css -o src/tailwind.css",
+    "watch:tailwindcss": "postcss src/index.css -o src/tailwind.css -w",
     "start": "yarn build:tailwindcss && react-scripts start",
     "build": "yarn build:tailwindcss && react-scripts build",
     "test": "react-scripts test",

@@ -3,6 +3,12 @@ import { supabase } from '../supabaseClient'
 import { Navigate } from 'react-router-dom'
 
 function AccountData({ session }) {
+  function signout() {
+    supabase.auth.signOut()
+    const sessioncheck = supabase.auth.session();
+    if (!sessioncheck) {<Navigate to="/login" state="/account" />}
+  }
+  
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [statustext, setStatustext] = useState(null)
@@ -102,7 +108,7 @@ function AccountData({ session }) {
       </div>
 
       <div>
-        <button className="button block" onClick={() => supabase.auth.signOut()}>
+        <button className="button block" onClick={() => signout()}>
           Sign Out
         </button>
       </div>

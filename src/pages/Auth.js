@@ -47,6 +47,12 @@ function AuthPage(props) {
         });
         if (error) throw error
         alert('Nice! Your account was confirmed!')
+        const user = supabase.auth.user()
+        await supabase
+         .from('profiles')
+         .update({ avatar_url: 'https://hygtcrytqmrpkximlbnx.supabase.in/storage/v1/object/sign/avatars/default.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzL2RlZmF1bHQuc3ZnIiwiaWF0IjoxNjQ2MDUzNTE2LCJleHAiOjE5NjE0MTM1MTZ9.eYZoWb0Cj_FdNzIs7sZbFLBFCFfRtri6YwVH4xwDNwk' })
+         .eq('id', user.id)
+         .single()
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {

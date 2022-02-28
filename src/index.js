@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import NavBar from './NavBar';
 import reportWebVitals from './reportWebVitals';
+import './tailwind.css'
 
 ReactDOM.render(
   <React.StrictMode>

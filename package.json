@@ -18,8 +18,10 @@
     "react-icons": "^4.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:tailwindcss": "postcss src/App.css -o src/assets/css/tailwind.css",
+    "watch:tailwindcss": "postcss src/App.css -o src/assets/css/tailwind.css -w",
+    "start": "yarn build:tailwindcss && react-scripts start",
+    "build": "yarn build:tailwindcss && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

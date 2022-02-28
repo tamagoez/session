@@ -53,7 +53,7 @@ function AuthPage(props) {
       }
     }
     var sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { console.log('Error occured while trying to Sign Out.') } else {<Navigate to="/account" state={'/' + props.type} />}
+    if (!sessioncheck) { console.log('Error occured while trying to Sign Out.') } else {return(<Navigate to="/account" state={'/' + props.type} />)}
   }
   
   const submitOnEnter = (event) => {

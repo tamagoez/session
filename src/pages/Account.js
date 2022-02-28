@@ -114,8 +114,7 @@ export default function Account() {
   // const location = useLocation();
   
   const session = supabase.auth.session();
-  console.log(session);
-
+  
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
       {!session ? <Navigate to="/login" state="/account" /> : <AccountData key={session.user.id} session={session} />}

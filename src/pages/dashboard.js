@@ -36,7 +36,7 @@ function MainApp({ session }) {
        <button
           className="button block"
           onClick={() => useNavigate('/account')}
-        >
+        >Account Settings</button>
     </div>
     <div>
       <p className="description">This service is now on making!<br />Please pardon me that release is late.</p>

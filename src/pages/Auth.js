@@ -107,7 +107,7 @@ export default function Auth(props) {
   const session = supabase.auth.session();
   return (
     <div>
-      {!session ? <Navigate to="/account" state={props.type} /> : <AuthPage type={props.type} />}
+      {!session ? <AuthPage type={props.type} /> : <Navigate to="/account" state={props.type} />}
     </div>
   )
 }

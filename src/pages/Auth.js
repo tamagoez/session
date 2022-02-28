@@ -53,7 +53,7 @@ function AuthPage(props) {
         const user = supabase.auth.user()
         const updates = {
           id: user.id,
-          username: mailaddress,
+          username: request_email,
           statustext: '',
           avatar_url: 'default.png',
           website: '',
@@ -91,11 +91,11 @@ function AuthPage(props) {
       <div className="col-7 form-widget">
         <h1 className="header text-5xl">{(props.type === 'login') ? "Login" : "Signup"}</h1>
         <div>
-          <p><MdAlternateEmail /> Email address or ID</p>
+          <p><MdAlternateEmail /> Email address or ID (Can use Alphabet or Number)</p>
           <input
             className="inputField"
             type="text"
-            placeholder="mail@example.com or example"
+            placeholder="mail@example.com or example (Can use a~z and 0~9)"
             value={acid}
             onChange={(e) => setAcid(e.target.value)}
           />

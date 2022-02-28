@@ -47,12 +47,28 @@ function AuthPage(props) {
         });
         if (error) throw error
         alert('Nice! Your account was confirmed!')
+        
+        // Generate
+        //
         const user = supabase.auth.user()
-        await supabase
-         .from('profiles')
-         .update({ avatar_url: 'https://hygtcrytqmrpkximlbnx.supabase.in/storage/v1/object/sign/avatars/default.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzL2RlZmF1bHQuc3ZnIiwiaWF0IjoxNjQ2MDUzNTE2LCJleHAiOjE5NjE0MTM1MTZ9.eYZoWb0Cj_FdNzIs7sZbFLBFCFfRtri6YwVH4xwDNwk' })
-         .eq('id', user.id)
-         .single()
+        const updates = {
+          id: user.id,
+          username: mailaddress,
+          statustext: '',
+          avatar_url: 'https://hygtcrytqmrpkximlbnx.supabase.in/storage/v1/object/sign/avatars/default.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzL2RlZmF1bHQuc3ZnIiwiaWF0IjoxNjQ2MDUzNTE2LCJleHAiOjE5NjE0MTM1MTZ9.eYZoWb0Cj_FdNzIs7sZbFLBFCFfRtri6YwVH4xwDNwk',
+          website: '',
+          updated_at: new Date(),
+          last_login: new Date()
+        }
+
+        let { error } = await supabase.from('profiles').upsert(updates, {
+          returning: 'minimal', // Don't return the value after inserting
+        })
+
+        if (error) { throw error }
+        //
+        // Generate Fin
+        
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {

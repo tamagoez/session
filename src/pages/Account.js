@@ -125,7 +125,7 @@ function AccountData({ session }) {
       <div>
         <button
           className="button block primary"
-          onClick={() => updateProfile({ username, statustext, avatar_url })}
+          onClick={() => updateProfile({ username, statustext, avatar_url, website })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}

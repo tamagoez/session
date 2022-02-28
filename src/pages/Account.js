@@ -111,7 +111,7 @@ function AccountData({ session }) {
 }
 
 export default function Account() {
-  const location = useLocation();
+  // const location = useLocation();
   const [session, setSession] = useState(null)
   useEffect(() => {
     setSession(supabase.auth.session())

@@ -57,15 +57,15 @@ function AuthPage(props) {
           statustext: '',
           avatar_url: 'https://hygtcrytqmrpkximlbnx.supabase.in/storage/v1/object/sign/avatars/default.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzL2RlZmF1bHQuc3ZnIiwiaWF0IjoxNjQ2MDUzNTE2LCJleHAiOjE5NjE0MTM1MTZ9.eYZoWb0Cj_FdNzIs7sZbFLBFCFfRtri6YwVH4xwDNwk',
           website: '',
-          updated_at: new Date(),
+          signed_at: new Date(),
           last_login: new Date()
         }
 
-        let { error } = await supabase.from('profiles').upsert(updates, {
+        let { error_upsert } = await supabase.from('profiles').upsert(updates, {
           returning: 'minimal', // Don't return the value after inserting
         })
 
-        if (error) { throw error }
+        if (error_upsert) { throw error }
         //
         // Generate Fin
         

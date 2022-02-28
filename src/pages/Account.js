@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
-import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 function AccountData({ session }) {
   const [loading, setLoading] = useState(true)
@@ -112,7 +112,7 @@ function AccountData({ session }) {
 
 export default function Account() {
   // const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [session, setSession] = useState(null)
   useEffect(() => {
     setSession(supabase.auth.session())
@@ -123,7 +123,7 @@ export default function Account() {
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? history.push("/login") : <AccountData key={session.user.id} session={session} />}
+      {!session ? navigate('/login') : <AccountData key={session.user.id} session={session} />}
     </div>
   )
 }

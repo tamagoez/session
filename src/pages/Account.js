@@ -114,11 +114,11 @@ function AccountData({ session }) {
       </div>
       <div>
         <label htmlFor="statustext">StatusText(Bio)</label>
-        <input
+        <textarea
           id="statustext"
-          type="text"
           value={statustext || ''}
           onChange={(e) => setStatustext(e.target.value)}
+          rows="4"
         />
       </div>
 

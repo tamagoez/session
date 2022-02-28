@@ -94,12 +94,13 @@ function AuthPage(props) {
               e.preventDefault()
               handleAuth(acid, password)
             }}
-            className={'button block'}
+            className={'button block primary'}
             disabled={loading}
           > 
             {loading ? <span>Loading...</span> : <span>{props.type}</span>}
           </button>
-          <br />
+        </div>
+        <div>
           <Link to={"/" + othertype} className="button block">or {othertype}</Link>
         </div>
       </div>

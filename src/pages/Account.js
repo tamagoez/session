@@ -91,7 +91,7 @@ function AccountData({ session }) {
       />
       </div>
       <div>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email (Use this email to login)</label>
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
       <div>

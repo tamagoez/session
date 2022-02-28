@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 import { Navigate, useNavigate } from 'react-router-dom'
+import Avatar from '../components/AvatarSetting'
 
 function AccountData({ session }) {
   let navigate = useNavigate();
@@ -15,6 +16,7 @@ function AccountData({ session }) {
   const [username, setUsername] = useState(null)
   const [statustext, setStatustext] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
+  const [website, setWebsite] = useState(null)
 
   useEffect(() => {
     getProfile()
@@ -27,7 +29,7 @@ function AccountData({ session }) {
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, statustext, avatar_url`)
+        .select(`username, statustext, avatar_url, website`)
         .eq('id', user.id)
         .single()
 
@@ -39,6 +41,7 @@ function AccountData({ session }) {
         setUsername(data.username)
         setStatustext(data.statustext)
         setAvatarUrl(data.avatar_url)
+        setWebsite(data.website)
       }
     } catch (error) {
       alert(error.message)
@@ -47,7 +50,7 @@ function AccountData({ session }) {
     }
   }
 
-  async function updateProfile({ username, statustext, avatar_url }) {
+  async function updateProfile({ username, statustext, avatar_url, website }) {
     try {
       setLoading(true)
       const user = supabase.auth.user()
@@ -57,6 +60,7 @@ function AccountData({ session }) {
         username,
         statustext,
         avatar_url,
+        website,
         updated_at: new Date(),
       }
 
@@ -77,6 +81,16 @@ function AccountData({ session }) {
   return (
     <div className="form-widget">
       <div>
+        <Avatar
+        url={avatar_url}
+        size={150}
+        onUpload={(url) => {
+          setAvatarUrl(url)
+          updateProfile({ username, statustext, avatar_url: url, website })
+        }}
+      />
+      </div>
+      <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
@@ -90,7 +104,16 @@ function AccountData({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="statustext">StatusText</label>
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          type="text"
+          value={website || ''}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="statustext">StatusText(Bio)</label>
         <input
           id="statustext"
           type="text"

@@ -110,12 +110,13 @@ function AccountData({ session }) {
   )
 }
 
+function redirect() {
+  const navigate = useNavigate();
+  navigate("/login");
+}
+
 export default function Account() {
   // const location = useLocation();
-  const navigate = useNavigate();
-  function redirect() {
-    navigate("/login");
-  }
   const [session, setSession] = useState(null)
   useEffect(() => {
     setSession(supabase.auth.session())

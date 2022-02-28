@@ -12,10 +12,11 @@ class Toppage extends React.Component {
     return (
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
         <div>
-        　<h1 className="text-4xl">Sessions</h1>
-          <h3 className="description">Way to Collaborate with your Community.</h3>
+        　<h1 className="text-6xl">Sessions</h1>
+          <h2 className="description">Way to Collaborate with your friends, grounp and etc.<br />No personal information need, just input your ID(or Email) and password!</h2>
         </div>
         <div>
+          <h3>Let's join!</h3>
           <Link to={`/login`} className="button block primary">Open App</Link>
         </div>
       </div>

@@ -110,7 +110,7 @@ function AccountData({ session }) {
   )
 }
 
-function redirect() {
+function Redirect() {
   const navigate = useNavigate();
   navigate("/login");
 }
@@ -127,7 +127,7 @@ export default function Account() {
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <redirect /> : <AccountData key={session.user.id} session={session} />}
+      {!session ? <Redirect /> : <AccountData key={session.user.id} session={session} />}
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { supabase } from '../supabaseClient'
 // import { useAlert } from 'react-alert'
 
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
+import { Link, useNavigate } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
@@ -14,6 +14,7 @@ function AuthPage(props) {
   const [password, setPassword] = useState('')
   var mailaddress = ''
   const othertype = (props.type === 'login') ? "signup" : "login";
+  let navigate = useNavigate();
   
   const handleAuth = async (request_email, request_password) => {   
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
@@ -53,7 +54,7 @@ function AuthPage(props) {
       }
     }
     var sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { console.log('Error occured while trying to Sign Out.') } else {return(<Navigate to="/account" state={'/' + props.type} />)}
+    if (!sessioncheck) { console.log('Error occured while trying to Sign Out.') } else {navigate("/account")}
   }
   
   const submitOnEnter = (event) => {

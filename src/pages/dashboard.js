@@ -6,10 +6,10 @@ function MainApp({ session }) {
   useEffect(() => {
     getUsername()
   }, [session])
+  const user = supabase.auth.user()
+  const [username, setUsername] = useState(null)
   
   async function getUsername() {
-    const user = supabase.auth.user()
-    const [username, setUsername] = useState(null)
     try {
       setLoading(true)
       let { data, error } = await supabase

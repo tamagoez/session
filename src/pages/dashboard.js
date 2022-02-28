@@ -41,6 +41,7 @@ function MainApp({ session }) {
     <div>
       <p className="description">This service is now on making!<br />Please pardon me that release is late.</p>
     </div>
+  )
 }
 
 

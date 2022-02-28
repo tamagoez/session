@@ -32,14 +32,16 @@ function MainApp({ session }) {
   }
   return (
     <div>
-      <h2>Hello, {username}!</h2>
-       <button
-          className="button block"
-          onClick={() => useNavigate('/account')}
-        >Account Settings</button>
-    </div>
-    <div>
-      <p className="description">This service is now on making!<br />Please pardon me that release is late.</p>
+      <div>
+        <h2>Hello, {username}!</h2>
+         <button
+            className="button block"
+            onClick={() => useNavigate('/account')}
+          >Account Settings</button>
+      </div>
+      <div>
+        <p className="description">This service is now on making!<br />Please pardon me that release is late.</p>
+      </div>
     </div>
   )
 }

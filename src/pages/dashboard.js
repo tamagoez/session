@@ -35,7 +35,7 @@ function MainApp({ session }) {
       <h2>Hello, {username}!</h2>
        <button
           className="button block"
-          onClick={() => useNavigate('/account'))}
+          onClick={() => useNavigate('/account')}
         >
     </div>
     <div>

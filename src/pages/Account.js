@@ -113,7 +113,7 @@ function AccountData({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="statustext">StatusText(Bio)</label>
+        <label htmlFor="statustext">StatusText (Bio)</label>
         <input
           id="statustext"
           type="text"

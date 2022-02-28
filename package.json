@@ -15,8 +15,7 @@
     "daisyui": "^2.2.0",
     "pace-js": "^1.2.4",
     "react-router-dom": "^6.2.1",
-    "react-icons": "^4.3.1",
-    "react-alert": "^7.0.3"
+    "react-icons": "^4.3.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -17,6 +17,7 @@ function AccountData({ session }) {
   const [statustext, setStatustext] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
   const [website, setWebsite] = useState(null)
+  const [login_id, setLogin_id] = useState(null)
 
   useEffect(() => {
     getProfile()
@@ -29,7 +30,7 @@ function AccountData({ session }) {
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, statustext, avatar_url, website`)
+        .select(`username, statustext, avatar_url, website, login_id`)
         .eq('id', user.id)
         .single()
 
@@ -42,6 +43,7 @@ function AccountData({ session }) {
         setStatustext(data.statustext)
         setAvatarUrl(data.avatar_url)
         setWebsite(data.website)
+        setLogin_id(data.login_id)
       }
     } catch (error) {
       alert(error.message)
@@ -50,7 +52,7 @@ function AccountData({ session }) {
     }
   }
 
-  async function updateProfile({ username, statustext, avatar_url, website }) {
+  async function updateProfile({ login_id, username, statustext, avatar_url, website }) {
     try {
       setLoading(true)
       const user = supabase.auth.user()
@@ -62,6 +64,7 @@ function AccountData({ session }) {
         avatar_url,
         website,
         updated_at: new Date(),
+        login_id
       }
 
       let { error } = await supabase.from('profiles').upsert(updates, {
@@ -91,7 +94,11 @@ function AccountData({ session }) {
       />
       </div>
       <div>
-        <label htmlFor="email">Email (Use this email to login)</label>
+        <label htmlFor="login_id">Login ID (Use this ID to login)</label>
+        <input id="login_id" type="text" value={login_id || ''} disabled />
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
       <div>

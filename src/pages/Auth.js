@@ -4,7 +4,7 @@ import { supabase } from '../supabaseClient'
 // import { useAlert } from 'react-alert'
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';// 追加 Linkタブを読み込む
+import { Link, Navigate, useNavigate } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 

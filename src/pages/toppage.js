@@ -16,7 +16,7 @@ class Toppage extends React.Component {
           <h2 className="description">Way to Collaborate with your friends, grounp and etc.<br />No personal information need, just input your ID(or Email) and password!</h2>
         </div>
         <div>
-          <h3>Let's join!</h3>
+          <h3>Let's join to your Sessions!</h3>
           <Link to={`/login`} className="button block primary">Open App</Link>
         </div>
       </div>

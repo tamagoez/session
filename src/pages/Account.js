@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 import { Navigate } from 'react-router-dom'
-import { useAlert } from 'react-alert'
 
 function AccountData({ session }) {
-  const alert = useAlert();
-  
   function signout() {
     supabase.auth.signOut()
     const sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { alert.error('Error occured while trying to Sign Out.') } else {<Navigate to="/login" state="/account" />}
+    if (!sessioncheck) { alert('Signout Failed...') } else {<Navigate to="/login" state="/account" />}
   }
   
   const [loading, setLoading] = useState(true)

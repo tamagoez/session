@@ -54,14 +54,14 @@ function AuthPage(props) {
       }
       try {
         setLoading(true)
-        const { data, error } = await supabase
+        const { error } = await supabase
           .from('profiles')
           .update({ avatar_url: 'https://hygtcrytqmrpkximlbnx.supabase.in/storage/v1/object/sign/avatars/default.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzL2RlZmF1bHQuc3ZnIiwiaWF0IjoxNjQ2MDUwMTczLCJleHAiOjE5NjE0MTAxNzN9.S8HahZhVq6w1g0QGn_RZUnAY4A1ZiOxwR93ew7k3W8A' })
-        } catch (error) {
-          alert(error.error_description || error.message)
-        } finally {
-          setLoading(false)
-        }
+      } catch (error) {
+         alert(error.error_description || error.message)
+      } finally {
+        setLoading(false)
+      }
     }
     var sessioncheck = supabase.auth.session();
     if (!sessioncheck) { console.log('Error occured while trying to Sign Out.') } else {navigate("/account")}

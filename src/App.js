@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Auth from './pages/Auth';
 import Toppage from './pages/toppage';
 import Account from './pages/Account';
+import Dashboard from './pages/dashboard';
 
 // https://zenn.dev/kenara/articles/3677b9a899cfb9
 // https://reffect.co.jp/react/react-router-6
@@ -17,6 +18,7 @@ class App extends React.Component {
           <Route path="/login" element={<Auth type="login" />} />
           <Route path="/signup" element={<Auth type="signup" />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/app/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />;
         </Routes>
       </BrowserRouter>

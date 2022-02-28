@@ -113,6 +113,9 @@ function AccountData({ session }) {
 export default function Account() {
   // const location = useLocation();
   const navigate = useNavigate();
+  function redirect() {
+    navigate("/login");
+  }
   const [session, setSession] = useState(null)
   useEffect(() => {
     setSession(supabase.auth.session())
@@ -123,7 +126,7 @@ export default function Account() {
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? navigate('/login') : <AccountData key={session.user.id} session={session} />}
+      {!session ? <redirect /> : <AccountData key={session.user.id} session={session} />}
     </div>
   )
 }

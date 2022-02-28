@@ -4,8 +4,9 @@ import { Navigate } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 
 function AccountData({ session }) {
+  const alert = useAlert();
+  
   function signout() {
-    const alert = useAlert()
     supabase.auth.signOut()
     const sessioncheck = supabase.auth.session();
     if (!sessioncheck) { alert.error('Error occured while trying to Sign Out.') } else {<Navigate to="/login" state="/account" />}

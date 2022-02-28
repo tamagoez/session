@@ -52,7 +52,6 @@ function AuthPage(props) {
         setLoading(false)
       }
     }
-    const alert = useAlert()
     const sessioncheck = supabase.auth.session();
     if (!sessioncheck) { alert.error('Error occured while trying to Sign Out.') } else {<Navigate to="/account" state={'/' + props.type} />}
   }
@@ -110,6 +109,7 @@ function AuthPage(props) {
 
 export default function Auth(props) {
   const session = supabase.auth.session();
+  const alert = useAlert();
   return (
     <div>
       {!session ? <AuthPage type={props.type} /> : <Navigate to="/account" state={props.type} />}

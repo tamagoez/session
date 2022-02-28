@@ -10,13 +10,13 @@ import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 class Toppage extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container" style={{ padding: '50px 0 100px 0' }}>
         <div>
         　<h1 className="text-6xl">Sessions</h1>
-          <h2 className="description">Way to Collaborate with your friends, grounp and etc.<br />No personal information need, just input your ID(or Email) and password!</h2>
+          <p className="description">Way to Collaborate with your friends, grounp and etc.<br />No personal information need, just input your ID(or Email) and password!</p>
         </div>
         <div>
-          <h3>Let's join to your Sessions!</h3>
+          <p>Let's join to your Sessions!</p>
           <Link to={`/login`} className="button block primary">Open App</Link>
         </div>
       </div>

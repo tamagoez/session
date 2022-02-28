@@ -119,7 +119,7 @@ export default function Account() {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
     })
-  }, []);
+  }, [session]);
   console.log(session);
 
   return (

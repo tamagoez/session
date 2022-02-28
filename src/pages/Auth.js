@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../supabaseClient'
 
-import { useAlert } from 'react-alert'
+// import { useAlert } from 'react-alert'
 
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
@@ -53,7 +53,7 @@ function AuthPage(props) {
       }
     }
     const sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { alert.error('Error occured while trying to Sign Out.') } else {<Navigate to="/account" state={'/' + props.type} />}
+    if (!sessioncheck) { alert('Error occured while trying to Sign Out.') } else {<Navigate to="/account" state={'/' + props.type} />}
   }
   
   const submitOnEnter = (event) => {
@@ -109,7 +109,7 @@ function AuthPage(props) {
 
 export default function Auth(props) {
   const session = supabase.auth.session();
-  const alert = useAlert();
+  // const alert = useAlert();
   return (
     <div>
       {!session ? <AuthPage type={props.type} /> : <Navigate to="/account" state={props.type} />}

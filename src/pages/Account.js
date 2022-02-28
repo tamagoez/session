@@ -123,7 +123,7 @@ export default function Account() {
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <Navigate to="/login" state={{from:useLocation()}} replace={false} /> : <AccountData key={session.user.id} session={session} />}
+      {!session ? <Navigate to="/login" state="/account" /> : <AccountData key={session.user.id} session={session} />}
     </div>
   )
 }

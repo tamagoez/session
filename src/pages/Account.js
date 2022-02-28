@@ -6,7 +6,7 @@ function AccountData({ session }) {
   function signout() {
     supabase.auth.signOut()
     const sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { alert('Signout Failed...') } else {<Navigate to="/login" state="/account" />}
+    if (!sessioncheck) {return(<Navigate to="/login" state="/account" />)} else { alert('Signout Failed...') }
   }
   
   const [loading, setLoading] = useState(true)

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
-export default function Login(props) {
+function AuthPage(props) {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid] = useState('')
   const [password, setPassword] = useState('')
@@ -100,5 +100,12 @@ export default function Login(props) {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Auth(props) {
+  const session = supabase.auth.session();
+  return (
+    {!session ? <Navigate to="/account" state={props.type} /> : <AuthPage type={props.type} />}
   )
 }

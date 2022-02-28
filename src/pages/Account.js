@@ -119,7 +119,8 @@ export default function Account() {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
     })
-  }, [])
+  }, []);
+  console.log(session);
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>

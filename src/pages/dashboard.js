@@ -11,22 +11,6 @@ function MainApp({ session }) {
     getUsername()
   }, [session])
   
-  
-  return (
-    <div>
-      <div>
-        <h2>Hello, {username}!</h2>
-         <button
-            className="button block"
-            onClick={() => navigate('/account')}
-          >Account Settings</button>
-      </div>
-      <div>
-        <p className="description">This service is now on making!<br />Please pardon me that release is late.</p>
-      </div>
-    </div>
-  )
-  
   async function getUsername() {
     try {
       let { data, error, status } = await supabase
@@ -47,6 +31,23 @@ function MainApp({ session }) {
       console.log('loaded')
     }
   }
+  
+  
+  return (
+    <div>
+      <div>
+        <h2>Hello, {username}!</h2>
+         <button
+            className="button block"
+            onClick={() => navigate('/account')}
+          >Account Settings</button>
+      </div>
+      <div>
+        <p className="description">This service is now on making!<br />Please pardon me that release is late.</p>
+      </div>
+    </div>
+  )
+  
 }
 
 

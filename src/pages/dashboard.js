@@ -8,6 +8,9 @@ function MainApp({ session }) {
   }, [session])
   const user = supabase.auth.user()
   const [username, setUsername] = useState(null)
+  const [loading, setLoading] = useState(null)
+  
+  const navigate = useNavigate()
   
   async function getUsername() {
     try {
@@ -36,7 +39,7 @@ function MainApp({ session }) {
         <h2>Hello, {username}!</h2>
          <button
             className="button block"
-            onClick={() => useNavigate('/account')}
+            onClick={() => navigate('/account')}
           >Account Settings</button>
       </div>
       <div>

@@ -47,6 +47,7 @@ async function getUsername() {
       console.log('loaded')
     }
   }
+}
 
 
 

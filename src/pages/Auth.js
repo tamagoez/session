@@ -137,7 +137,7 @@ export default function Auth(props) {
   // const alert = useAlert();
   return (
     <div>
-      {!session ? <AuthPage type={props.type} /> : <Navigate to="/account" state={props.type} />}
+      {!session ? <AuthPage type={props.type} /> : <Navigate to="/dashboard" state={'/' + props.type} />}
     </div>
   )
 }

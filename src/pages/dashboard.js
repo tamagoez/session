@@ -15,7 +15,7 @@ function MainApp({ session }) {
   async function getUsername() {
     try {
       setLoading(true)
-      let { data, error } = await supabase
+      let { data, error, status } = await supabase
         .from('profiles')
         .select('username')
         .eq('id', user.id)

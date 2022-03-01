@@ -3,6 +3,10 @@ import { supabase } from '../supabaseClient'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 function MainApp({ session }) {
+  const user = supabase.auth.user();
+  const [username, setUsername] = useState(null);
+  const navigate = useNavigate();
+  
   useEffect(() => {
     getUsername()
   }, [session])
@@ -48,9 +52,6 @@ async function getUsername() {
 
 export default function Dashboard() {
   const session = supabase.auth.session();
-  const user = supabase.auth.user();
-  const [username, setUsername] = useState(null);
-  const navigate = useNavigate();
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
       {!session ? <Navigate to="/login" state="/dashboard" /> : <MainApp key={session.user.id} session={session} />}

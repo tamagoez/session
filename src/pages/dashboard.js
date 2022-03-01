@@ -6,33 +6,8 @@ function MainApp({ session }) {
   useEffect(() => {
     getUsername()
   }, [session])
-  const user = supabase.auth.user()
-  const [username, setUsername] = useState(null)
-  const [loading, setLoading] = useState(null)
   
-  const navigate = useNavigate()
   
-  async function getUsername() {
-    try {
-      setLoading(true)
-      let { data, error, status } = await supabase
-        .from('profiles')
-        .select('username')
-        .eq('id', user.id)
-        .single()
-
-        if (error && status !== 406) {
-          throw error
-        }
-      if (data) {
-        setUsername(data.username)
-      }
-    } catch (error) {
-      alert(error.message)
-    } finally {
-      setLoading(false)
-    }
-  }
   return (
     <div>
       <div>
@@ -49,9 +24,33 @@ function MainApp({ session }) {
   )
 }
 
+async function getUsername() {
+    try {
+      let { data, error, status } = await supabase
+        .from('profiles')
+        .select('username')
+        .eq('id', user.id)
+        .single()
+
+        if (error && status !== 406) {
+          throw error
+        }
+      if (data) {
+        setUsername(data.username)
+      }
+    } catch (error) {
+      alert(error.message)
+    } finally {
+      console.log('loaded')
+    }
+  }
+
 
 export default function Dashboard() {
   const session = supabase.auth.session();
+  const user = supabase.auth.user();
+  const [username, setUsername] = useState(null);
+  const navigate = useNavigate();
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
       {!session ? <Navigate to="/login" state="/dashboard" /> : <MainApp key={session.user.id} session={session} />}

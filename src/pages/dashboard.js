@@ -26,8 +26,7 @@ function MainApp({ session }) {
       </div>
     </div>
   )
-}
-
+  
 async function getUsername() {
     try {
       let { data, error, status } = await supabase

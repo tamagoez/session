@@ -7,10 +7,6 @@ function MainApp({ session }) {
   const [username, setUsername] = useState(null);
   const navigate = useNavigate();
   
-  useEffect(() => {
-    getUsername()
-  }, [session])
-  
   async function getUsername() {
     try {
       let { data, error, status } = await supabase
@@ -31,6 +27,8 @@ function MainApp({ session }) {
       console.log('loaded')
     }
   }
+  
+  getUsername();
   
   
   return (

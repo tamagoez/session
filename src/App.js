@@ -21,7 +21,7 @@ class App extends React.Component {
           <Route path="/account" element={<Account />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/app" element={<Dashboard />} />
-          <Route path="/app/chat/channel/:cid" element={<Chat />} />
+          <Route path="/app/chat/:cid" element={<Chat />} />
           <Route path="*" element={<NotFound />} />;
         </Routes>
       </BrowserRouter>

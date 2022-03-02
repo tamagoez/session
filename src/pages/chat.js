@@ -23,11 +23,11 @@ function CoreChat(props) {
   const userid = session.user.id;
   // const navigate = useNavigate();
   
-  componentDidMount(){
+  componentDidMount() {
     ExecCM();
   }
   
-  componentDidUpdate(){
+  componentDidUpdate() {
     ExecCM();
   }
   

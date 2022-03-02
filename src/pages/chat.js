@@ -9,14 +9,14 @@ export default function Chat(props) {
   const session = supabase.auth.session();
   return (
     <div>
-      {!session ? <Navigate to="/login" state={'/app/chat/channel/' + props.cid} : <CoreChat cid={props.cid} /> />}
+      {!session ? <Navigate to="/login" state={'/app/chat/channel/' + props.match.params.cid} : <CoreChat chid={props.match.params.cid} /> />}
     </div>
   )
 }
 
 function CoreChat(props) {
   // Prepare
-  const chid = props.cid
+  const chid = props.chid
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 }

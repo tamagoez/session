@@ -22,28 +22,28 @@ function CoreChat(props) {
   // const navigate = useNavigate();
   CheckRole({userid})
   GetLog({userid})
+
+  async function GetLog({chid}) {
+    try {
+      setLoading(true)
+      const { data, error, status } = await supabase
+        .from('channels_chat')
+        .select('message')
+        .eq('on_channel', chid)
+  
+        if (error && status !== 406) {
+          throw error
+        }
+  
+        console.log(data)
+      } catch (error) {
+        alert(error.message)
+      } finally {
+        setLoading(false)
+      }
+  }
 }
 
 function CheckRole({id}) {
   console.log('id is' + id)
-}
-
-
-async function GetLog({chid}) {
-  try {
-    const { data, error, status } = await supabase
-      .from('channels_chat')
-      .select('message')
-      .eq('on_channel', chid)
-
-      if (error && status !== 406) {
-        throw error
-      }
-
-      console.log(data)
-    } catch (error) {
-      alert(error.message)
-    } finally {
-      setLoading(false)
-    }
 }

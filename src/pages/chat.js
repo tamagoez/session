@@ -29,7 +29,7 @@ function CheckRole({id}) {
 }
 
 
-function GetLog({chid}) {
+async function GetLog({chid}) {
   try {
     const { data, error, status } = await supabase
       .from('channels_chat')

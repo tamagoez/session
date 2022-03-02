@@ -6,7 +6,7 @@ import { Navigate, useParams } from 'react-router-dom';
 // import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
 export default function Chat(props) {
-  const session = supabase.auth.session();
+  var session = supabase.auth.session();
   const { cid } = useParams();
   return (
     <div>
@@ -19,7 +19,8 @@ function CoreChat(props) {
   // Prepare
   const chid = props.chid
   const [loading, setLoading] = useState(false)
-  const userid = supabase.auth.session().user.id
+  var session = supabase.auth.session();
+  const userid = session.user.id;
   // const navigate = useNavigate();
   CheckRole({userid})
   GetLog()
@@ -52,5 +53,5 @@ function CoreChat(props) {
 }
 
 function CheckRole({id}) {
-  console.log('id is' + id)
+  console.log('id is ' + id)
 }

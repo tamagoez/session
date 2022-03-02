@@ -22,7 +22,7 @@ function CoreChat(props) {
   var session = supabase.auth.session();
   const userid = session.user.id;
   // const navigate = useNavigate();
-  CheckRole({userid})
+  CheckRole()
   GetLog()
 
   async function GetLog() {
@@ -45,13 +45,13 @@ function CoreChat(props) {
       }
   }
 
+  function CheckRole() {
+    console.log('id is ' + userid)
+  }
+
   return (
     <div>
       <p>{loading ? 'Loading ...' : 'Update'}</p>
     </div>
   )
-}
-
-function CheckRole({id}) {
-  console.log('id is ' + id)
 }

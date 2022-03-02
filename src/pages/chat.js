@@ -20,9 +20,9 @@ export default function Chat(props) {
 
 function CoreChat(props) {
   // Prepare
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   console.log('Loading: ' + loading)
-  setLoading(true)
+  // setLoading(true)
   const chid = props.chid
   console.log('channelID: ' + chid)
   var session = supabase.auth.session();
@@ -30,5 +30,5 @@ function CoreChat(props) {
   const userid = session.user.id;
   console.log('userID: ' + userid)
   // const navigate = useNavigate();
-  setLoading(false)
+  // setLoading(false)
 }

@@ -7,9 +7,10 @@ import { Navigate, useParams } from 'react-router-dom';
 
 export default function Chat(props) {
   const session = supabase.auth.session();
+  const { cid } = useParams();
   return (
     <div>
-      {!session ? <Navigate to="/login" state={'/app/chat/' + props.match.params.cid} /> : <CoreChat chid={props.match.params.cid} />}
+      {!session ? <Navigate to="/login" state={'/app/chat/' + cid} /> : <CoreChat chid={cid} />}
     </div>
   )
 }

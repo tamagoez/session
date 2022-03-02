@@ -21,9 +21,9 @@ function CoreChat(props) {
   const userid = supabase.auth.session().user.id
   // const navigate = useNavigate();
   CheckRole({userid})
-  GetLog({userid})
+  GetLog()
 
-  async function GetLog({chid}) {
+  async function GetLog() {
     try {
       setLoading(true)
       const { data, error, status } = await supabase
@@ -42,6 +42,12 @@ function CoreChat(props) {
         setLoading(false)
       }
   }
+
+  return (
+    <div>
+      <p>{loading ? 'Loading ...' : 'Update'}</p>
+    </div>
+  )
 }
 
 function CheckRole({id}) {

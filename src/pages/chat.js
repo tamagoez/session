@@ -5,6 +5,9 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 // import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
+// import { GetLog } from '../lib/GetLog';
+// import { CheckRole } from '../lib/CheckRole';
+
 export default function Chat(props) {
   var session = supabase.auth.session();
   const { cid } = useParams();
@@ -17,52 +20,15 @@ export default function Chat(props) {
 
 function CoreChat(props) {
   // Prepare
-  const chid = props.chid
   const [loading, setLoading] = useState(false)
+  console.log('Loading: ' + loading)
+  setLoading(true)
+  const chid = props.chid
+  console.log('channelID: ' + chid)
   var session = supabase.auth.session();
+  console.log('User session: ' + session)
   const userid = session.user.id;
+  console.log('userID: ' + userid)
   // const navigate = useNavigate();
-  
-  componentDidMount() {
-    ExecCM();
-  }
-  
-  componentDidUpdate() {
-    ExecCM();
-  }
-  
-  function ExecCM() {
-    CheckRole();
-    GetLog();
-  }
-
-  async function GetLog() {
-    try {
-      setLoading(true)
-      const { data, error, status } = await supabase
-        .from('channels_chat')
-        .select('message')
-        .eq('channel', chid)
-  
-        if (error && status !== 406) {
-          throw error
-        }
-  
-        console.log(data)
-      } catch (error) {
-        alert(error.message)
-      } finally {
-        setLoading(false)
-      }
-  }
-
-  function CheckRole() {
-    console.log('id is ' + userid)
-  }
-
-  return (
-    <div>
-      <p>{loading ? 'Loading ...' : 'Update'}</p>
-    </div>
-  )
+  setLoading(false)
 }

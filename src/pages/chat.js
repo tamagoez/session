@@ -22,9 +22,12 @@ function CoreChat(props) {
   var session = supabase.auth.session();
   const userid = session.user.id;
   // const navigate = useNavigate();
-  CheckRole()
-  GetLog()
 
+  useEffect(() => {
+    CheckRole()
+    GetLog()
+  }, [session])
+  
   async function GetLog() {
     try {
       setLoading(true)

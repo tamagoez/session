@@ -24,7 +24,7 @@ function CoreChat(props) {
   // const navigate = useNavigate();
   
   useEffect(() => {
-    ExecCM()
+    ExecCM();
   }, [session])
   
   function ExecCM() {

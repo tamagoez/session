@@ -30,7 +30,7 @@ function CoreChat(props) {
       const { data, error, status } = await supabase
         .from('channels_chat')
         .select('message')
-        .eq('on_channel', chid)
+        .eq('channel', chid)
   
         if (error && status !== 406) {
           throw error

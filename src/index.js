@@ -6,10 +6,14 @@ import NavBar from './NavBar';
 import reportWebVitals from './reportWebVitals';
 // import './tailwind.css'
 
+import { ChakraProvider } from '@chakra-ui/react'
+
 ReactDOM.render(
   <React.StrictMode>
-    <NavBar />
-    <App />
+    <ChakraProvider>
+      <NavBar />
+      <App />
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

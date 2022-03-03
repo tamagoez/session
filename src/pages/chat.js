@@ -8,6 +8,8 @@ import { Navigate, useParams } from 'react-router-dom';
 // import { GetLog } from '../lib/GetLog';
 // import { CheckRole } from '../lib/CheckRole';
 
+import { GetMes } from '../lib/GetMes';
+
 export default function Chat(props) {
   var session = supabase.auth.session();
   const { cid } = useParams();
@@ -66,4 +68,12 @@ function CoreChat(props) {
         // setLoading(false)
       }
   }
+  
+  return (
+    <div>
+      {messages.map((x) => (
+        <p>{x.id + ' / ' + x}</p>
+      ))}
+    </div>
+   )
 }

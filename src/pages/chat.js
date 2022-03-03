@@ -29,7 +29,7 @@ function CoreChat(props) {
   const chid = props.chid
   console.log('channelID: ' + chid)
   var session = supabase.auth.session();
-  const messages = useStore({ chid })
+  const messages = GetMes({ chid })
   
   // console.log('User session: ' + session)
   

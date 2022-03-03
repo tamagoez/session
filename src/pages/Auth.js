@@ -8,6 +8,8 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';// 追加 Linkタ
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
+import { useToast } from '@chakra-ui/react';
+
 function AuthPage(props) {
   const [loading, setLoading] = useState(false)
   const [acid, setAcid] = useState('')
@@ -15,6 +17,17 @@ function AuthPage(props) {
   var mailaddress = ''
   const othertype = (props.type === 'login') ? "signup" : "login";
   let navigate = useNavigate();
+  
+  function AuthToast({ title, description }){
+    const toast = useToast()
+    toast({
+          title: title,
+          description: description,
+          status: 'success',
+          duration: 6000,
+          isClosable: true,
+        })
+  }
   
   const handleAuth = async (request_email, request_password) => {   
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
@@ -33,6 +46,7 @@ function AuthPage(props) {
         });
         if (error) throw error
         console.log('Login successed')
+        AuthToast('Login Successed', 'You are connecting to your account')
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
@@ -46,7 +60,7 @@ function AuthPage(props) {
           password: request_password,
         });
         if (error) throw error
-        alert('Nice! Your account was confirmed!')
+        AuthToast('Successed', 'Nice! Your account was confirmed!')
         
         // Generate
         //

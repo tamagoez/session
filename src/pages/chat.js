@@ -20,7 +20,7 @@ export default function Chat(props) {
 
 function CoreChat(props) {
   // Prepare
-  // const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   // console.log('Loading: ' + loading)
   // setLoading(true)
   
@@ -35,6 +35,10 @@ function CoreChat(props) {
   
   // const navigate = useNavigate();
   // setLoading(false)
+  
+  useEffect(() => {
+    console.log('Load: ' + loading)
+  }, [loading])
   
   CheckRole()
   GetLog()

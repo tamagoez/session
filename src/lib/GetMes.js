@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient'
 
 export default function GetMes(props) {
-  const [channels, setChannels] = useState([])
   const [messages, setMessages] = useState([])
   const [users] = useState(new Map())
   const [newMessage, handleNewMessage] = useState(null)
@@ -44,6 +43,12 @@ export default function GetMes(props) {
     if (deletedMessage) setMessages(messages.filter((message) => message.id !== deletedMessage.id))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deletedMessage])
+  
+  // New or updated user recieved from Postgres
+  useEffect(() => {
+    if (newOrUpdatedUser) users.set(newOrUpdatedUser.id, newOrUpdatedUser)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newOrUpdatedUser])
 
   return {
     // We can export computed values here to map the authors to each message

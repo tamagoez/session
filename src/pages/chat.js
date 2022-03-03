@@ -23,12 +23,43 @@ function CoreChat(props) {
   // const [loading, setLoading] = useState(false)
   // console.log('Loading: ' + loading)
   // setLoading(true)
+  
   const chid = props.chid
   console.log('channelID: ' + chid)
   var session = supabase.auth.session();
-  console.log('User session: ' + session)
+  
+  // console.log('User session: ' + session)
+  
   const userid = session.user.id;
   console.log('userID: ' + userid)
+  
   // const navigate = useNavigate();
   // setLoading(false)
+  
+  CheckRole()
+  GetLog()
+  
+  function CheckRole() {
+    console.log('id is ' + userid)
+  }
+  
+  async function GetLog() {
+    try {
+      setLoading(true)
+      const { data, error, status } = await supabase
+        .from('channels_chat')
+        .select('message')
+        .eq('channel', chid)
+  
+        if (error && status !== 406) {
+          throw error
+        }
+  
+        console.log(data)
+      } catch (error) {
+        alert(error.message)
+      } finally {
+        setLoading(false)
+      }
+  }
 }

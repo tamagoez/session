@@ -72,7 +72,7 @@ function CoreChat(props) {
   
   return (
     <div>
-      {GetMes.map((x) => (
+      {messages.map((x) => (
         <p>{x.id + ' / ' + x}</p>
       ))}
     </div>

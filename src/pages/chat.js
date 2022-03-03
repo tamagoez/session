@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
 import React from 'react';
 // import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
@@ -20,7 +20,7 @@ export default function Chat(props) {
 
 function CoreChat(props) {
   // Prepare
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   // console.log('Loading: ' + loading)
   // setLoading(true)
   
@@ -36,9 +36,9 @@ function CoreChat(props) {
   // const navigate = useNavigate();
   // setLoading(false)
   
-  useEffect(() => {
-    console.log('Load: ' + loading)
-  }, [loading])
+  // useEffect(() => {
+  //   console.log('Load: ' + loading)
+  // }, [loading])
   
   CheckRole()
   GetLog()
@@ -49,7 +49,7 @@ function CoreChat(props) {
   
   async function GetLog() {
     try {
-      setLoading(true)
+      // setLoading(true)
       const { data, error, status } = await supabase
         .from('channels_chat')
         .select('message')
@@ -63,7 +63,7 @@ function CoreChat(props) {
       } catch (error) {
         alert(error.message)
       } finally {
-        setLoading(false)
+        // setLoading(false)
       }
   }
 }

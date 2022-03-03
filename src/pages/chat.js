@@ -21,7 +21,7 @@ export default function Chat(props) {
 function CoreChat(props) {
   // Prepare
   // const [loading, setLoading] = useState(false)
-  console.log('Loading: ' + loading)
+  // console.log('Loading: ' + loading)
   // setLoading(true)
   const chid = props.chid
   console.log('channelID: ' + chid)

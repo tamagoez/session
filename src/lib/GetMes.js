@@ -11,10 +11,11 @@ export default function GetMes(props) {
   const [deletedChannel, handleDeletedChannel] = useState(null)
   const [deletedMessage, handleDeletedMessage] = useState(null)
   
+  // Get Channels
+  const chid = props.id
+  
   // Load initial data and set up listeners
   useEffect(() => {
-    // Get Channels
-    const chid = props.id
     // Listen for new and deleted messages
     const messageListener = supabase
       .from('messages')
@@ -83,5 +84,16 @@ export default function GetMes(props) {
     messages: messages.map((x) => ({ ...x, author: users.get(x.user_id) })),
     channels: channels !== null ? channels.sort((a, b) => a.slug.localeCompare(b.slug)) : [],
     users,
+  }
+}
+
+export const fetchUser = async (userId, setState) => {
+  try {
+    let { body } = await supabase.from('users').select(`*`).eq('id', userId)
+    let user = body[0]
+    if (setState) setState(user)
+    return user
+  } catch (error) {
+    console.log('error', error)
   }
 }

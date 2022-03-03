@@ -20,7 +20,7 @@ class Toppage extends React.Component {
         <Divider />
         <div>
           <Text fontSize='2xl'>Let's join to your Sessions!</Text>
-          <Button size='lg'><Link to={`/login`}>Open App</Link></button>
+          <Button size='lg'><Link to={`/login`}>Open App</Link></Button>
         </div>
       </div>
     );

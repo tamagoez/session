@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient'
 
-export default function GetMess(props) {
+export default function GetMes(props) {
   const [channels, setChannels] = useState([])
   const [messages, setMessages] = useState([])
   const [users] = useState(new Map())

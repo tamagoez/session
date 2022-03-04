@@ -8,7 +8,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';// 追加 Linkタ
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
-import { createStandaloneToast  } from '@chakra-ui/react';
+import { createStandaloneToast, Spinner  } from '@chakra-ui/react';
 
 function AuthPage(props) {
   const [loading, setLoading] = useState(false)
@@ -35,9 +35,10 @@ function AuthPage(props) {
         });
         if (error) throw error
         console.log('Login successed')
-        AuthToast('Login Successed', 'You are connecting to your account')
+        AuthToast('Login Successed', 'You are connecting to your account', 'success')
       } catch (error) {
-        alert(error.error_description || error.message)
+        // alert(error.error_description || error.message)
+        AuthToast('ERROR', error.error_description || error.message, 'error')
       } finally {
         setLoading(false)
       }
@@ -49,7 +50,7 @@ function AuthPage(props) {
           password: request_password,
         });
         if (error) throw error
-        AuthToast('Successed', 'Nice! Your account was confirmed!')
+        AuthToast('Successed', 'Nice! Your account was confirmed!', 'success')
         
         // Generate
         //
@@ -74,13 +75,14 @@ function AuthPage(props) {
         // Generate Fin
         
       } catch (error) {
-        alert(error.error_description || error.message)
+        // alert(error.error_description || error.message)
+        AuthToast('ERROR', error.error_description || error.message, 'error')
       } finally {
         setLoading(false)
       }
     }
     var sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { console.log('Error occured while trying to Sign Out.') } else { if (props.type === 'login') { navigate("/dashboard") } else { navigate("/account") }}
+    if (!sessioncheck) { AuthToast('ERROR', 'Error occured!', 'error') } else { if (props.type === 'login') { navigate("/dashboard") } else { navigate("/account") }}
   }
   
   const submitOnEnter = (event) => {
@@ -124,7 +126,7 @@ function AuthPage(props) {
             className={'button block primary'}
             disabled={loading}
           > 
-            {loading ? <span>Loading...</span> : <span>{props.type}</span>}
+            {loading ? <Spinner /> : <span>{props.type}</span>}
           </button>
         </div>
         <div>
@@ -146,14 +148,14 @@ export default function Auth(props) {
 }
 
   
-function AuthToast(title, description){
+function AuthToast(title, description, status){
   // const toast = useToast()
   const toast = createStandaloneToast()
   toast({
         title: title,
         description: description,
-        status: 'success',
-        duration: 6000,
-        isClosable: true,
+        status: status,
+        duration: 7000,
+        isClosable: {!(status = 'error') ? false : true}
       })
 }

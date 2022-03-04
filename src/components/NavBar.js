@@ -27,7 +27,7 @@ import {
   RepeatIcon,
   EditIcon,
   HamburgerIcon
-} from '@chakra-ui/icon'
+} from '@chakra-ui/icons'
 
 export default function NavBar() {
   return (

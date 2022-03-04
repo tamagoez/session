@@ -82,7 +82,7 @@ function AuthPage(props) {
       }
     }
     var sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { AuthToast('ERROR', 'Error occured!', 'error') } else { if (props.type === 'login') { navigate("/dashboard") } else { navigate("/account") }}
+    if (!sessioncheck) { console.log('Error occured while login!') } else { if (props.type === 'login') { navigate("/dashboard") } else { navigate("/account") }}
   }
   
   const submitOnEnter = (event) => {

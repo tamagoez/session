@@ -35,7 +35,7 @@ function AuthPage(props) {
         });
         if (error) throw error
         console.log('Login successed')
-        AuthToast('Login Successed', 'You are connecting to your account')
+        // AuthToast('Login Successed', 'You are connecting to your account')
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {

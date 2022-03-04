@@ -5,7 +5,7 @@ import Avatar from '../components/AvatarSetting'
 
 import LogoutToast from '../components/LogoutToast'
 
-import { Textarea } from '@chakra-ui/react'
+import { Textarea, Spinner, Skeleton } from '@chakra-ui/react'
 
 function AccountData({ session }) {
   let navigate = useNavigate();
@@ -90,6 +90,7 @@ function AccountData({ session }) {
 
   return (
     <div className="form-widget">
+      <Skeleton isLoaded={!(login_id === null)}>
       <div>
         <Avatar
         url={avatar_url}
@@ -143,7 +144,7 @@ function AccountData({ session }) {
           onClick={() => updateProfile({ username, statustext, avatar_url, website })}
           disabled={loading}
         >
-          {loading ? 'Loading ...' : 'Update'}
+          {loading ? <Spinner /> : 'Update'}
         </button>
       </div>
 
@@ -152,6 +153,7 @@ function AccountData({ session }) {
           Sign Out
         </button>
       </div>
+      </Skeleton>
     </div>
   )
 }

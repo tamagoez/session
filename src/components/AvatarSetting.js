@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
 
-import { Skeleton } from '@chakra-ui/react'
+import { Skeleton, Spinner } from '@chakra-ui/react'
 
 export default function Avatar({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null)
@@ -70,7 +70,7 @@ export default function Avatar({ url, size, onUpload }) {
       </Skeleton>
       <div style={{ width: size }}>
         <label className="button primary block" htmlFor="single">
-          {uploading ? 'Uploading ...' : 'Upload'}
+          {uploading ? <Spinner /> : 'Upload'}
         </label>
         <input
           style={{

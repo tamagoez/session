@@ -3,13 +3,18 @@ import { supabase } from '../supabaseClient'
 import { Navigate, useNavigate } from 'react-router-dom'
 import Avatar from '../components/AvatarSetting'
 
+import LogoutToast from '../components/LogoutToast'
+
 function AccountData({ session }) {
   let navigate = useNavigate();
   
   function signout() {
     supabase.auth.signOut()
     const sessioncheck = supabase.auth.session();
-    if (!sessioncheck) {navigate("/login")} else { alert('Signout Failed...') }
+    if (!sessioncheck) {
+      LogoutToast()
+      navigate("/login")
+    } else { alert('Signout Failed...') }
   }
   
   const [loading, setLoading] = useState(true)

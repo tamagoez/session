@@ -17,15 +17,17 @@ import {
   Box,
   Spacer,
   IconButton,
-  AddIcon,
-  ExternalLinkIcon,
-  RepeatIcon,
-  EditIcon,
   Heading,
   Button
 } from '@chakra-ui/react'
 
-import { GiHamburgerMenu } from "react-icons/gi";
+import {
+  AddIcon,
+  ExternalLinkIcon,
+  RepeatIcon,
+  EditIcon,
+  HamburgerIcon
+} from '@chakra-ui/icon'
 
 export default function NavBar() {
   return (
@@ -35,7 +37,7 @@ export default function NavBar() {
         <MenuButton
           as={IconButton}
           aria-label='Options'
-          icon={<GiHamburgerMenu />}
+          icon={<HamburgerIcon />}
           variant='outline'
         />
         <MenuList>

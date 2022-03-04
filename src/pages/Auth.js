@@ -18,17 +18,6 @@ function AuthPage(props) {
   const othertype = (props.type === 'login') ? "signup" : "login";
   let navigate = useNavigate();
   
-  function AuthToast(title, description){
-    const toast = useToast()
-    toast({
-          title: title,
-          description: description,
-          status: 'success',
-          duration: 6000,
-          isClosable: true,
-        })
-  }
-  
   const handleAuth = async (request_email, request_password) => {   
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
     if (pattern.test(request_email)) {
@@ -154,4 +143,16 @@ export default function Auth(props) {
       {!session ? <AuthPage type={props.type} /> : <Navigate to="/dashboard" state={'/' + props.type} />}
     </div>
   )
+}
+
+  
+function AuthToast(title, description){
+  const toast = useToast()
+  toast({
+        title: title,
+        description: description,
+        status: 'success',
+        duration: 6000,
+        isClosable: true,
+      })
 }

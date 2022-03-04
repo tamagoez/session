@@ -156,6 +156,6 @@ function AuthToast(title, description, status){
         description: description,
         status: status,
         duration: 7000,
-        isClosable: {if (status === 'error') { return(false) } else { return(true) } },
+        isClosable: {(status === 'error') ? false : true)},
       })
 }

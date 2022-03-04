@@ -151,11 +151,12 @@ export default function Auth(props) {
 function AuthToast(title, description, status){
   // const toast = useToast()
   const toast = createStandaloneToast()
+  var closab = ((status === 'error') ? false : true)
   toast({
         title: title,
         description: description,
         status: status,
         duration: 7000,
-        isClosable: { (status === 'error') ? false : true },
+        isClosable: closab,
       })
 }

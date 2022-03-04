@@ -53,11 +53,9 @@ export default function NavBar() {
           </MenuItem>
         </MenuList>
       </Menu>
-        <Box p='2'>
-          <Center>
-            <Heading size='md'>Sessions</Heading>
-          </Center>
-        </Box>
+        <Center>
+          <Heading size='md'>Sessions</Heading>
+        </Center>
         <Spacer />
         <Box>
           <Button colorScheme='teal'>Login</Button>

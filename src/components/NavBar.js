@@ -14,7 +14,9 @@ import {
   Spacer,
   IconButton,
   Heading,
-  Button
+  Button,
+  Center,
+  Divider
 } from '@chakra-ui/react'
 
 import {
@@ -52,13 +54,16 @@ export default function NavBar() {
         </MenuList>
       </Menu>
         <Box p='2'>
-          <Heading size='md'>Sessions</Heading>
+          <Center>
+            <Heading size='md'>Sessions</Heading>
+          </Center>
         </Box>
         <Spacer />
         <Box>
           <Button colorScheme='teal'>Login</Button>
         </Box>
       </Flex>
+      <Divider />
     </div>
   )
 }

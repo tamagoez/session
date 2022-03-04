@@ -18,7 +18,7 @@ function AuthPage(props) {
   const othertype = (props.type === 'login') ? "signup" : "login";
   let navigate = useNavigate();
   
-  function AuthToast({ title, description }){
+  function AuthToast(title, description){
     const toast = useToast()
     toast({
           title: title,

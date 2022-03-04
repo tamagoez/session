@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
 
+import { Skeleton } from '@chakra-ui/react'
+
 export default function Avatar({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null)
   const [uploading, setUploading] = useState(false)
@@ -54,16 +56,18 @@ export default function Avatar({ url, size, onUpload }) {
 
   return (
     <div>
-      {avatarUrl ? (
-        <img
-          src={avatarUrl}
-          alt="Avatar"
-          className="avatar image"
-          style={{ height: size, width: size }}
-        />
-      ) : (
-        <div className="avatar no-image" style={{ height: size, width: size }} />
-      )}
+      <Skeleton isLoaded={!url}>
+        {avatarUrl ? (
+          <img
+            src={avatarUrl}
+            alt="Avatar"
+            className="avatar image"
+            style={{ height: size, width: size }}
+          />
+        ) : (
+          <div className="avatar no-image" style={{ height: size, width: size }} />
+        )}
+      </Skeleton>
       <div style={{ width: size }}>
         <label className="button primary block" htmlFor="single">
           {uploading ? 'Uploading ...' : 'Upload'}

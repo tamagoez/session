@@ -156,7 +156,7 @@ function AuthToast(title, description, status){
         title: title,
         description: description,
         status: status,
-        duration: 7000,
+        duration: 6000,
         isClosable: closab,
       })
 }

@@ -8,7 +8,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';// 追加 Linkタ
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
-import { useToast } from '@chakra-ui/react';
+import { createStandaloneToast  } from '@chakra-ui/react';
 
 function AuthPage(props) {
   const [loading, setLoading] = useState(false)
@@ -35,7 +35,7 @@ function AuthPage(props) {
         });
         if (error) throw error
         console.log('Login successed')
-        // AuthToast('Login Successed', 'You are connecting to your account')
+        AuthToast('Login Successed', 'You are connecting to your account')
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
@@ -147,7 +147,8 @@ export default function Auth(props) {
 
   
 function AuthToast(title, description){
-  const toast = useToast()
+  // const toast = useToast()
+  const toast = createStandaloneToast()
   toast({
         title: title,
         description: description,

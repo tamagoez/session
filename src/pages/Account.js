@@ -5,6 +5,8 @@ import Avatar from '../components/AvatarSetting'
 
 import LogoutToast from '../components/LogoutToast'
 
+import { Textarea } from '@chakra-ui/react'
+
 function AccountData({ session }) {
   let navigate = useNavigate();
   
@@ -126,12 +128,12 @@ function AccountData({ session }) {
       </div>
       <div>
         <label htmlFor="statustext">StatusText (Bio)</label>
-        <input
+        <Textarea
           id="statustext"
-          type="text"
           value={statustext || ''}
           onChange={(e) => setStatustext(e.target.value)}
-          rows="4"
+          placeholder='Your status message :D'
+          size='md'
         />
       </div>
 

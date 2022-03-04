@@ -56,7 +56,7 @@ export default function Avatar({ url, size, onUpload }) {
 
   return (
     <div>
-      <Skeleton isLoaded={!url}>
+      <Skeleton isLoaded={!(url === null)}>
         {avatarUrl ? (
           <img
             src={avatarUrl}

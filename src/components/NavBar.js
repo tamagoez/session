@@ -16,6 +16,14 @@ import {
   Flex,
   Box,
   Spacer,
+  IconButton,
+  HamburgerIcon,
+  AddIcon,
+  ExternalLinkIcon,
+  RepeatIcon,
+  EditIcon,
+  Heading,
+  Button
 } from '@chakra-ui/react'
 
 export default function NavBar() {

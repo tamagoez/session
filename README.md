@@ -1,3 +1,6 @@
+I tried to install **tsx** to this React application, but it caused many errors and makes hard to debug it.  
+So, I'm going to use default files (.js) for now.
+
 # Create React App
 
 This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.

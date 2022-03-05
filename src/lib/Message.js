@@ -12,6 +12,7 @@ function Getmes(props) {
       .eq('id', props.id)
       })
       .subscribe()
+    console.log('mes: ' + mes)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
   

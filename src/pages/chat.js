@@ -73,7 +73,7 @@ function CoreChat(props) {
   
   return (
     <div>
-      <Getmes id=chid />
+      <Getmes id={chid} />
     </div>
    )
 }

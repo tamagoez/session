@@ -34,8 +34,10 @@ function AuthPage(props) {
           password: request_password
         });
         if (error) throw error
-        console.log('Login successed')
-        AuthToast('Login Successed', 'You are connecting to your account', 'success')
+        if ( request_password === '' ) { AuthToast('Magic link Sent', 'Check your email for the Magic link!, 'success') } else {
+          console.log('Login successed')
+          AuthToast('Login Successed', 'You are connecting to your account', 'success')
+        }
       } catch (error) {
         // alert(error.error_description || error.message)
         AuthToast('ERROR', error.error_description || error.message, 'error')

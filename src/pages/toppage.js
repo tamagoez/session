@@ -7,25 +7,27 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
-import { Text, Divider, LinkBox, LinkOverlay } from '@chakra-ui/react'
+import { Text, Divider, LinkBox, LinkOverlay, Stack, Box } from '@chakra-ui/react'
 
 class Toppage extends React.Component {
   render() {
     return (
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
-        <div>
-        　<Text fontSize='6xl'>Sessions</Text>
-          <Text fontSize='2xl'>Way to Collaborate with your friends, grounp and etc.<br />No personal information need, just input your ID(or Email) and password!</Text>
-        </div>
-        <Divider />
-        <div>
-          <Text fontSize='2xl'>Let's join to your Sessions!</Text>
-          <LinkBox bg='green.300' maxW='sm' p='3' borderWidth='1px' rounded='md'>
-            <LinkOverlay href='/dashboard'>
-              Open App
-            </LinkOverlay>
-          </LinkBox>
-        </div>
+        <Stack>
+          <Box>
+           <Text fontSize='6xl'>Sessions</Text>
+            <Text fontSize='2xl'>Way to Collaborate with your friends, grounp and etc.<br />No personal information need, just input your ID(or Email) and password!</Text>
+          </Box>
+          <Divider />
+          <Box>
+            <Text fontSize='2xl'>Let's join to your Sessions!</Text>
+            <LinkBox bg='green.100' maxW='sm' p='3' borderWidth='1px' rounded='md'>
+              <LinkOverlay href='/dashboard'>
+                Open App
+              </LinkOverlay>
+            </LinkBox>
+          </Box>
+        </Stack>
       </div>
     );
   };

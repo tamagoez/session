@@ -5,9 +5,9 @@
 // import Account from './Account'
 
 import React from 'react';
-import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
+// import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
-import { Text, Divider, Button, LinkBox, LinkOverlay } from '@chakra-ui/react'
+import { Text, Divider, LinkBox, LinkOverlay } from '@chakra-ui/react'
 
 class Toppage extends React.Component {
   render() {

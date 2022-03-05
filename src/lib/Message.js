@@ -9,6 +9,7 @@ function Getmes(props) {
       .on('INSERT', payload => {
         console.log('Change received!', payload)
         setMes(payload)
+      .eq('id', props.id)
       })
       .subscribe()
     // eslint-disable-next-line react-hooks/exhaustive-deps

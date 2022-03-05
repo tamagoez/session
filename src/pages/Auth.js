@@ -8,7 +8,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';// 追加 Linkタ
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
-import { createStandaloneToast, Spinner  } from '@chakra-ui/react';
+import { createStandaloneToast, Spinner, Input, InputRightElement, InputGroup, InputLeftElement  } from '@chakra-ui/react';
 
 function AuthPage(props) {
   const [loading, setLoading] = useState(false)
@@ -91,31 +91,51 @@ function AuthPage(props) {
       handleAuth(acid, password);
     }
   }
+  
+  const [show, setShow] = useState(false)
+  const changeshow = () => setShow(!show)
 
   return (
     <div className="row flex flex-center">
       <div className="col-7 form-widget">
         <h1 className="header text-5xl">{(props.type === 'login') ? "Login" : "Signup"}</h1>
         <div>
-          <p><MdAlternateEmail /> Email address or ID (Can use Alphabet or Number)</p>
-          <input
-            className="inputField"
-            type="text"
-            placeholder="mail@example.com or example (Can use a~z and 0~9)"
-            value={acid}
-            onChange={(e) => setAcid(e.target.value)}
-          />
+          <p>Email address or ID (Can use Alphabet or Number)</p>
+          <InputGroup size='md'>
+            <InputLeftElement
+              pointerEvents='none'
+              children={<MdAlternateEmail />}
+            />
+            <Input
+              pr='4.5rem'
+              type="text"
+              placeholder="mail@example.com or example (Can use a~z and 0~9)"
+              value={acid}
+              onChange={(e) => setAcid(e.target.value)}
+            />
+          </InputGroup>
         </div>
         <div>
-          <p><MdPassword /> Password</p>
-          <input
-            className="inputField"
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onKeyDown={(e) => submitOnEnter(e)}
-          />
+          <p>Password</p>
+          <InputGroup size='md'>
+            <InputLeftElement
+              pointerEvents='none'
+              children={<MdPassword />}
+            />
+            <Input
+              pr='4.5rem'
+              type={show ? 'text' : 'password'}
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => submitOnEnter(e)}
+            />
+            <InputRightElement width='4.5rem'>
+              <Button h='1.75rem' size='sm' onClick={changeshow}>
+                {show ? 'Hide' : 'Show'}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
         </div>
         <div>
           <button

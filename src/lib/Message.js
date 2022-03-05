@@ -4,7 +4,7 @@ import { supabase } from '../supabaseClient'
 function Getmes(props) {
   const [ mes, setMes ] = useState([])
   useEffect(() => {
-    const getting = supabase
+    supabase
       .from('channels_chat')
       .on('INSERT', payload => {
         console.log('Change received!', payload)

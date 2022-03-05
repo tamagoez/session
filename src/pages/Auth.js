@@ -8,7 +8,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';// 追加 Linkタ
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
-import { createStandaloneToast, Spinner, Input, InputRightElement, InputGroup, InputLeftElement  } from '@chakra-ui/react';
+import { createStandaloneToast, Spinner, Input, InputRightElement, InputGroup, InputLeftElement, Button  } from '@chakra-ui/react';
 
 function AuthPage(props) {
   const [loading, setLoading] = useState(false)

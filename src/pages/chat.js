@@ -8,7 +8,7 @@ import { Navigate, useParams } from 'react-router-dom';
 // import { GetLog } from '../lib/GetLog';
 // import { CheckRole } from '../lib/CheckRole';
 
-// import { Getmes } from '../lib/Message';
+import { Getmes } from '../lib/Message';
 
 export default function Chat(props) {
   var session = supabase.auth.session();

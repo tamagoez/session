@@ -20,9 +20,9 @@ class Toppage extends React.Component {
         <Divider />
         <div>
           <Text fontSize='2xl'>Let's join to your Sessions!</Text>
-          <LinkBox maxW='sm' p='3' borderWidth='1px' rounded='md'>
-            <LinkOverlay href='/account'>
-              Account Setting
+          <LinkBox bg='green.400' maxW='sm' p='3' borderWidth='1px' rounded='md'>
+            <LinkOverlay href='/dashboard'>
+              Open App
             </LinkOverlay>
           </LinkBox>
         </div>

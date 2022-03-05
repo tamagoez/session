@@ -7,7 +7,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
-import { Text, Divider, LinkBox, LinkOverlay, Stack, Box } from '@chakra-ui/react'
+import { Text, Divider, LinkBox, LinkOverlay, Stack, Box, Center } from '@chakra-ui/react'
 
 class Toppage extends React.Component {
   render() {
@@ -21,9 +21,9 @@ class Toppage extends React.Component {
           <Divider />
           <Box p={2}>
             <Text fontSize='2xl'>Let's join to your Sessions!</Text>
-            <LinkBox bg='green.100' maxW='sm' p='3' borderWidth='1px' rounded='md'>
+            <LinkBox bg='green.0' maxW='xl' p='3' borderWidth='1px' rounded='md'>
               <LinkOverlay href='/dashboard'>
-                Open App
+                <Center>Open App</Center>
               </LinkOverlay>
             </LinkBox>
           </Box>

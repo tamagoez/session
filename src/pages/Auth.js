@@ -27,22 +27,22 @@ function AuthPage(props) {
     }
     
     if (props.type === 'login'){
-      try {
-        setLoading(true)
-        if ( request_password === '' ) { AuthToast('Magic link Sent', 'Check your email for the Magic link!, 'success') } else {
-          const { error } = await supabase.auth.signIn({
-          email: mailaddress,
-          password: request_password});
-          console.log('Login successed')
-          AuthToast('Login Successed', 'You are connecting to your account', 'success')
+        if ( request_password === '' ) { AuthToast('ERROR', 'Please provide your password!', 'error') } else {
+          try {
+            setLoading(true)
+            const { error } = await supabase.auth.signIn({
+            email: mailaddress,
+            password: request_password});
+            console.log('Login successed')
+            AuthToast('Login Successed', 'You are connecting to your account', 'success')
+            if (error) throw error
+            } catch (error) {
+              // alert(error.error_description || error.message)
+              AuthToast('ERROR', error.error_description || error.message, 'error')
+            } finally {
+              setLoading(false)
+            }
         }
-        if (error) throw error
-      } catch (error) {
-        // alert(error.error_description || error.message)
-        AuthToast('ERROR', error.error_description || error.message, 'error')
-      } finally {
-        setLoading(false)
-      }
     } else {
       try {
         setLoading(true)

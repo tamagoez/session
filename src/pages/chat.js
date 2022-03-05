@@ -73,7 +73,7 @@ function CoreChat(props) {
   
   return (
     <div>
-      <p>HW!</p>
+      <Getmes id=
     </div>
    )
 }

@@ -21,7 +21,7 @@ class Toppage extends React.Component {
           <Divider />
           <Box p={2}>
             <Text fontSize='2xl'>Let's join to your Sessions!</Text>
-            <LinkBox bg='green.0' maxW='xl' p='3' borderWidth='1px' rounded='md'>
+            <LinkBox bg='green.100' maxW='xl' p='3' borderWidth='1px' rounded='md'>
               <LinkOverlay href='/dashboard'>
                 <Center>Open App</Center>
               </LinkOverlay>

@@ -6,8 +6,8 @@ function Getmes(props) {
   useEffect(() => {
     const messageListener = supabase
       .from('messages')
-      .on('INSERT', (payload) => handleNewMessage(payload.new))
-      .on('DELETE', (payload) => handleDeletedMessage(payload.old))
+      .on('INSERT', (payload) => console.log(payload.new); setMes(payload.new))
+      .on('DELETE', (payload) => console.log(payload.old); setMes(payload.old))
       .subscribe()
     // Cleanup on unmount
     return () => {

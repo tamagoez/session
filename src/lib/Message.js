@@ -11,10 +11,11 @@ function Getmes(props) {
         setMes(payload)
       })
       .subscribe()
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
   
   return (
-    null
+    mes
   )
 }
 

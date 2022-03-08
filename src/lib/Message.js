@@ -1,30 +1,37 @@
+// https://github.com/samarthmn/supabase-chat-app/blob/master/src/hooks/useMessage.ts
+
 import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient'
 
 function Getmes(props) {
-  const [ mes, setMes ] = useState([])
   
-  function handleNewMes(value){
-    console.log(value)
-    setMes(value)
-  }
+    export type MESSAGE = {
+    id: string;
+    message: string;
+    user_id: string;
+    created_at: string;
+  };
+  
+  const [ mes, setMes ] = useState<MESSAGE[]>([]);
   
   useEffect(() => {
-    const messageListener = supabase
+    supabase
       .from('channels_chat')
-      .on('INSERT', (payload) => handleNewMes(payload.new))
+      .on('INSERT', handleInsert)
       // .on('DELETE', (payload) => console.log(payload.old); setMes(payload.old))
       .subscribe()
       // Cleanup on unmount
-      return () => {
-        messageListener.unsubscribe()
-      }
+      // return () => {
+      //   messageListener.unsubscribe()
+      // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [mes])
   
-  return (
-    mes
-  )
+  const handleInsert = (payload: { new: MESSAGE }) => {
+    setMes([...messages, payload.new]);
+  };
+  
+  return (mes);
 }
 
 function Delmes(props) {

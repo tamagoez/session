@@ -21,7 +21,7 @@ function Getmes(props) {
     }, [mes])
   
   const handleInsert = (payload: { new: MESSAGE }) => {
-    setMes([...messages, payload.new]);
+    setMes([...mes, payload.new]);
   };
   
   return (mes);

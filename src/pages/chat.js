@@ -43,7 +43,7 @@ function CoreChat(props) {
   // }, [loading])
   
   CheckRole()
-  GetLog()
+  // GetLog()
   
   // const { messages } = Getmes({ chid })
   

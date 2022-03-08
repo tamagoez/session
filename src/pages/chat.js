@@ -51,26 +51,6 @@ function CoreChat(props) {
     console.log('id is ' + userid)
   }
   
-  async function GetLog() {
-    try {
-      // setLoading(true)
-      const { data, error, status } = await supabase
-        .from('channels_chat')
-        .select('message')
-        .eq('channel', chid)
-  
-        if (error && status !== 406) {
-          throw error
-        }
-  
-        console.log(data)
-      } catch (error) {
-        alert(error.message)
-      } finally {
-        // setLoading(false)
-      }
-  }
-  
   return (
     <div>
       <Getmes id={chid} />

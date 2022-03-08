@@ -3,14 +3,15 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient'
 
-function Getmes(props) {
-  
-    export type MESSAGE = {
+export type MESSAGE = {
     id: string;
     message: string;
-    user_id: string;
+    created_by: string;
     created_at: string;
+    channel: string;
   };
+
+function Getmes(props) {
   
   const [ mes, setMes ] = useState<MESSAGE[]>([]);
   

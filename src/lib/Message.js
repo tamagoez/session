@@ -54,7 +54,6 @@ function Getmes(props) {
   return {
     // We can export computed values here to map the authors to each message
     messages: messages.map((x) => ({ ...x, author: users.get(x.user_id) })),
-    channels: channels !== null ? channels.sort((a, b) => a.slug.localeCompare(b.slug)) : [],
     users,
   }
 }

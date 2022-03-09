@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient'
 
 function Getmes(props) {
+  const [messages, setMessages] = useState([])
   const [newMessage, handleNewMessage] = useState(null)
   const [deletedMessage, handleDeletedMessage] = useState(null)
   const [newOrUpdatedUser, handleNewOrUpdatedUser] = useState(null)
   // const [newChannel, handleNewChannel] = useState(null)
   const [ mes, setMes ] = useState([]);
+  const [users] = useState(new Map())
   
   useEffect(() => {
     // Listen for changes to our users

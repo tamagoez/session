@@ -57,7 +57,11 @@ function Getmes(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newOrUpdatedUser])
   
-  return {<div><p>Nothing to show</p></div>}
+  return (
+    <div>
+      <p>Nothing to show</p>
+    </div>
+  );
 }
 
 function Delmes(props) {

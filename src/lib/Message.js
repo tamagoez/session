@@ -9,7 +9,7 @@ function Getmes(props) {
   const [deletedMessage, handleDeletedMessage] = useState(null)
   const [newOrUpdatedUser, handleNewOrUpdatedUser] = useState(null)
   // const [newChannel, handleNewChannel] = useState(null)
-  const [ mes, setMes ] = useState([]);
+  // const [ mes, setMes ] = useState([]);
   const [users] = useState(new Map())
   
   useEffect(() => {
@@ -26,6 +26,7 @@ function Getmes(props) {
     // Cleanup on unmount
     return () => {
       messageListener.unsubscribe()
+      userListener.unsubscribe()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -44,7 +45,18 @@ function Getmes(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newMessage])
   
-  return (mes);
+  // New or updated user recieved from Postgres
+  useEffect(() => {
+    if (newOrUpdatedUser) users.set(newOrUpdatedUser.id, newOrUpdatedUser)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newOrUpdatedUser])
+  
+  return {
+    // We can export computed values here to map the authors to each message
+    messages: messages.map((x) => ({ ...x, author: users.get(x.user_id) })),
+    channels: channels !== null ? channels.sort((a, b) => a.slug.localeCompare(b.slug)) : [],
+    users,
+  }
 }
 
 function Delmes(props) {
@@ -61,6 +73,19 @@ export const fetchUser = async (userId, setState) => {
     let user = body[0]
     if (setState) setState(user)
     return user
+  } catch (error) {
+    console.log('error', error)
+  }
+}
+
+/**
+ * Delete a message from the DB
+ * @param {number} message_id
+ */
+export const deleteMessage = async (message_id) => {
+  try {
+    let { body } = await supabase.from('channels_chat').delete().match({ created_by: message_id })
+    return body
   } catch (error) {
     console.log('error', error)
   }

@@ -45,6 +45,12 @@ function Getmes(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newMessage])
   
+  // Deleted message received from postgres
+  useEffect(() => {
+    if (deletedMessage) setMessages(messages.filter((message) => message.id !== deletedMessage.id))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deletedMessage])
+  
   // New or updated user recieved from Postgres
   useEffect(() => {
     if (newOrUpdatedUser) users.set(newOrUpdatedUser.id, newOrUpdatedUser)

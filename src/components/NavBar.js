@@ -58,7 +58,7 @@ export default function NavBar() {
   
   const session = supabase.auth.session();
   
-  {!session ? 
+  if (!session) { 
     return (
       <div>
         <Flex>
@@ -89,42 +89,42 @@ export default function NavBar() {
         <Divider />
       </div>
     )
-  : 
-  return (
-      <div>
-        <Flex>
-        <Menu>
-          <MenuButton
-            as={IconButton}
-            aria-label='Options'
-            icon={<HamburgerIcon />}
-            variant='outline'
-          />
-          <MenuList>
-            <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
-              Dashboard
-            </MenuItem>
-            <MenuItem icon={<AddIcon />} command='⌘T'>
-              New Session
-            </MenuItem>
-            <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
-              Reload
-            </MenuItem>
-            <MenuItem icon={<EditIcon />} command='⌘O'>
-              Edit account settings
-            </MenuItem>
-          </MenuList>
-        </Menu>
-          <Center>
-            <Heading size='md'>Sessions</Heading>
-          </Center>
-          <Spacer />
-          <Box>
-            <Button colorScheme='teal'>{username}</Button>
-          </Box>
-        </Flex>
-        <Divider />
-      </div>
-    )
-  }
+  } else {
+    return (
+        <div>
+          <Flex>
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label='Options'
+              icon={<HamburgerIcon />}
+              variant='outline'
+            />
+            <MenuList>
+              <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
+                Dashboard
+              </MenuItem>
+              <MenuItem icon={<AddIcon />} command='⌘T'>
+                New Session
+              </MenuItem>
+              <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
+                Reload
+              </MenuItem>
+              <MenuItem icon={<EditIcon />} command='⌘O'>
+                Edit account settings
+              </MenuItem>
+            </MenuList>
+          </Menu>
+            <Center>
+              <Heading size='md'>Sessions</Heading>
+            </Center>
+            <Spacer />
+            <Box>
+              <Button colorScheme='teal'>{username}</Button>
+            </Box>
+          </Flex>
+          <Divider />
+        </div>
+      )
+    }
 }

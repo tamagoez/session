@@ -59,7 +59,7 @@ function Getmes(props) {
   
   return (
     {
-      messages,
+      messages.messages,
     }
   );
 }

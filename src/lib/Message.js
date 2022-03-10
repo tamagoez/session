@@ -59,7 +59,7 @@ function Getmes(props) {
   
   return (
     {
-      messages: messages.map((x) => ({ ...x })),
+      messages: { messages.map((x) => ({ ...x })) },
     }
   );
 }

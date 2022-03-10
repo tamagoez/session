@@ -31,11 +31,12 @@ import {
 
 export default function NavBar() {
   async function getUsername() {
+    const user = supabase.auth.user();
     try {
       let { data, error, status } = await supabase
         .from('profiles')
         .select('username')
-        .eq('id', supabase.auth.session().id)
+        .eq('id', user.id)
         .single()
 
         if (error && status !== 406) {

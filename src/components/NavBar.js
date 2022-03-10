@@ -34,7 +34,6 @@ import {
 } from '@chakra-ui/icons'
 
 export default function NavBar() {
-  const navigate = useNavigate();
   const [ username, setUsername ] = useState(null)
   async function getUsername() {
     const user = supabase.auth.user();
@@ -61,6 +60,7 @@ export default function NavBar() {
   
   const session = supabase.auth.session();
   
+  const navigate = useNavigate();
   if (!session) { 
     return (
       <div>

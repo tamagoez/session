@@ -8,8 +8,6 @@ import { supabase } from '../supabaseClient'
 
 import { useState } from 'react'
 
-import { useNavigate } from 'react-router-dom'
-
 import {
   Menu,
   MenuButton,
@@ -60,7 +58,6 @@ export default function NavBar() {
   
   const session = supabase.auth.session();
   
-  const navigate = useNavigate();
   if (!session) { 
     return (
       <div>
@@ -73,10 +70,10 @@ export default function NavBar() {
             variant='outline'
           />
           <MenuList>
-            <MenuItem icon={<EditIcon />} command='⌘O' onClick={() => navigate('/login')}>
+            <MenuItem icon={<EditIcon />} command='⌘O'>
               Login
             </MenuItem>
-            <MenuItem icon={<AddIcon />} command='⌘O' onClick={() => navigate('/signup')}>
+            <MenuItem icon={<EditIcon />} command='⌘O'>
               Sign Up
             </MenuItem>
           </MenuList>
@@ -104,7 +101,7 @@ export default function NavBar() {
               variant='outline'
             />
             <MenuList>
-              <MenuItem icon={<ExternalLinkIcon />} command='⌘N' onClick={() => navigate('/dashboard')}>
+              <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
                 Dashboard
               </MenuItem>
               <MenuItem icon={<AddIcon />} command='⌘T'>
@@ -113,7 +110,7 @@ export default function NavBar() {
               <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
                 Reload
               </MenuItem>
-              <MenuItem icon={<EditIcon />} command='⌘O' onClick={() => navigate('/account')}>
+              <MenuItem icon={<EditIcon />} command='⌘O'>
                 Edit account settings
               </MenuItem>
             </MenuList>

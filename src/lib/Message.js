@@ -58,9 +58,12 @@ function Getmes(props) {
   }, [newOrUpdatedUser])
   
   return (
-    <div>
-      <p>Nothing to show</p>
-    </div>
+    {
+      // We can export computed values here to map the authors to each message
+      messages: messages.map((x) => ({ ...x, author: users.get(x.created_by) })),
+      // channels: channels !== null ? channels.sort((a, b) => a.slug.localeCompare(b.slug)) : [],
+      users,
+    }
   );
 }
 

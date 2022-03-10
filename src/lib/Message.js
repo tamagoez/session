@@ -59,8 +59,7 @@ function Getmes(props) {
   
   return (
     {
-      // We can export computed values here to map the authors to each message
-      messages.map((x) => ({ ...x, author: users.get(x.created_by) }));
+      messages,
     }
   );
 }

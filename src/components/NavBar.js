@@ -54,7 +54,6 @@ export default function NavBar() {
       console.log('loaded')
     }
   }
-  getUsername();
   
   const session = supabase.auth.session();
   
@@ -90,6 +89,7 @@ export default function NavBar() {
       </div>
     )
   } else {
+    getUsername()
     return (
         <div>
           <Flex>

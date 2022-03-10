@@ -56,11 +56,10 @@ function Getmes(props) {
     if (newOrUpdatedUser) users.set(newOrUpdatedUser.id, newOrUpdatedUser)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newOrUpdatedUser])
-  
+
+  console.log(messages)
   return (
-    {
-      messages: { messages.map((x) => ({ ...x })) },
-    }
+    <p>Now on working</p>
   );
 }
 

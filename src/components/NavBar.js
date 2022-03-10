@@ -4,6 +4,8 @@
 import React from 'react';              //Reactを読み込んでいる
 // import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
+import { supabase } from '../supabaseClient'
+
 import {
   Menu,
   MenuButton,
@@ -28,6 +30,28 @@ import {
 } from '@chakra-ui/icons'
 
 export default function NavBar() {
+  async function getUsername() {
+    try {
+      let { data, error, status } = await supabase
+        .from('profiles')
+        .select('username')
+        .eq('id', user.id)
+        .single()
+
+        if (error && status !== 406) {
+          throw error
+        }
+      if (data) {
+        return (data.username)
+      }
+    } catch (error) {
+      alert(error.message)
+    } finally {
+      console.log('loaded')
+    }
+  }
+  
+  const session = supabase.auth.session();
   return (
     <div>
       <Flex>
@@ -58,7 +82,7 @@ export default function NavBar() {
         </Center>
         <Spacer />
         <Box>
-          <Button colorScheme='teal'>Login</Button>
+          {!session ? <Button colorScheme='teal'>Login</Button> : <Button colorScheme='teal'>{getUsername()}</Button>}
         </Box>
       </Flex>
       <Divider />

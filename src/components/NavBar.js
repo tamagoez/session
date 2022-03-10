@@ -35,7 +35,7 @@ export default function NavBar() {
       let { data, error, status } = await supabase
         .from('profiles')
         .select('username')
-        .eq('id', user.id)
+        .eq('id', supabase.auth.session().id)
         .single()
 
         if (error && status !== 406) {

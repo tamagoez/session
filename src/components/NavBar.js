@@ -54,42 +54,77 @@ export default function NavBar() {
       console.log('loaded')
     }
   }
+  getUsername();
   
   const session = supabase.auth.session();
+  
+  {!session ? 
+    return (
+      <div>
+        <Flex>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label='Options'
+            icon={<HamburgerIcon />}
+            variant='outline'
+          />
+          <MenuList>
+            <MenuItem icon={<EditIcon />} command='⌘O'>
+              Login
+            </MenuItem>
+            <MenuItem icon={<EditIcon />} command='⌘O'>
+              Sign Up
+            </MenuItem>
+          </MenuList>
+        </Menu>
+          <Center>
+            <Heading size='md'>Sessions</Heading>
+          </Center>
+          <Spacer />
+          <Box>
+            <Button colorScheme='teal'>Login</Button>
+          </Box>
+        </Flex>
+        <Divider />
+      </div>
+    )
+  : 
   return (
-    <div>
-      <Flex>
-      <Menu>
-        <MenuButton
-          as={IconButton}
-          aria-label='Options'
-          icon={<HamburgerIcon />}
-          variant='outline'
-        />
-        <MenuList>
-          <MenuItem icon={<AddIcon />} command='⌘T'>
-            New Tab
-          </MenuItem>
-          <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
-            New Window
-          </MenuItem>
-          <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
-            Open Closed Tab
-          </MenuItem>
-          <MenuItem icon={<EditIcon />} command='⌘O'>
-            Open File...
-          </MenuItem>
-        </MenuList>
-      </Menu>
-        <Center>
-          <Heading size='md'>Sessions</Heading>
-        </Center>
-        <Spacer />
-        <Box>
-          {!session ? <Button colorScheme='teal'>Login</Button> : <Button colorScheme='teal'>{username}</Button>}
-        </Box>
-      </Flex>
-      <Divider />
-    </div>
-  )
+      <div>
+        <Flex>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label='Options'
+            icon={<HamburgerIcon />}
+            variant='outline'
+          />
+          <MenuList>
+            <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
+              Dashboard
+            </MenuItem>
+            <MenuItem icon={<AddIcon />} command='⌘T'>
+              New Session
+            </MenuItem>
+            <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
+              Reload
+            </MenuItem>
+            <MenuItem icon={<EditIcon />} command='⌘O'>
+              Edit account settings
+            </MenuItem>
+          </MenuList>
+        </Menu>
+          <Center>
+            <Heading size='md'>Sessions</Heading>
+          </Center>
+          <Spacer />
+          <Box>
+            <Button colorScheme='teal'>{username}</Button>
+          </Box>
+        </Flex>
+        <Divider />
+      </div>
+    )
+  }
 }

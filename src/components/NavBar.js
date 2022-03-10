@@ -6,6 +6,8 @@ import React from 'react';              //Reactを読み込んでいる
 
 import { supabase } from '../supabaseClient'
 
+import { useState } from 'react'
+
 import {
   Menu,
   MenuButton,
@@ -30,6 +32,7 @@ import {
 } from '@chakra-ui/icons'
 
 export default function NavBar() {
+  const [ username, setUsername ] = useState(null)
   async function getUsername() {
     const user = supabase.auth.user();
     try {
@@ -43,7 +46,7 @@ export default function NavBar() {
           throw error
         }
       if (data) {
-        return (data.username)
+        setUsername(data.username)
       }
     } catch (error) {
       alert(error.message)
@@ -83,7 +86,7 @@ export default function NavBar() {
         </Center>
         <Spacer />
         <Box>
-          {!session ? <Button colorScheme='teal'>Login</Button> : <Button colorScheme='teal'>{getUsername()}</Button>}
+          {!session ? <Button colorScheme='teal'>Login</Button> : <Button colorScheme='teal'>{username}</Button>}
         </Box>
       </Flex>
       <Divider />

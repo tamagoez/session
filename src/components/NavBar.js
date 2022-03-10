@@ -8,6 +8,8 @@ import { supabase } from '../supabaseClient'
 
 import { useState } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 import {
   Menu,
   MenuButton,
@@ -32,6 +34,7 @@ import {
 } from '@chakra-ui/icons'
 
 export default function NavBar() {
+  const navigate = useNavigate();
   const [ username, setUsername ] = useState(null)
   async function getUsername() {
     const user = supabase.auth.user();
@@ -70,10 +73,10 @@ export default function NavBar() {
             variant='outline'
           />
           <MenuList>
-            <MenuItem icon={<EditIcon />} command='⌘O'>
+            <MenuItem icon={<EditIcon />} command='⌘O' onClick={() => navigate('/login')}>
               Login
             </MenuItem>
-            <MenuItem icon={<EditIcon />} command='⌘O'>
+            <MenuItem icon={<AddIcon />} command='⌘O' onClick={() => navigate('/signup')}>
               Sign Up
             </MenuItem>
           </MenuList>
@@ -101,7 +104,7 @@ export default function NavBar() {
               variant='outline'
             />
             <MenuList>
-              <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
+              <MenuItem icon={<ExternalLinkIcon />} command='⌘N' onClick={() => navigate('/dashboard')}>
                 Dashboard
               </MenuItem>
               <MenuItem icon={<AddIcon />} command='⌘T'>
@@ -110,7 +113,7 @@ export default function NavBar() {
               <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
                 Reload
               </MenuItem>
-              <MenuItem icon={<EditIcon />} command='⌘O'>
+              <MenuItem icon={<EditIcon />} command='⌘O' onClick={() => navigate('/account')}>
                 Edit account settings
               </MenuItem>
             </MenuList>

@@ -97,50 +97,12 @@ export default function NavBar() {
         console.log('Icon load Finished')
       }
     }
-
-    useEffect(() => {
-      if (session){
-        getUsername();
-        getIcon();
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [session])
   
   // const navigate = useNavigate();
   
-  if (!session) { 
-    return (
-      <div>
-        <Flex>
-        <Menu>
-          <MenuButton
-            as={IconButton}
-            aria-label='Options'
-            icon={<HamburgerIcon />}
-            variant='outline'
-          />
-          <MenuList>
-            <MenuItem icon={<EditIcon />} command='⌘O'>
-              Login
-            </MenuItem>
-            <MenuItem icon={<EditIcon />} command='⌘O'>
-              Sign Up
-            </MenuItem>
-          </MenuList>
-        </Menu>
-          <Center>
-            <Heading size='md'>Sessions</Heading>
-          </Center>
-          <Spacer />
-          <Box onClick={() => console.log('Login button clicked')}>
-            <Button colorScheme='teal'>Login</Button>
-          </Box>
-        </Flex>
-        <Divider />
-      </div>
-    )
-  } else {    
-    return (
+  function showNav(){
+    if (!session) { 
+      return (
         <div>
           <Flex>
           <Menu>
@@ -151,17 +113,11 @@ export default function NavBar() {
               variant='outline'
             />
             <MenuList>
-              <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
-                Dashboard
-              </MenuItem>
-              <MenuItem icon={<AddIcon />} command='⌘T'>
-                New Session
-              </MenuItem>
-              <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
-                Reload
+              <MenuItem icon={<EditIcon />} command='⌘O'>
+                Login
               </MenuItem>
               <MenuItem icon={<EditIcon />} command='⌘O'>
-                Edit account settings
+                Sign Up
               </MenuItem>
             </MenuList>
           </Menu>
@@ -169,14 +125,60 @@ export default function NavBar() {
               <Heading size='md'>Sessions</Heading>
             </Center>
             <Spacer />
-            <Box onClick={() => console.log('Account button clicked: ' + username)}>
-              <Avatar size='sm' src={avatarUrl}>
-                <AvatarBadge boxSize='1em' bg='green.500' />
-              </Avatar>
+            <Box onClick={() => console.log('Login button clicked')}>
+              <Button colorScheme='teal'>Login</Button>
             </Box>
           </Flex>
           <Divider />
         </div>
       )
+    } else {    
+      return (
+          <div>
+            <Flex>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label='Options'
+                icon={<HamburgerIcon />}
+                variant='outline'
+              />
+              <MenuList>
+                <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
+                  Dashboard
+                </MenuItem>
+                <MenuItem icon={<AddIcon />} command='⌘T'>
+                  New Session
+                </MenuItem>
+                <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
+                  Reload
+                </MenuItem>
+                <MenuItem icon={<EditIcon />} command='⌘O'>
+                  Edit account settings
+                </MenuItem>
+              </MenuList>
+            </Menu>
+              <Center>
+                <Heading size='md'>Sessions</Heading>
+              </Center>
+              <Spacer />
+              <Box onClick={() => console.log('Account button clicked: ' + username)}>
+                <Avatar size='sm' src={avatarUrl}>
+                  <AvatarBadge boxSize='1em' bg='green.500' />
+                </Avatar>
+              </Box>
+            </Flex>
+            <Divider />
+          </div>
+        )
+      }
     }
+    useEffect(() => {
+      if (session){
+        getUsername();
+        getIcon();
+        showNav();
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [session])
 }

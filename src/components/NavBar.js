@@ -169,13 +169,10 @@ export default function NavBar() {
               <Heading size='md'>Sessions</Heading>
             </Center>
             <Spacer />
-            <Box onClick={() => console.log('Account button clicked')}>
-              <Avatar size='md' src={avatarUrl}>
+            <Box onClick={() => console.log('Account button clicked: ' + username)}>
+              <Avatar size='sm' src={avatarUrl}>
                 <AvatarBadge boxSize='1em' bg='green.500' />
               </Avatar>
-            </Box>
-            <Box onClick={() => console.log('Account button clicked')}>
-              <p>{username}</p>
             </Box>
           </Flex>
           <Divider />

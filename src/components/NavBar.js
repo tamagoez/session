@@ -98,6 +98,14 @@ export default function NavBar() {
       }
     }
   
+  useEffect(() => {
+      if (session){
+        getUsername();
+        getIcon();
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [session])
+  
   // const navigate = useNavigate();
   
     if (!session) { 
@@ -171,12 +179,4 @@ export default function NavBar() {
           </div>
         )
       }
-      
-    useEffect(() => {
-      if (session){
-        getUsername();
-        getIcon();
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [session])
 }

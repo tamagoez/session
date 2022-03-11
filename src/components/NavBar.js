@@ -62,41 +62,7 @@ export default function NavBar() {
   
   const session = supabase.auth.session();
   
-  // const navigate = useNavigate();
-  
-  if (!session) { 
-    return (
-      <div>
-        <Flex>
-        <Menu>
-          <MenuButton
-            as={IconButton}
-            aria-label='Options'
-            icon={<HamburgerIcon />}
-            variant='outline'
-          />
-          <MenuList>
-            <MenuItem icon={<EditIcon />} command='⌘O'>
-              Login
-            </MenuItem>
-            <MenuItem icon={<EditIcon />} command='⌘O'>
-              Sign Up
-            </MenuItem>
-          </MenuList>
-        </Menu>
-          <Center>
-            <Heading size='md'>Sessions</Heading>
-          </Center>
-          <Spacer />
-          <Box onClick={() => console.log('Login button clicked')}>
-            <Button colorScheme='teal'>Login</Button>
-          </Box>
-        </Flex>
-        <Divider />
-      </div>
-    )
-  } else {
-    async function downloadImage(path) {
+  async function downloadImage(path) {
       try {
         const { data, error } = await supabase.storage.from('avatars').download(path)
         if (error) {
@@ -132,10 +98,46 @@ export default function NavBar() {
     }
 
     useEffect(() => {
-      getUsername();
-      getIcon();
+      if (session){
+        getUsername();
+        getIcon();
+      }
     }, [session])
-    
+  
+  // const navigate = useNavigate();
+  
+  if (!session) { 
+    return (
+      <div>
+        <Flex>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label='Options'
+            icon={<HamburgerIcon />}
+            variant='outline'
+          />
+          <MenuList>
+            <MenuItem icon={<EditIcon />} command='⌘O'>
+              Login
+            </MenuItem>
+            <MenuItem icon={<EditIcon />} command='⌘O'>
+              Sign Up
+            </MenuItem>
+          </MenuList>
+        </Menu>
+          <Center>
+            <Heading size='md'>Sessions</Heading>
+          </Center>
+          <Spacer />
+          <Box onClick={() => console.log('Login button clicked')}>
+            <Button colorScheme='teal'>Login</Button>
+          </Box>
+        </Flex>
+        <Divider />
+      </div>
+    )
+  } else {    
     return (
         <div>
           <Flex>

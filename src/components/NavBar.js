@@ -85,7 +85,7 @@ export default function NavBar() {
             <Heading size='md'>Sessions</Heading>
           </Center>
           <Spacer />
-          <Box {() => navigate('login')}>
+          <Box onClick={() => navigate('login')}>
             <Button colorScheme='teal'>Login</Button>
           </Box>
         </Flex>

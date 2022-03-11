@@ -97,21 +97,19 @@ export default function NavBar() {
   } else {
     // getUsername()
     async function downloadImage(path) {
-      const [avatarUrl, setAvatarUrl] = useState(null)
       try {
         const { data, error } = await supabase.storage.from('avatars').download(path)
         if (error) {
           throw error
         }
         const url = URL.createObjectURL(data)
-        setAvatarUrl(url)
+        const avatarUrl = url
       } catch (error) {
         console.log('Error downloading image: ', error.message)
       }
     }
     
     async function getIcon() {
-      const [icon, setIcon] = useState(null)
       try{
         let { data, error, status } = await supabase
             .from('profiles')
@@ -124,9 +122,8 @@ export default function NavBar() {
         }
 
         if (data) {
-          setIcon(data.avatar_url)
+          downloadImage(data.avatar_url)
         }
-        downloadImage(icon);
       } catch (error) {
         alert(error.message)
       } finally {

@@ -9,6 +9,7 @@ import { Navigate, useParams } from 'react-router-dom';
 // import { CheckRole } from '../lib/CheckRole';
 
 import { Getmes } from '../lib/Message';
+import { Textarea } from '@chakra-ui/react';
 
 export default function Chat(props) {
   var session = supabase.auth.session();
@@ -56,4 +57,17 @@ function CoreChat(props) {
       <Getmes id={chid} />
     </div>
    )
+}
+
+function MessageBox(){
+    return (
+      <>
+        <Textarea
+          placeholder='Here is a sample placeholder'
+          size='md'
+          resize='none'
+        />
+      </>
+    )
+  }
 }

@@ -95,6 +95,7 @@ export default function NavBar() {
   } else {
     // getUsername()
     const [avatarUrl, setAvatarUrl] = useState(null)
+    var url = null
     useEffect(() => {
       if (url) downloadImage(url)
     }, [url])
@@ -105,7 +106,7 @@ export default function NavBar() {
         if (error) {
           throw error
         }
-        const url = URL.createObjectURL(data)
+        url = URL.createObjectURL(data)
         setAvatarUrl(url)
       } catch (error) {
         console.log('Error downloading image: ', error.message)

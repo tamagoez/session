@@ -69,5 +69,4 @@ function MessageBox(){
         />
       </>
     )
-  }
 }

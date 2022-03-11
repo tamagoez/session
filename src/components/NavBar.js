@@ -35,8 +35,8 @@ import {
 
 export default function NavBar() {
   const [ username, setUsername ] = useState(null)
+  const user = supabase.auth.user();
   async function getUsername() {
-    const user = supabase.auth.user();
     try {
       let { data, error, status } = await supabase
         .from('profiles')
@@ -95,11 +95,7 @@ export default function NavBar() {
   } else {
     // getUsername()
     const [avatarUrl, setAvatarUrl] = useState(null)
-    var url = null
-    useEffect(() => {
-      if (url) downloadImage(url)
-    }, [url])
-
+    const [icon, setIcon] = useState(null)
     async function downloadImage(path) {
       try {
         const { data, error } = await supabase.storage.from('avatars').download(path)
@@ -112,6 +108,31 @@ export default function NavBar() {
         console.log('Error downloading image: ', error.message)
       }
     }
+    
+    async function getIcon() {
+        let { data, error, status } = await supabase
+            .from('profiles')
+            .select('avatar_url')
+            .eq('id', user.id)
+            .single()
+        
+        if (error && status !== 406) {
+          throw error
+        }
+
+        if (data) {
+          setIcon(data.avatar_url)
+        }
+      } catch (error) {
+        alert(error.message)
+      } finally {
+        console.log('Icon load Finished')
+      }
+    }
+
+    getIcon();
+    downloadImage(icon);
+    
     return (
         <div>
           <Flex>

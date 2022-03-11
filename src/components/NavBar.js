@@ -165,7 +165,7 @@ export default function NavBar() {
             <Spacer />
             <Box onClick={() => navigate('account')}>
               <Avatar>
-                <AvatarBadge boxSize='1em' bg='green.500' src={AvatarUrl} />
+                <AvatarBadge boxSize='1em' bg='green.500' src={avatarUrl} />
               </Avatar>
             </Box>
           </Flex>

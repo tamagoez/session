@@ -70,6 +70,7 @@ export default function NavBar() {
         }
         const url = URL.createObjectURL(data)
         setAvatarUrl(url)
+        console.log('Avatar Url: ' + avatarUrl)
       } catch (error) {
         console.log('Error downloading image: ', error.message)
       }
@@ -169,9 +170,11 @@ export default function NavBar() {
             </Center>
             <Spacer />
             <Box onClick={() => console.log('Account button clicked')}>
-              <Avatar>
-                <AvatarBadge boxSize='1em' bg='green.500' src={avatarUrl} />
+              <Avatar size='md' src={avatarUrl}>
+                <AvatarBadge boxSize='1em' bg='green.500' />
               </Avatar>
+            </Box>
+            <Box onClick={() => console.log('Account button clicked')}>
               <p>{username}</p>
             </Box>
           </Flex>

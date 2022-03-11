@@ -9,8 +9,15 @@ import Chat from './pages/chat';
 // https://zenn.dev/kenara/articles/3677b9a899cfb9
 // https://reffect.co.jp/react/react-router-6
 import NotFound from './components/404';
+import { supabase } from './supabaseClient'
  
 class App extends React.Component {
+ const session = supabase.auth.session();
+ useEffect(() => {
+   window.location.reload()
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [session])
+
   render(){
     return (
       <BrowserRouter>

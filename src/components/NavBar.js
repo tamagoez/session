@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { supabase } from '../supabaseClient'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import {
   Menu,
@@ -36,7 +36,7 @@ import {
 } from '@chakra-ui/icons'
 
 export default function NavBar() {
-  const [ username, setUsername ] = useState(null)
+  // const [ username, setUsername ] = useState(null)
   const [avatarUrl, setAvatarUrl] = useState(null)
   const user = supabase.auth.user();
   async function getUsername() {

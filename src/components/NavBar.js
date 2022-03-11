@@ -100,7 +100,6 @@ export default function NavBar() {
   
   // const navigate = useNavigate();
   
-  function showNav(){
     if (!session) { 
       return (
         <div>
@@ -172,12 +171,11 @@ export default function NavBar() {
           </div>
         )
       }
-    }
+      
     useEffect(() => {
       if (session){
         getUsername();
         getIcon();
-        showNav();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [session])

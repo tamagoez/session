@@ -167,6 +167,7 @@ export default function NavBar() {
               <Avatar>
                 <AvatarBadge boxSize='1em' bg='green.500' src={avatarUrl} />
               </Avatar>
+              <p>{username}</p>
             </Box>
           </Flex>
           <Divider />

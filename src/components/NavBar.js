@@ -36,7 +36,7 @@ import {
 } from '@chakra-ui/icons'
 
 export default function NavBar() {
-  // const [ username, setUsername ] = useState(null)
+  const [ username, setUsername ] = useState(null)
   const [avatarUrl, setAvatarUrl] = useState(null)
   const user = supabase.auth.user();
   async function getUsername() {
@@ -96,7 +96,7 @@ export default function NavBar() {
       </div>
     )
   } else {
-    // getUsername()
+    getUsername()
     async function downloadImage(path) {
       try {
         const { data, error } = await supabase.storage.from('avatars').download(path)

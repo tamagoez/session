@@ -22,7 +22,9 @@ import {
   Heading,
   Button,
   Center,
-  Divider
+  Divider,
+  Avatar,
+  AvatarBadge
 } from '@chakra-ui/react'
 
 import {
@@ -94,15 +96,14 @@ export default function NavBar() {
     )
   } else {
     // getUsername()
-    const [avatarUrl, setAvatarUrl] = useState(null)
-    const [icon, setIcon] = useState(null)
     async function downloadImage(path) {
+      const [avatarUrl, setAvatarUrl] = useState(null)
       try {
         const { data, error } = await supabase.storage.from('avatars').download(path)
         if (error) {
           throw error
         }
-        url = URL.createObjectURL(data)
+        const url = URL.createObjectURL(data)
         setAvatarUrl(url)
       } catch (error) {
         console.log('Error downloading image: ', error.message)
@@ -110,6 +111,7 @@ export default function NavBar() {
     }
     
     async function getIcon() {
+      const [icon, setIcon] = useState(null)
       try{
         let { data, error, status } = await supabase
             .from('profiles')
@@ -124,6 +126,7 @@ export default function NavBar() {
         if (data) {
           setIcon(data.avatar_url)
         }
+        downloadImage(icon);
       } catch (error) {
         alert(error.message)
       } finally {
@@ -132,7 +135,6 @@ export default function NavBar() {
     }
 
     getIcon();
-    downloadImage(icon);
     
     return (
         <div>

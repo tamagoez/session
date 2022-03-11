@@ -6,7 +6,7 @@ import React from 'react';              //Reactを読み込んでいる
 
 import { supabase } from '../supabaseClient'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import {
   Menu,
@@ -89,7 +89,24 @@ export default function NavBar() {
       </div>
     )
   } else {
-    getUsername()
+    // getUsername()
+    const [avatarUrl, setAvatarUrl] = useState(null)
+    useEffect(() => {
+      if (url) downloadImage(url)
+    }, [url])
+
+    async function downloadImage(path) {
+      try {
+        const { data, error } = await supabase.storage.from('avatars').download(path)
+        if (error) {
+          throw error
+        }
+        const url = URL.createObjectURL(data)
+        setAvatarUrl(url)
+      } catch (error) {
+        console.log('Error downloading image: ', error.message)
+      }
+    }
     return (
         <div>
           <Flex>
@@ -120,7 +137,9 @@ export default function NavBar() {
             </Center>
             <Spacer />
             <Box>
-              <Button colorScheme='teal'>{username}</Button>
+              <Avatar>
+                <AvatarBadge boxSize='1em' bg='green.500' src={avatarUrl} />
+              </Avatar>
             </Box>
           </Flex>
           <Divider />

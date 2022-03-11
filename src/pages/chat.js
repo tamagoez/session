@@ -55,6 +55,7 @@ function CoreChat(props) {
   return (
     <div>
       <Getmes id={chid} />
+      <MessageBox />
     </div>
    )
 }

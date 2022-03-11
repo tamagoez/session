@@ -110,6 +110,7 @@ export default function NavBar() {
     }
     
     async function getIcon() {
+      try{
         let { data, error, status } = await supabase
             .from('profiles')
             .select('avatar_url')

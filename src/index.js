@@ -5,7 +5,7 @@ import App from './App';
 import NavBar from './components/NavBar';
 import reportWebVitals from './reportWebVitals';
 // import './tailwind.css'
-import { supabase } from '../supabaseClient'
+import { supabase } from './supabaseClient'
 
 import { ChakraProvider } from '@chakra-ui/react'
 

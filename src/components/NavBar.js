@@ -37,6 +37,7 @@ import {
 
 export default function NavBar() {
   const [ username, setUsername ] = useState(null)
+  const [avatarUrl, setAvatarUrl] = useState(null)
   const user = supabase.auth.user();
   async function getUsername() {
     try {
@@ -103,7 +104,7 @@ export default function NavBar() {
           throw error
         }
         const url = URL.createObjectURL(data)
-        const avatarUrl = url
+        setAvatarUrl(url)
       } catch (error) {
         console.log('Error downloading image: ', error.message)
       }
@@ -164,7 +165,7 @@ export default function NavBar() {
             <Spacer />
             <Box onClick={() => navigate('account')}>
               <Avatar>
-                <AvatarBadge boxSize='1em' bg='green.500' src={avatarUrl} />
+                <AvatarBadge boxSize='1em' bg='green.500' src={AvatarUrl} />
               </Avatar>
             </Box>
           </Flex>

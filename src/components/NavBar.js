@@ -102,6 +102,7 @@ export default function NavBar() {
         getUsername();
         getIcon();
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [session])
   
   // const navigate = useNavigate();

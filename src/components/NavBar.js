@@ -4,6 +4,8 @@
 import React from 'react';              //Reactを読み込んでいる
 // import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
+import { useNavigate } from 'react-router-dom';
+
 import { supabase } from '../supabaseClient'
 
 import { useState, useEffect } from 'react'
@@ -57,6 +59,8 @@ export default function NavBar() {
   
   const session = supabase.auth.session();
   
+  const navigate = useNavigate();
+  
   if (!session) { 
     return (
       <div>
@@ -81,7 +85,7 @@ export default function NavBar() {
             <Heading size='md'>Sessions</Heading>
           </Center>
           <Spacer />
-          <Box>
+          <Box {() => navigate('login')}>
             <Button colorScheme='teal'>Login</Button>
           </Box>
         </Flex>
@@ -136,7 +140,7 @@ export default function NavBar() {
               <Heading size='md'>Sessions</Heading>
             </Center>
             <Spacer />
-            <Box>
+            <Box onClick={() => navigate('account')}>
               <Avatar>
                 <AvatarBadge boxSize='1em' bg='green.500' src={avatarUrl} />
               </Avatar>

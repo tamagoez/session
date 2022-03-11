@@ -8,7 +8,7 @@ import React from 'react';              //Reactを読み込んでいる
 
 import { supabase } from '../supabaseClient'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import {
   Menu,
@@ -96,7 +96,6 @@ export default function NavBar() {
       </div>
     )
   } else {
-    getUsername()
     async function downloadImage(path) {
       try {
         const { data, error } = await supabase.storage.from('avatars').download(path)
@@ -132,7 +131,10 @@ export default function NavBar() {
       }
     }
 
-    getIcon();
+    useEffect(() => {
+      getUsername();
+      getIcon();
+    }, [session])
     
     return (
         <div>

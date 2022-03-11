@@ -5,8 +5,17 @@ import App from './App';
 import NavBar from './components/NavBar';
 import reportWebVitals from './reportWebVitals';
 // import './tailwind.css'
+import { supabase } from '../supabaseClient'
 
 import { ChakraProvider } from '@chakra-ui/react'
+
+const session = supabase.auth.session();
+
+useEffect(() => {
+  window.location.reload()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [session])
+  
 
 ReactDOM.render(
   <React.StrictMode>

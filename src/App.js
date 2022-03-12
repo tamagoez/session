@@ -16,7 +16,7 @@ export default function App() {
   const [sessioncount, setSessionCount] = React.useState(0)
   React.useEffect(() => {
     supabase.auth.onAuthStateChange((_event, session) => {
-      setSessionCount((sessioncount += 1))
+      setSessionCount((sessioncount + 1))
       if (sessioncount === 1) {
        console.log('Seems session change: ' + session);
        window.location.reload();

@@ -13,9 +13,15 @@ import { supabase } from './supabaseClient'
  
 export default function App() {
  const session = supabase.auth.session();
+ var uecount = 0
  React.useEffect(() => {
-   console.log("Seems session changed: " + session);
-   window.location.reload();
+   uecount += 1
+   if (uecount > 1){
+    console.log("Seems session changed: " + session);
+    window.location.reload();
+   } else {
+    console.log("Seems first render: Ignored");
+   }
    // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [session]);
 

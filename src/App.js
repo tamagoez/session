@@ -14,10 +14,9 @@ import { supabase } from './supabaseClient'
 
 export default function App() {
  const session = supabase.auth.session();
- const [uecount, setUecount] = React.useState(0);
+ const lastsession = session.concat(null);
  React.useEffect(() => {
-   setUecount((uecount += 1));
-   if (uecount > 1){
+   if (session != lastsession){
     console.log("Seems session changed: " + session);
     window.location.reload();
    } else {

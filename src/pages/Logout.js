@@ -19,7 +19,7 @@ function LogoutProcess() {
       LogoutToast()
       window.location.replace("/thanks")
     } catch (error) {
-      AuthToast('Logout Failed', error, 'error') }
+      AuthToast('Logout Failed', error, 'error')
     } finally {
     }
   }

@@ -11,7 +11,7 @@ function AccountData({ session }) {
   let navigate = useNavigate();
   
   function signout() {
-    window.location.replace('/signout')
+    window.location.replace('/logout')
   }
   
   const [loading, setLoading] = useState(true)

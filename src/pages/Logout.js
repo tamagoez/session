@@ -6,7 +6,8 @@ import { supabase } from '../supabaseClient'
 import React from 'react';
 import LogoutToast from '../components/LogoutToast'
 
-import { Spinner } from '@chakra-ui/react'
+// import { Spinner } from '@chakra-ui/react'
+import { createStandaloneToast, Spinner } from '@chakra-ui/react'
 
 function LogoutProcess() {
   supabase.auth.signOut()

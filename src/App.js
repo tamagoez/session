@@ -15,17 +15,16 @@ import { supabase } from './supabaseClient'
 export default function App() {
   const [sessioncount, setSessionCount] = React.useState(0)
   React.useEffect(() => {
-    // setSession(supabase.auth.session())
     supabase.auth.onAuthStateChange((_event, session) => {
       setSessionCount((sessioncount += 1))
       if (sessioncount === 1) {
-       console.log('Seems session change: ' + session)
-       window.location.reload()
+       console.log('Seems session change: ' + session);
+       window.location.reload();
       } else {
-       console.log('Seems this is first render process.: Ignored');
-    })
+       console.log('Seems this is first render process: Ignored');
+      })
    // eslint-disable-next-line react-hooks/exhaustive-deps
- }, []);
+  }, []);
 
   return (
     <BrowserRouter>

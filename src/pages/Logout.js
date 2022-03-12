@@ -13,11 +13,15 @@ function LogoutProcess() {
   const session = supabase.auth.session();
   console.log('Session: ' + session)
   async function Deal() {
-    const { error } = await supabase.auth.signOut()
-    if (!error) {
+    try {
+      const { error } = await supabase.auth.signOut()
+      if (error) throw error
       LogoutToast()
       window.location.replace("/thanks")
-    } else { AuthToast('Logout Failed', error, 'error') }
+    } catch (error) {
+      AuthToast('Logout Failed', error, 'error') }
+    } finally {
+    }
   }
   Deal();
   return (null);

@@ -18,6 +18,8 @@ function LogoutProcess() {
     LogoutToast()
     window.location.replace("/thanks")
   } else { AuthToast('Logout Failed', 'Something error happend. Please reload this page.', 'error') }
+  
+  return (null);
 }
   
 
@@ -33,7 +35,7 @@ export default function Logout() {
         color='green.500'
         size='xl'
       />
-    {LogoutProcess();}
+      <LogoutProcess />
     </div>
   )
 }

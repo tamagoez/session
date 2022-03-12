@@ -10,7 +10,7 @@ import LogoutToast from '../components/LogoutToast'
 import { createStandaloneToast, Spinner } from '@chakra-ui/react'
 
 function LogoutProcess() {
-  !session ? window.location.replace("/login") : {
+  function deal(){
     supabase.auth.signOut()
     const sessioncheck = supabase.auth.session();
     if (!sessioncheck) {
@@ -18,6 +18,8 @@ function LogoutProcess() {
       window.location.replace("/thanks")
     } else { AuthToast('Signout Failed', 'Something error happend. Please reload this page.', 'error') }
   }
+  
+  !session ? window.location.replace("/login") : deal()
 }
   
 

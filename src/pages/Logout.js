@@ -18,7 +18,6 @@ function LogoutProcess() {
     LogoutToast()
     window.location.replace("/thanks")
   } else { AuthToast('Logout Failed', 'Something error happend. Please reload this page.', 'error') }
-  }
 }
   
 

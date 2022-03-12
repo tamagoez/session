@@ -14,7 +14,7 @@ import { supabase } from './supabaseClient'
 
 export default function App() {
  var session = supabase.auth.session();
- const lastsession = session.concat(null);
+ const lastsession = "".concat(session);
  React.useEffect(() => {
    if (session !== lastsession){
     console.log("Seems session changed: " + session);

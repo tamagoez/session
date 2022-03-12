@@ -17,7 +17,7 @@ function LogoutProcess() {
   if (!sessioncheck) {
     LogoutToast()
     window.location.replace("/thanks")
-  } else { AuthToast('Signout Failed', 'Something error happend. Please reload this page.', 'error') }
+  } else { AuthToast('Logout Failed', 'Something error happend. Please reload this page.', 'error') }
   }
 }
   

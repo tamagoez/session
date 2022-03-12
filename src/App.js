@@ -14,6 +14,7 @@ import { supabase } from './supabaseClient'
 export default function App() {
  const session = supabase.auth.session();
  React.useEffect(() => {
+   console.log("Seems session changed: " + session);
    window.location.reload();
    // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [session]);

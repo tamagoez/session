@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../supabaseClient'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import Avatar from '../components/AvatarSetting'
 
-import LogoutToast from '../components/LogoutToast'
+// import LogoutToast from '../components/LogoutToast'
 
 import { Textarea, Spinner, Skeleton } from '@chakra-ui/react'
 
 function AccountData({ session }) {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   
   function signout() {
     window.location.replace('/logout')

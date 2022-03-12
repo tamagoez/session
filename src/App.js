@@ -11,9 +11,10 @@ import Chat from './pages/chat';
 import NotFound from './components/404';
 import { supabase } from './supabaseClient'
  
+
 export default function App() {
  const session = supabase.auth.session();
- const [uecount, setUecount] = useState(0);
+ const [uecount, setUecount] = React.useState(0);
  React.useEffect(() => {
    setUecount((uecount += 1));
    if (uecount > 1){

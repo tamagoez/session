@@ -12,12 +12,14 @@ import { createStandaloneToast, Spinner } from '@chakra-ui/react'
 function LogoutProcess() {
   const session = supabase.auth.session();
   console.log('Session: ' + session)
-  const { error } = await supabase.auth.signOut()
-  if (!error) {
-    LogoutToast()
-    window.location.replace("/thanks")
-  } else { AuthToast('Logout Failed', error, 'error') }
-  
+  async function Deal() {
+    const { error } = await supabase.auth.signOut()
+    if (!error) {
+      LogoutToast()
+      window.location.replace("/thanks")
+    } else { AuthToast('Logout Failed', error, 'error') }
+  }
+  Deal();
   return (null);
 }
   

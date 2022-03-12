@@ -13,7 +13,7 @@ import { supabase } from './supabaseClient'
  
 
 export default function App() {
- const session = supabase.auth.session();
+ var session = supabase.auth.session();
  const lastsession = session.concat(null);
  React.useEffect(() => {
    if (session != lastsession){

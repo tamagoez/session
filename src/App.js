@@ -16,7 +16,7 @@ export default function App() {
  var session = supabase.auth.session();
  const lastsession = session.concat(null);
  React.useEffect(() => {
-   if (session != lastsession){
+   if (session !== lastsession){
     console.log("Seems session changed: " + session);
     window.location.reload();
    } else {

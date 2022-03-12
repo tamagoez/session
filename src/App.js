@@ -14,7 +14,7 @@ import { supabase } from './supabaseClient'
 
 export default function App() {
   const [session, setSession] = React.useState(supabase.auth.session())
-  const lastsession = session;
+  // const lastsession = session;
   React.useEffect(() => {
     // supabase.auth.onAuthStateChange((_event, session) => {
     setSession(supabase.auth.session())

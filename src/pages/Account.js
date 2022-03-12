@@ -11,12 +11,7 @@ function AccountData({ session }) {
   let navigate = useNavigate();
   
   function signout() {
-    supabase.auth.signOut()
-    const sessioncheck = supabase.auth.session();
-    if (!sessioncheck) {
-      LogoutToast()
-      navigate("/login")
-    } else { alert('Signout Failed...') }
+    window.location.replace('/signout')
   }
   
   const [loading, setLoading] = useState(true)

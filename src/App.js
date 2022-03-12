@@ -15,10 +15,12 @@ import { supabase } from './supabaseClient'
 export default function App() {
  var session = supabase.auth.session();
  const lastsession = "".concat(session);
+ console.log('session: ' + session);
+ console.log('lastsession: ' + lastsession}+
  React.useEffect(() => {
    if (session !== lastsession){
     console.log("Seems session changed: " + session);
-    window.location.reload();
+    // window.location.reload();
    } else {
     console.log("Seems first render: Ignored");
    }

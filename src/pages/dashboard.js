@@ -54,7 +54,7 @@ export default function Dashboard() {
   const session = supabase.auth.session();
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? location.replace("/login?after=/dashboard") : <MainApp key={session.user.id} session={session} />}
+      {!session ? window.location.replace("/login?after=/dashboard") : <MainApp key={session.user.id} session={session} />}
     </div>
   )
 }

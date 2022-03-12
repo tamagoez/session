@@ -13,21 +13,17 @@ import { supabase } from './supabaseClient'
  
 
 export default function App() {
- const session = supabase.auth.session();
- // const lastsession = "".concat(session);
- const lastsession = session
-  
- React.useEffect(() => {
-  console.log('session: ' + session);
-  console.log('lastsession: ' + lastsession);
-   if (session !== lastsession){
-    console.log("Seems session changed: " + session);
-    window.location.reload();
-   } else {
-    console.log("Seems first render: Ignored");
-   }
+  const [session, setSession] = useState(null)
+
+  useEffect(() => {
+    setSession(supabase.auth.session())
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+      console.log('Seems session changed')
+      window.location.reload()
+    })
    // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [session]);
+ }, []);
 
   return (
     <BrowserRouter>

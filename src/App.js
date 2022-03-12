@@ -5,6 +5,7 @@ import Toppage from './pages/toppage';
 import Account from './pages/Account';
 import Dashboard from './pages/dashboard';
 import Chat from './pages/chat';
+import Logout from './pages/Logout';
 
 // https://zenn.dev/kenara/articles/3677b9a899cfb9
 // https://reffect.co.jp/react/react-router-6
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/app" element={<Dashboard />} />
         <Route path="/app/chat/:cid" element={<Chat />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />;
       </Routes>
     </BrowserRouter>

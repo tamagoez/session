@@ -20,7 +20,7 @@ export default function App() {
     setSession(supabase.auth.session())
     console.log('Seems session changed: ' + session)
       // window.location.reload()
-    })
+    // })
    // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [session]);
 

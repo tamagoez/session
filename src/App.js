@@ -13,12 +13,12 @@ import { supabase } from './supabaseClient'
  
 export default function App() {
  const session = supabase.auth.session();
- useEffect(() => {
+ React.useEffect(() => {
    window.location.reload()
    // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [session])
 
-  render(){
+  React.render(){
     return (
       <BrowserRouter>
         <Routes>

@@ -22,7 +22,8 @@ export default function App() {
        window.location.reload();
       } else {
        console.log('Seems this is first render process: Ignored');
-      })
+      }
+    });
    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

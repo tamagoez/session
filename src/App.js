@@ -13,12 +13,11 @@ import { supabase } from './supabaseClient'
  
 
 export default function App() {
-  const [session, setSession] = React.useState(null)
-
+  // const [session, setSession] = React.useState(null)
   React.useEffect(() => {
-    setSession(supabase.auth.session())
+    // setSession(supabase.auth.session())
     supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
+      // setSession(session)
       console.log('Seems session changed')
       window.location.reload()
     })

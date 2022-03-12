@@ -25,7 +25,7 @@ export default function App() {
     console.log("Seems first render: Ignored");
    }
    // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [session]);
+ }, []);
 
   return (
     <BrowserRouter>

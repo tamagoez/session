@@ -33,7 +33,7 @@ export default function Logout() {
         color='green.500'
         size='xl'
       />
-      <LogoutProcess />
+    {LogoutProcess();}
     </div>
   )
 }

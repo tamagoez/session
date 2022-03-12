@@ -10,12 +10,14 @@ import LogoutToast from '../components/LogoutToast'
 import { createStandaloneToast, Spinner } from '@chakra-ui/react'
 
 function LogoutProcess() {
-  supabase.auth.signOut()
-  const sessioncheck = supabase.auth.session();
-  if (!sessioncheck) {
-    LogoutToast()
-    window.location.replace("/thanks")
-  } else { AuthToast('Signout Failed', 'Something error happend. Please reload this page.', 'error') }
+  !session ? window.location.replace("/login") : {
+    supabase.auth.signOut()
+    const sessioncheck = supabase.auth.session();
+    if (!sessioncheck) {
+      LogoutToast()
+      window.location.replace("/thanks")
+    } else { AuthToast('Signout Failed', 'Something error happend. Please reload this page.', 'error') }
+  }
 }
   
 
@@ -32,7 +34,7 @@ export default function Logout() {
         color='green.500'
         size='xl'
       />
-      {!session ? window.location.replace("/login?after=/logout") : <LogoutProcess />}
+      <LogoutProcess />
     </div>
   )
 }

@@ -10,6 +10,7 @@ import LogoutToast from '../components/LogoutToast'
 import { createStandaloneToast, Spinner } from '@chakra-ui/react'
 
 function LogoutProcess() {
+  const session = supabase.auth.session();
   function deal(){
     supabase.auth.signOut()
     const sessioncheck = supabase.auth.session();
@@ -24,7 +25,6 @@ function LogoutProcess() {
   
 
 export default function Logout() {
-  const session = supabase.auth.session();
   // const alert = useAlert();
   return (
     <div>

@@ -19,7 +19,7 @@ export default function App() {
     supabase.auth.onAuthStateChange((_event, session) => {
       // setSession(session)
       console.log('Seems session changed')
-      window.location.reload()
+      // window.location.reload()
     })
    // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);

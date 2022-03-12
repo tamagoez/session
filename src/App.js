@@ -14,24 +14,22 @@ import { supabase } from './supabaseClient'
 export default function App() {
  const session = supabase.auth.session();
  React.useEffect(() => {
-   window.location.reload()
+   window.location.reload();
    // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [session])
+ }, [session]);
 
-  React.render(){
-    return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Toppage />} />
-          <Route path="/login" element={<Auth type="login" />} />
-          <Route path="/signup" element={<Auth type="signup" />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/app" element={<Dashboard />} />
-          <Route path="/app/chat/:cid" element={<Chat />} />
-          <Route path="*" element={<NotFound />} />;
-        </Routes>
-      </BrowserRouter>
-    );
-  };
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Toppage />} />
+        <Route path="/login" element={<Auth type="login" />} />
+        <Route path="/signup" element={<Auth type="signup" />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/app" element={<Dashboard />} />
+        <Route path="/app/chat/:cid" element={<Chat />} />
+        <Route path="*" element={<NotFound />} />;
+      </Routes>
+    </BrowserRouter>
+  );
 }

@@ -51,7 +51,7 @@ function CoreChat(props) {
   const [sendstatus, setSendStatus] = useState(false)
   function clicksend(sendtext){
     setSendStatus(true)
-    Addmes(sendtext)
+    Addmes(sendtext, chid)
     setSendStatus(false)
   }
   return (

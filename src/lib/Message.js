@@ -43,11 +43,10 @@ function Submes(props) {
  
 
   console.log(messages)
-  console.log(messages.message)
+  // console.log(messages.message)
   return (
     <div>
       <p>Now on working</p>
-      <p>{messages.message}</p>
     </div>
   );
 }

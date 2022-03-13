@@ -52,25 +52,25 @@ function Submes(props) {
   );
 }
 
-async function Getmes(props) {
-  console.log('props' + props)
-  console.log('props.child' + props.chid)
+const Getmes = (props) => {
   const chid = props.chid
-  try {
-    const { status, data, error } = await supabase
-      .from('channels_chat')
-      .select('*')
-      .eq('channel', chid)
-    if (error && status !== 406) {
-        throw error
+  async function getproc() {
+    try {
+      const { status, data, error } = await supabase
+        .from('channels_chat')
+        .select('*')
+        .eq('channel', chid)
+      if (error && status !== 406) {
+          throw error
+      }
+      if (data) {
+        return(data.message)
+      }
+    } catch (error) {
+       AlertToast('ERROR', error.message + 'Please reload or contact to maintainer(@tamagoez)' , 'error', 12000)
+    } finally {
+      console.log('Got chat log: ' + chid)
     }
-    if (data) {
-      return(data.message)
-    }
-  } catch (error) {
-     AlertToast('ERROR', error.message + 'Please reload or contact to maintainer(@tamagoez)' , 'error', 12000)
-  } finally {
-    console.log('Got chat log: ' + chid)
   }
 }
 

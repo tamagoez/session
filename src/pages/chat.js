@@ -53,10 +53,11 @@ function CoreChat(props) {
     setSendStatus(true)
     Addmes(sendtext)
   }
-  function MessageBox(){
-      return (
-        <>
-          <Textarea
+  return (
+    <div>
+      <Submes id={chid} />
+      <div>
+        <Textarea
             placeholder='Here is a sample placeholder'
             size='md'
             resize='none'
@@ -70,13 +71,7 @@ function CoreChat(props) {
           >
             <IoSend />
           </Button>
-        </>
-      )
-  }
-  return (
-    <div>
-      <Submes id={chid} />
-      <MessageBox />
+      </div>
     </div>
    )
 }

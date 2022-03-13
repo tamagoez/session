@@ -74,7 +74,7 @@ function Getmes(props) {
 }
 
 async function Addmes(message) {
-  const userid = session.user.id;
+  const user = supabase.auth.user();
   try {
     const { status, error } = await supabase
       .from('channels_chat')

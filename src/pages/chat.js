@@ -10,6 +10,7 @@ import { Navigate, useParams } from 'react-router-dom';
 
 import { Getmes } from '../lib/Message';
 import { Textarea, Button } from '@chakra-ui/react';
+import AlertToast from '../components/AlertToast'
 
 import { IoSend } from "react-icons/io5";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -63,6 +64,30 @@ function CoreChat(props) {
    )
 }
 
+const [sendtext, setSendText] = React.useState(null)
+const [sendstatus, setSendStatus] = React.useState(false)
+const user = supabase.auth.user()
+function sendMes({ text }) {
+  setSendStatus(true);
+  console.log('Sending message: ' + text);
+  async function senddeal(){
+    try {
+      const { error, status } = await supabase
+        .from('channels_chat')
+        .insert([
+          { userid: user.id, message: text, channel: chid }
+        ],{ upsert: false })
+      if (error && status !== 406) {
+        throw error
+      }
+      }
+    } catch (error) {
+      AlertToast('ERROR', error.message, 'error', 6000)
+    } finally {
+      setSendStatus(false)
+    }
+}
+
 function MessageBox(){
     return (
       <>
@@ -70,12 +95,13 @@ function MessageBox(){
           placeholder='Here is a sample placeholder'
           size='md'
           resize='none'
+          onChange={(e) => setSendText(e.target.value)}
         />
         <Button
-          isLoading={false}
+          isLoading={sendstatus}
           colorScheme='green'
           spinner={<BeatLoader size={8} color='white' />}
-          onClick={console.log('Send button clicked')}
+          onClick={() => <sendMes text={sendtext}/>}
         >
           <IoSend />
         </Button>

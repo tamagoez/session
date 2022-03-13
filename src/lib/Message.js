@@ -73,13 +73,13 @@ function Getmes(props) {
   return (dealgm());
 }
 
-async function Addmes(message) {
+async function Addmes(message, chid) {
   const user = supabase.auth.user();
   try {
     const { status, error } = await supabase
       .from('channels_chat')
       .insert([
-        { userid: user.id, message: message }
+        { userid: user.id, message: message, channel: chid }
       ])
     if (error && status !== 406) {
         throw error

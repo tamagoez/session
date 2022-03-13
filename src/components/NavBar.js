@@ -4,7 +4,7 @@
 import React from 'react';              //Reactを読み込んでいる
 // import { Link } from 'react-router-dom';// 追加 Linkタブを読み込む
 
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { supabase } from '../supabaseClient'
 
@@ -106,7 +106,7 @@ export default function NavBar() {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [session])
   
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   
     if (!session) { 
       return (
@@ -132,7 +132,7 @@ export default function NavBar() {
               <Heading size='md'>Sessions</Heading>
             </Center>
             <Spacer />
-            <Box onClick={() => console.log('Login button clicked'); window.location.replace('/login')}>
+            <Box onClick={() => navigate('/login')}>
               <Button colorScheme='teal'>Login</Button>
             </Box>
           </Flex>
@@ -169,7 +169,7 @@ export default function NavBar() {
                 <Heading size='md'>Sessions</Heading>
               </Center>
               <Spacer />
-              <Box onClick={() => console.log('Account button clicked: ' + username)}>
+              <Box onClick={() => navigate('/account')}>
                 <Avatar size='sm' src={avatarUrl}>
                   <AvatarBadge boxSize='1em' bg='green.500' />
                 </Avatar>

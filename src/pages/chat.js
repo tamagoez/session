@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // import { GetLog } from '../lib/GetLog';
 // import { CheckRole } from '../lib/CheckRole';
 
-import { Submes, Addmes } from '../lib/Message';
+import { Submes, Addmes, Getmes } from '../lib/Message';
 import { Textarea, Button } from '@chakra-ui/react';
 // import AlertToast from '../components/AlertToast'
 
@@ -40,6 +40,8 @@ export default function Chat(props) {
     
   return (
     <div>
+      <Submes id={chid} />
+      <Getmes chid={cid} />
       <CoreChat chid={cid} />
     </div>
   )
@@ -56,7 +58,6 @@ function CoreChat(props) {
   }
   return (
     <div>
-      <Submes id={chid} />
       <div>
         <Textarea
             placeholder='Here is a sample placeholder'

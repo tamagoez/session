@@ -56,36 +56,37 @@ function CoreChat(props) {
     console.log('id is ' + userid)
   }
   
+  const [sendtext, setSendText] = React.useState(null)
+  const [sendstatus, setSendStatus] = React.useState(false)
+  const user = supabase.auth.user()
+  function sendMes({ text }) {
+    setSendStatus(true);
+    console.log('Sending message: ' + text);
+    async function senddeal(){
+      try {
+        const { error, status } = await supabase
+          .from('channels_chat')
+          .insert([
+            { userid: user.id, message: text, channel: chid }
+          ],{ upsert: false })
+        if (error && status !== 406) {
+          throw error
+        }
+      } catch (error) {
+        AlertToast('ERROR', error.message, 'error', 6000)
+      } finally {
+        setSendStatus(false)
+      }
+    }
+  }
+
+  
   return (
     <div>
       <Getmes id={chid} />
       <MessageBox />
     </div>
    )
-}
-
-const [sendtext, setSendText] = React.useState(null)
-const [sendstatus, setSendStatus] = React.useState(false)
-const user = supabase.auth.user()
-function sendMes({ text }) {
-  setSendStatus(true);
-  console.log('Sending message: ' + text);
-  async function senddeal(){
-    try {
-      const { error, status } = await supabase
-        .from('channels_chat')
-        .insert([
-          { userid: user.id, message: text, channel: chid }
-        ],{ upsert: false })
-      if (error && status !== 406) {
-        throw error
-      }
-    } catch (error) {
-      AlertToast('ERROR', error.message, 'error', 6000)
-    } finally {
-      setSendStatus(false)
-    }
-  }
 }
 
 function MessageBox(){

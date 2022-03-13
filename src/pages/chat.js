@@ -16,23 +16,29 @@ import { IoSend } from "react-icons/io5";
 import BeatLoader from "react-spinners/BeatLoader";
 
 export default function Chat(props) {
-  const navigate = useNavigate();
-  var session = supabase.auth.session();
-  const { cid } = useParams();
-  const chid = cid
-  if (!session) {
-    navigate('/login?after=/app/chat' + cid)
-  } else {
-    console.log('channelID: ' + chid)
-    const userid = session.user.id;
-    console.log('userID: ' + userid)
-    CheckRole()
-    function CheckRole() {
-      console.log('id is ' + userid)
-    } 
+  useEffect(() => {
+    const navigate = useNavigate();
+    var session = supabase.auth.session();
+    const { cid } = useParams();
+    const chid = cid
+    if (!session) {
+      navigate('/login?after=/app/chat' + cid)
+    } else {
+      console.log('channelID: ' + chid)
+      const userid = session.user.id;
+      console.log('userID: ' + userid)
+      CheckRole()
+      function CheckRole() {
+        console.log('id is ' + userid)
+      } 
+      return () => {
+        console.log('Component unmounted')
+      }
+    }, [])
+    
     return (
       <div>
-        <CoreChat chid={cid} />}
+        <CoreChat chid={cid} />
       </div>
     )
   }

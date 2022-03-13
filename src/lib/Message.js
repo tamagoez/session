@@ -75,6 +75,8 @@ const Getmes = (props) => {
   fetchMessages(chid, (messages) => {
         setMessages(messages)
   })
+  console.log('Got data: ');
+  console.log(messages);
   return [messages]
 }
 

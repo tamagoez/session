@@ -31,17 +31,17 @@ export default function Chat(props) {
       function CheckRole() {
         console.log('id is ' + userid)
       } 
-      return () => {
-        console.log('Component unmounted')
-      }
-    }, [])
+    }
+    return () => {
+      console.log('Component unmounted')
+    }
+  }, [])
     
-    return (
-      <div>
-        <CoreChat chid={cid} />
-      </div>
-    )
-  }
+  return (
+    <div>
+      <CoreChat chid={cid} />
+    </div>
+  )
 }
 
 function CoreChat(props) {

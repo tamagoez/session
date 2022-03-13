@@ -85,7 +85,7 @@ function sendMes({ text }) {
     } finally {
       setSendStatus(false)
     }
-  
+  }
 }
 
 function MessageBox(){

@@ -58,7 +58,7 @@ function GetChat(props) {
   
   useEffect(() => {
     setMessages(Getmes({ chid }))
-  }, []);
+  }, [chid]);
   
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({

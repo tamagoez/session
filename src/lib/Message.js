@@ -72,6 +72,10 @@ function Getmes(props) {
   return (dealgm());
 }
 
+function Addmes(props) {
+  
+}
+
 function Delmes(props) {
   
 }
@@ -93,4 +97,4 @@ export const deleteMessage = async (message_id) => {
   }
 }
 
-export { Submes, Getmes, Delmes, Engmes };
+export { Submes, Getmes, Addmes, Delmes, Engmes };

@@ -16,11 +16,11 @@ import { IoSend } from "react-icons/io5";
 import BeatLoader from "react-spinners/BeatLoader";
 
 export default function Chat(props) {
+  const navigate = useNavigate();
+  const { cid } = useParams();
+  const chid = cid
   useEffect(() => {
-    const navigate = useNavigate();
     var session = supabase.auth.session();
-    const { cid } = useParams();
-    const chid = cid
     if (!session) {
       navigate('/login?after=/app/chat' + cid)
     } else {

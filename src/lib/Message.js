@@ -53,6 +53,7 @@ function Submes(props) {
 }
 
 async function Getmes(props) {
+  console.log(props)
   const chid = props.chid
   try {
     const { status, data, error } = await supabase

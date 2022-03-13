@@ -55,9 +55,7 @@ function CoreChat(props) {
   function CheckRole() {
     console.log('id is ' + userid)
   } 
-  
-  AppProcess(chid);
-  return (null);
+  return (AppProcess(chid));
 }
 
 function AppProcess(chid){

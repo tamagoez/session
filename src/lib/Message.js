@@ -57,23 +57,22 @@ const Getmes = (props) => {
   const [messages, setMessages] = useState([])
   const fetchMessages = async (channelId, setState) => {
     try {
-      const { status, data, error } = await supabase
+      const { status, body, error } = await supabase
         .from('channels_chat')
         .select('*')
-        .eq('channel', chid)
+        .eq('channel', channelId)
       if (error && status !== 406) {
           throw error
       }
-      if (data) {
-        return(data.message)
-      }
+      if (setState) setState(body)
+      return body
     } catch (error) {
        AlertToast('ERROR', error.message + 'Please reload or contact to maintainer(@tamagoez)' , 'error', 12000)
     } finally {
-      console.log('Got chat log: ' + chid)
+      console.log('Got chat log: ' + channelId)
     }
   }
-  fetchMessages(props.channelId, (messages) => {
+  fetchMessages(chid, (messages) => {
         setMessages(messages)
   })
   return [messages]

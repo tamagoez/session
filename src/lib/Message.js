@@ -79,7 +79,7 @@ async function Addmes(message) {
     const { status, error } = await supabase
       .from('channels_chat')
       .insert([
-        { userid: userid, message: message }
+        { userid: user.id, message: message }
       ])
     if (error && status !== 406) {
         throw error

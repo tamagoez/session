@@ -132,7 +132,7 @@ export default function NavBar() {
               <Heading size='md'>Sessions</Heading>
             </Center>
             <Spacer />
-            <Box onClick={() => console.log('Login button clicked')}>
+            <Box onClick={() => console.log('Login button clicked'); window.location.replace('/login')}>
               <Button colorScheme='teal'>Login</Button>
             </Box>
           </Flex>

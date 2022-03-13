@@ -40,7 +40,13 @@ export default function Chat(props) {
 }
 
 function CoreChat(props) {
-    function MessageBox(){
+  const [sendtext, setSendText] = useState('')
+  const [sendstatus, setSendStatus] = useState(false)
+  function clicksend(sendtext){
+    setSendStatus(true)
+    Addmes(sendtext)
+  }
+  function MessageBox(){
       return (
         <>
           <Textarea
@@ -53,7 +59,7 @@ function CoreChat(props) {
             isLoading={sendstatus}
             colorScheme='green'
             spinner={<BeatLoader size={8} color='white' />}
-            onClick={() => <Addmes text={sendtext} />}
+            onClick={() => clicksend(sendtext)}
           >
             <IoSend />
           </Button>

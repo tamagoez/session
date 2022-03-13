@@ -35,6 +35,7 @@ export default function Chat(props) {
     return () => {
       console.log('Component unmounted')
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
     
   return (

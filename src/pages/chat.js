@@ -80,7 +80,6 @@ function sendMes({ text }) {
       if (error && status !== 406) {
         throw error
       }
-      }
     } catch (error) {
       AlertToast('ERROR', error.message, 'error', 6000)
     } finally {

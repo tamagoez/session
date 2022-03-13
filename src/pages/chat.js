@@ -11,6 +11,8 @@ import { Navigate, useParams } from 'react-router-dom';
 import { Getmes } from '../lib/Message';
 import { Textarea } from '@chakra-ui/react';
 
+import { IoSend } from "react-icons/io5";
+
 export default function Chat(props) {
   var session = supabase.auth.session();
   const { cid } = useParams();
@@ -68,6 +70,13 @@ function MessageBox(){
           size='md'
           resize='none'
         />
+        <Button
+          isLoading=false
+          colorScheme='green'
+          spinner={<BeatLoader size={8} color='white' />}
+        >
+          <IoSend />
+        </Button>
       </>
     )
 }

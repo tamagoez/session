@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient'
 
-function Getmes(props) {
+function Submes(props) {
   const [messages, setMessages] = useState([])
   const [newMessage, handleNewMessage] = useState(null)
   const [deletedMessage, handleDeletedMessage] = useState(null)
@@ -43,9 +43,34 @@ function Getmes(props) {
  
 
   console.log(messages)
+  console.log(messages.message)
   return (
-    <p>Now on working</p>
+    <div>
+      <p>Now on working</p>
+      <p>{messages.message}</p>
+    </div>
   );
+}
+
+function Getmes(props) {
+  async function dealgm(props) {
+    try {
+      const { data, error } = await supabase
+        .from('channels_chat')
+        .select('*')
+        .eq('channel', props.chid)
+      if (error && status !== 406) {
+          throw error
+      }
+      if (data) {
+        return(data.message)
+      }
+    } catch (error) {
+       return ('error: ' + error)
+    } finally {
+    }
+  }
+  return (dealgm());
 }
 
 function Delmes(props) {
@@ -69,4 +94,4 @@ export const deleteMessage = async (message_id) => {
   }
 }
 
-export { Getmes, Delmes, Engmes };
+export { Submes, Getmes, Delmes, Engmes };

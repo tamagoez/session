@@ -62,7 +62,7 @@ function GetMessage(chid) {
 }
 
 function GetChat(props) {
-  const messages = getmessage(props.chid);
+  const messages = GetMessage(props.chid);
   const messagesEndRef = useRef(null)  
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({

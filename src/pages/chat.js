@@ -52,11 +52,11 @@ export default function Chat(props) {
 function GetMessage(chid) {
   const [messages, setMessages] = useState([])
   // setMessages(Getmes({ chid }))
-  // const messages = Getmes({ chid })
+  const messages = Getmes({ chid })
   
-  useEffect(() => {
-    setMessages(Getmes({ chid }))
-  }, [chid]);
+  // useEffect(() => {
+  //  setMessages(Getmes({ chid }))
+  // }, [chid]);
   
   return (messages);
 }

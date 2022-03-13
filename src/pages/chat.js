@@ -24,7 +24,7 @@ export default function Chat(props) {
   useEffect(() => {
     var session = supabase.auth.session();
     if (!session) {
-      navigate('/login?after=/app/chat' + cid)
+      navigate('/login?after=/app/chat/' + cid)
     } else {
       console.log('channelID: ' + chid)
       const userid = session.user.id;
@@ -51,13 +51,7 @@ export default function Chat(props) {
 
 function GetChat(props) {
   const chid = props.chid
-  useEffect(() => {
-    const messages = Getmes({ chid })
-    return () => {
-      console.log('Component unmounted')
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const messages = Getmes({ chid })
   const messagesEndRef = useRef(null)
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({

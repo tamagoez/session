@@ -52,6 +52,7 @@ function CoreChat(props) {
   function clicksend(sendtext){
     setSendStatus(true)
     Addmes(sendtext)
+    setSendStatus(false)
   }
   return (
     <div>

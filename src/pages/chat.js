@@ -12,6 +12,7 @@ import { Getmes } from '../lib/Message';
 import { Textarea, Button } from '@chakra-ui/react';
 
 import { IoSend } from "react-icons/io5";
+import BeatLoader from "react-spinners/BeatLoader";
 
 export default function Chat(props) {
   var session = supabase.auth.session();

@@ -52,25 +52,23 @@ function Submes(props) {
   );
 }
 
-function Getmes(props) {
-  async function dealgm(props) {
-    try {
-      const { status, data, error } = await supabase
-        .from('channels_chat')
-        .select('*')
-        .eq('channel', props.chid)
-      if (error && status !== 406) {
-          throw error
-      }
-      if (data) {
-        return(data.message)
-      }
-    } catch (error) {
-       return ('error: ' + error)
-    } finally {
+async function Getmes(chid) {
+  try {
+    const { status, data, error } = await supabase
+      .from('channels_chat')
+      .select('*')
+      .eq('channel', chid)
+    if (error && status !== 406) {
+        throw error
     }
+    if (data) {
+      return(data.message)
+    }
+  } catch (error) {
+     AlertToast('ERROR', error.message + 'Please reload or contact to maintainer(@tamagoez)' , 'error', 12000)
+  } finally {
+    console.log('Got chat log')
   }
-  return (dealgm());
 }
 
 async function Addmes(message, chid) {

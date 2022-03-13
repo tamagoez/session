@@ -15,6 +15,8 @@ import { Textarea, Button } from '@chakra-ui/react';
 import { IoSend } from "react-icons/io5";
 import BeatLoader from "react-spinners/BeatLoader";
 
+import Message from "../components/Message";
+
 export default function Chat(props) {
   const navigate = useNavigate();
   const { cid } = useParams();
@@ -41,8 +43,28 @@ export default function Chat(props) {
   return (
     <div>
       <Submes id={chid} />
-      <Getmes chid={cid} />
       <CoreChat chid={cid} />
+    </div>
+  )
+}
+
+function GetChat(props) {
+  const chid = props.chid
+  const messages = Getmes({ chid })
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    })
+  }, [messages])
+  return (
+    <div>
+      <div>
+        {messages.map((x) => (
+          <Message message={x} />
+         ))}
+       </div>
+      <div ref={messagesEndRef} style={{ height: 0 }} />
     </div>
   )
 }

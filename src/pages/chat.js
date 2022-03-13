@@ -1,4 +1,4 @@
-// import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { supabase } from '../supabaseClient'
 import React from 'react';
 // import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
@@ -56,9 +56,10 @@ function CoreChat(props) {
     console.log('id is ' + userid)
   }
   
+  const [sendtext, setSendText] = useState(null)
+  const [sendstatus, setSendStatus] = useState(false)
+    
   function sendMes({ text }) {
-    const [sendtext, setSendText] = React.useState(null)
-    const [sendstatus, setSendStatus] = React.useState(false)
     const user = supabase.auth.user()
     setSendStatus(true);
     console.log('Sending message: ' + text);

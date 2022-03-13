@@ -1,7 +1,7 @@
 const Message = ({ message }) => {
   return (
       <div id="Message">
-        <p id={message.id}>{message.author.username}</p>
+        <p id={message.id}>{message.userid}</p>
         <p>{message.message}</p>
       </div>
   )

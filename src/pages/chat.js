@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from '../supabaseClient'
 import React from 'react';
 // import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
@@ -51,6 +51,7 @@ export default function Chat(props) {
 function GetChat(props) {
   const chid = props.chid
   const messages = Getmes({ chid })
+  const messagesEndRef = useRef(null)
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({
       block: 'start',

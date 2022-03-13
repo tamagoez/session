@@ -10,7 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { Submes, Addmes } from '../lib/Message';
 import { Textarea, Button } from '@chakra-ui/react';
-import AlertToast from '../components/AlertToast'
+// import AlertToast from '../components/AlertToast'
 
 import { IoSend } from "react-icons/io5";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -24,7 +24,6 @@ export default function Chat(props) {
     navigate('/login?after=/app/chat' + cid)
   } else {
     console.log('channelID: ' + chid)
-    var session = supabase.auth.session();
     const userid = session.user.id;
     console.log('userID: ' + userid)
     CheckRole()

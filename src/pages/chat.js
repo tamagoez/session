@@ -50,7 +50,7 @@ export default function Chat(props) {
 }
 
 function GetMessage(chid) {
-  const [messages, setMessages] = useState([])
+  // const [messages, setMessages] = useState([])
   // setMessages(Getmes({ chid }))
   const messages = Getmes({ chid })
   

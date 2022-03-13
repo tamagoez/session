@@ -54,12 +54,17 @@ function CoreChat(props) {
   
   function CheckRole() {
     console.log('id is ' + userid)
-  }
+  } 
   
+  AppProcess(chid);
+  return (null);
+}
+
+function AppProcess(chid){
   const [sendtext, setSendText] = useState(null)
   const [sendstatus, setSendStatus] = useState(false)
     
-  function sendMes() {
+  const sendMes = async () => {  
     const user = supabase.auth.user()
     setSendStatus(true);
     console.log('Sending message: ' + sendtext);
@@ -81,7 +86,6 @@ function CoreChat(props) {
     }
     senddeal();
   }
-  
     function MessageBox(){
       return (
         <>

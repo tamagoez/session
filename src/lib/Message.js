@@ -55,9 +55,6 @@ function Submes(props) {
 const Getmes = (props) => {
   const chid = props.chid
   const [messages, setMessages] = useState([])
-  fetchMessages(props.channelId, (messages) => {
-        setMessages(messages)
-  })
   const fetchMessages = async (channelId, setState) => {
     try {
       const { status, data, error } = await supabase
@@ -76,6 +73,9 @@ const Getmes = (props) => {
       console.log('Got chat log: ' + chid)
     }
   }
+  fetchMessages(props.channelId, (messages) => {
+        setMessages(messages)
+  })
   return [messages]
 }
 

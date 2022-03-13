@@ -4,7 +4,7 @@ import { supabase } from '../supabaseClient'
 // import { useAlert } from 'react-alert'
 
 import React from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';// 追加 Linkタブを読み込む
+import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
@@ -16,7 +16,7 @@ function AuthPage(props) {
   const [password, setPassword] = useState('')
   var mailaddress = ''
   const othertype = (props.type === 'login') ? "signup" : "login";
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   
   const handleAuth = async (request_email, request_password) => {   
     var pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
@@ -83,7 +83,7 @@ function AuthPage(props) {
       }
     }
     var sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { console.log('Error occured while login!') } else { if (props.type === 'login') { navigate("/dashboard") } else { navigate("/account") }}
+    if (!sessioncheck) { console.log('Error occured while login!') } else { if (props.type === 'login') { window.location.replace("/dashboard") } else { window.location.replace("/account") }}
   }
   
   const submitOnEnter = (event) => {

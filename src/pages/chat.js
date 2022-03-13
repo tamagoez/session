@@ -43,7 +43,8 @@ export default function Chat(props) {
   return (
     <div>
       <Submes id={chid} />
-      <CoreChat chid={cid} />
+      <GetChat chid={chid} />
+      <CoreChat chid={chid} />
     </div>
   )
 }

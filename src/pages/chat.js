@@ -59,16 +59,16 @@ function CoreChat(props) {
   const [sendtext, setSendText] = useState(null)
   const [sendstatus, setSendStatus] = useState(false)
     
-  function sendMes({ text }) {
+  function sendMes() {
     const user = supabase.auth.user()
     setSendStatus(true);
-    console.log('Sending message: ' + text);
+    console.log('Sending message: ' + sendtext);
     async function senddeal(){
       try {
         const { error, status } = await supabase
           .from('channels_chat')
           .insert([
-            { userid: user.id, message: text, channel: chid }
+            { userid: user.id, message: sendtext, channel: chid }
           ],{ upsert: false })
         if (error && status !== 406) {
           throw error
@@ -79,6 +79,7 @@ function CoreChat(props) {
         setSendStatus(false)
       }
     }
+    senddeal();
   }
   
     function MessageBox(){
@@ -94,7 +95,7 @@ function CoreChat(props) {
             isLoading={sendstatus}
             colorScheme='green'
             spinner={<BeatLoader size={8} color='white' />}
-            onClick={() => <sendMes text={sendtext}/>}
+            onClick={() => sendMes();}
           >
             <IoSend />
           </Button>

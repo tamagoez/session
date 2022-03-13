@@ -55,7 +55,7 @@ function Submes(props) {
 function Getmes(props) {
   async function dealgm(props) {
     try {
-      const { data, error } = await supabase
+      const { status, data, error } = await supabase
         .from('channels_chat')
         .select('*')
         .eq('channel', props.chid)

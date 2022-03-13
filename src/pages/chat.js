@@ -8,7 +8,7 @@ import { Navigate, useParams } from 'react-router-dom';
 // import { GetLog } from '../lib/GetLog';
 // import { CheckRole } from '../lib/CheckRole';
 
-import { Getmes } from '../lib/Message';
+import { Submes } from '../lib/Message';
 import { Textarea, Button } from '@chakra-ui/react';
 import AlertToast from '../components/AlertToast'
 
@@ -105,7 +105,7 @@ function CoreChat(props) {
 
   return (
     <div>
-      <Getmes id={chid} />
+      <Submes id={chid} />
       <MessageBox />
     </div>
    )

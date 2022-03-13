@@ -72,7 +72,7 @@ function Getmes(props) {
   return (dealgm());
 }
 
-function Addmes(props) {
+function Addmes(message) {
   
 }
 

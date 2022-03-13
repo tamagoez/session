@@ -9,7 +9,7 @@ import { Navigate, useParams } from 'react-router-dom';
 // import { CheckRole } from '../lib/CheckRole';
 
 import { Getmes } from '../lib/Message';
-import { Textarea } from '@chakra-ui/react';
+import { Textarea, Button, BeatLoader } from '@chakra-ui/react';
 
 import { IoSend } from "react-icons/io5";
 
@@ -71,9 +71,10 @@ function MessageBox(){
           resize='none'
         />
         <Button
-          isLoading=false
+          isLoading={false}
           colorScheme='green'
           spinner={<BeatLoader size={8} color='white' />}
+          onClick={console.log('Send button clicked')}
         >
           <IoSend />
         </Button>

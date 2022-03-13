@@ -56,10 +56,10 @@ function CoreChat(props) {
     console.log('id is ' + userid)
   }
   
-  const [sendtext, setSendText] = React.useState(null)
-  const [sendstatus, setSendStatus] = React.useState(false)
-  const user = supabase.auth.user()
   function sendMes({ text }) {
+    const [sendtext, setSendText] = React.useState(null)
+    const [sendstatus, setSendStatus] = React.useState(false)
+    const user = supabase.auth.user()
     setSendStatus(true);
     console.log('Sending message: ' + text);
     async function senddeal(){
@@ -79,33 +79,32 @@ function CoreChat(props) {
       }
     }
   }
-
   
+    function MessageBox(){
+      return (
+        <>
+          <Textarea
+            placeholder='Here is a sample placeholder'
+            size='md'
+            resize='none'
+            onChange={(e) => setSendText(e.target.value)}
+          />
+          <Button
+            isLoading={sendstatus}
+            colorScheme='green'
+            spinner={<BeatLoader size={8} color='white' />}
+            onClick={() => <sendMes text={sendtext}/>}
+          >
+            <IoSend />
+          </Button>
+        </>
+      )
+  }
+
   return (
     <div>
       <Getmes id={chid} />
       <MessageBox />
     </div>
    )
-}
-
-function MessageBox(){
-    return (
-      <>
-        <Textarea
-          placeholder='Here is a sample placeholder'
-          size='md'
-          resize='none'
-          onChange={(e) => setSendText(e.target.value)}
-        />
-        <Button
-          isLoading={sendstatus}
-          colorScheme='green'
-          spinner={<BeatLoader size={8} color='white' />}
-          onClick={() => <sendMes text={sendtext}/>}
-        >
-          <IoSend />
-        </Button>
-      </>
-    )
 }

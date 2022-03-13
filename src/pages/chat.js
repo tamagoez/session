@@ -9,7 +9,7 @@ import { Navigate, useParams } from 'react-router-dom';
 // import { CheckRole } from '../lib/CheckRole';
 
 import { Getmes } from '../lib/Message';
-import { Textarea, Button, BeatLoader } from '@chakra-ui/react';
+import { Textarea, Button } from '@chakra-ui/react';
 
 import { IoSend } from "react-icons/io5";
 

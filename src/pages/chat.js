@@ -95,7 +95,7 @@ function CoreChat(props) {
             isLoading={sendstatus}
             colorScheme='green'
             spinner={<BeatLoader size={8} color='white' />}
-            onClick={() => sendMes();}
+            onClick={() => sendMes()}
           >
             <IoSend />
           </Button>

@@ -18,11 +18,11 @@ import BeatLoader from "react-spinners/BeatLoader";
 export default function Chat(props) {
   const navigate = useNavigate();
   var session = supabase.auth.session();
+  const { cid } = useParams();
+  const chid = cid
   if (!session) {
     navigate('/login?after=/app/chat' + cid)
   } else {
-    const { cid } = useParams();
-    const chid = cid
     console.log('channelID: ' + chid)
     var session = supabase.auth.session();
     const userid = session.user.id;
@@ -40,6 +40,7 @@ export default function Chat(props) {
 }
 
 function CoreChat(props) {
+  const chid = props.chid
   const [sendtext, setSendText] = useState('')
   const [sendstatus, setSendStatus] = useState(false)
   function clicksend(sendtext){

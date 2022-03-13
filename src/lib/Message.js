@@ -53,11 +53,12 @@ function Submes(props) {
 }
 
 async function Getmes(props) {
+  const chid = props.chid
   try {
     const { status, data, error } = await supabase
       .from('channels_chat')
       .select('*')
-      .eq('channel', props.chid)
+      .eq('channel', chid)
     if (error && status !== 406) {
         throw error
     }
@@ -67,7 +68,7 @@ async function Getmes(props) {
   } catch (error) {
      AlertToast('ERROR', error.message + 'Please reload or contact to maintainer(@tamagoez)' , 'error', 12000)
   } finally {
-    console.log('Got chat log: ' + props.chid)
+    console.log('Got chat log: ' + chid)
   }
 }
 

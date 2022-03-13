@@ -73,7 +73,21 @@ function Getmes(props) {
 }
 
 function Addmes(message) {
-  
+  const userid = session.user.id;
+  try {
+    const { status, error } = await supabase
+      .from('channels_chat')
+      .insert([
+        { userid: userid, message: message }
+      ])
+    if (error && status !== 406) {
+        throw error
+     }
+   } catch (error) {
+      AlertToast('ERROR', error.message, 'error', 6000)
+   } finally {
+      console.log('Message sent')
+   } 
 }
 
 function Delmes(props) {

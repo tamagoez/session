@@ -72,6 +72,7 @@ const Getmes = (props) => {
       console.log('Got chat log: ' + chid)
     }
   }
+  getproc();
 }
 
 async function Addmes(message, chid) {

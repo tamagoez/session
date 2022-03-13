@@ -1,7 +1,8 @@
 // https://github.com/samarthmn/supabase-chat-app/blob/master/src/hooks/useMessage.ts
 
 import { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient'
+import { supabase } from '../supabaseClient';
+import AlertToast from '../components/AlertToast';
 
 function Submes(props) {
   const [messages, setMessages] = useState([])
@@ -72,7 +73,7 @@ function Getmes(props) {
   return (dealgm());
 }
 
-function Addmes(message) {
+async function Addmes(message) {
   const userid = session.user.id;
   try {
     const { status, error } = await supabase

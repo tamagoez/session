@@ -51,9 +51,10 @@ export default function Chat(props) {
 
 function GetChat(props) {
   const chid = props.chid
-  const [messages, setMessages] = useState([])
+  // const [messages, setMessages] = useState([])
   const messagesEndRef = useRef(null)
-  setMessages(Getmes({ chid }))
+  // setMessages(Getmes({ chid }))
+  const messages = Getmes({ chid })
   
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({

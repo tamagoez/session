@@ -53,13 +53,7 @@ function GetChat(props) {
   const chid = props.chid
   const [messages, setMessages] = useState([])
   const messagesEndRef = useRef(null)
-  useEffect(() => {
-    setMessages(Getmes({ chid }))
-    return () => {
-      console.log('Component unmounted')
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  setMessages(Getmes({ chid }))
   
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({

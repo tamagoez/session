@@ -42,18 +42,6 @@ export default function Chat(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
-  function MER() {
-    const messagesEndRef = useRef(null)  
-    useEffect(() => {
-      messagesEndRef.current.scrollIntoView({
-        block: 'start',
-        behavior: 'smooth',
-      })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [messages])
-    return (<div ref={messagesEndRef} style={{ height: 0 }} />);
-  }
-
   return (
     <div>
       <Submes id={chid} />
@@ -63,7 +51,6 @@ export default function Chat(props) {
             <Message message={x} />
            ))}
           </div>
-          <MER />
         </div>
       <CoreChat chid={chid} />
     </div>

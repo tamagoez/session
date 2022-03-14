@@ -4,13 +4,17 @@ import { supabase } from '../supabaseClient'
 // import { useAlert } from 'react-alert'
 
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
+import { Link, Navigate, useLocation } from 'react-router-dom';// 追加 Linkタブを読み込む
 
 import { MdPassword, MdAlternateEmail } from "react-icons/md";
 
 import { createStandaloneToast, Spinner, Input, InputRightElement, InputGroup, InputLeftElement, Button  } from '@chakra-ui/react';
 
 function AuthPage(props) {
+  const getid = useLocation().search;
+  const queryid = new URLSearchParams(getid);
+  const afterlink = queryid.get('after');
+  
   const [loading, setLoading] = useState(false)
   const [acid, setAcid] = useState('')
   const [password, setPassword] = useState('')
@@ -83,7 +87,7 @@ function AuthPage(props) {
       }
     }
     var sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { console.log('Error occured while login!') } else { if (props.type === 'login') { window.location.replace("/dashboard") } else { window.location.replace("/account") }}
+    if (!sessioncheck) { console.log('Error occured while login!') } else { if (props.type === 'login') { if (afterid) {window.location.replace(afterlink)} else {window.location.replace("/dashboard")} } else { window.location.replace("/account?after=" + afterlink) }}
   }
   
   const submitOnEnter = (event) => {

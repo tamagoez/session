@@ -1,4 +1,4 @@
-const Message = ({ message }) => {
+const Message = (message) => {
   console.log('[RENDER] ID: ' + message.id)
   console.log('[RENDER] UserID: ' + message.userid)
   console.log('[RENDER] Message: ' + message.message)

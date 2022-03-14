@@ -21,6 +21,7 @@ export default function Chat(props) {
   const navigate = useNavigate();
   const { cid } = useParams();
   const chid = cid
+  const [messages, setMessages] = useState([]);
   useEffect(() => {
     var session = supabase.auth.session();
     if (!session) {
@@ -33,7 +34,7 @@ export default function Chat(props) {
       function CheckRole() {
         console.log('id is ' + userid)
       } 
-      GetMessage(chid)
+      setMessages = Getmes({ chid })
     }
     return () => {
       console.log('Component unmounted')
@@ -63,18 +64,6 @@ export default function Chat(props) {
       <CoreChat chid={chid} />
     </div>
   )
-}
-
-function GetMessage(chid) {
-  // const [messages, setMessages] = useState([])
-  // setMessages(Getmes({ chid }))
-  const messages = Getmes({ chid })
-  
-  // useEffect(() => {
-  //  setMessages(Getmes({ chid }))
-  // }, [chid]);
-  
-  return (messages);
 }
 
 function CoreChat(props) {

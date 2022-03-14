@@ -23,7 +23,13 @@ export default function Chat(props) {
   const chid = cid
   
   const messagesEndRef = useRef(null)
-  const messages = Getmes({ chid })
+  
+  const [messages, setMessages] = useState([])
+  useEffect(() => {
+    Getmes({ chid })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({
       block: 'start',

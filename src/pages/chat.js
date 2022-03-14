@@ -23,11 +23,13 @@ export default function Chat(props) {
   const chid = cid
   
   const messagesEndRef = useRef(null)
-  const messages = [];
-  // const [messages, setMessages] = useState([])
+  // const messages = [];
+  const [messages, setMessages] = useState([])
   useEffect(() => {
+    const mesresult = Getmes({ chid });
+    setMessages(mesresult)
     // setMessages(Getmes({ chid }));
-    Getmes({ chid })
+    // Getmes({ chid })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   

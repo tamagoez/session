@@ -49,6 +49,7 @@ export default function Chat(props) {
         block: 'start',
         behavior: 'smooth',
       })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [messages])
     return (<div ref={messagesEndRef} style={{ height: 0 }} />);
   }

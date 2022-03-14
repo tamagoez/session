@@ -23,7 +23,7 @@ export default function Chat(props) {
   const chid = cid
   
   const messagesEndRef = useRef(null)
-  
+  const messages = [];
   // const [messages, setMessages] = useState([])
   useEffect(() => {
     // setMessages(Getmes({ chid }));
@@ -54,7 +54,9 @@ export default function Chat(props) {
     <div>
       <Submes id={chid} />
       <div>
-        
+        {messages.map((x) => (
+          <Message key={x.id} message={x} />
+        ))}
         <div ref={messagesEndRef} style={{ height: 0 }} />
       </div>
       <CoreChat chid={chid} />

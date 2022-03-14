@@ -87,7 +87,7 @@ function AuthPage(props) {
       }
     }
     var sessioncheck = supabase.auth.session();
-    if (!sessioncheck) { console.log('Error occured while login!') } else { if (props.type === 'login') { if (afterid) {window.location.replace(afterlink)} else {window.location.replace("/dashboard")} } else { window.location.replace("/account?after=" + afterlink) }}
+    if (!sessioncheck) { console.log('Error occured while login!') } else { if (props.type === 'login') { if (afterlink) {window.location.replace(afterlink)} else {window.location.replace("/dashboard")} } else { window.location.replace("/account?after=" + afterlink) }}
   }
   
   const submitOnEnter = (event) => {

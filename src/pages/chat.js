@@ -24,9 +24,10 @@ export default function Chat(props) {
   
   const messagesEndRef = useRef(null)
   
-  const [messages, setMessages] = useState([])
+  // const [messages, setMessages] = useState([])
   useEffect(() => {
-    setMessages(Getmes({ chid }));
+    // setMessages(Getmes({ chid }));
+    Getmes({ chid })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
@@ -53,9 +54,7 @@ export default function Chat(props) {
     <div>
       <Submes id={chid} />
       <div>
-        {messages.map((x) => (
-          <Message key={x.id} message={x} />
-        ))}
+        
         <div ref={messagesEndRef} style={{ height: 0 }} />
       </div>
       <CoreChat chid={chid} />

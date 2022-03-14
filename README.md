@@ -1,3 +1,16 @@
+# Session(No maintain)
+## What is this?
+This is Session app which @tamagoez made with React.  
+I tried to use React to deploy it, but I was a beginner user, and I can't solve some important bugs.  
+## Then what?
+I had experience to use Next.js to make chat app, so I'm going to use it.  
+Don't misunderstand, I'm not hating React.  
+Next.js version also use react.(ex: useEffect, useState)  
+Another reason is I'm using Vercel to deploy.  
+Vercel made Next.js, so I think Vercel configured something to optimise for it.  
+
+## So use [this](https://github.com/tamagoez/sessions)!
+
 # Create React App
 
 This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.

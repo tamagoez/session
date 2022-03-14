@@ -26,7 +26,7 @@ export default function Chat(props) {
   
   const [messages, setMessages] = useState([])
   useEffect(() => {
-    Getmes({ chid })
+    setMessages(Getmes({ chid }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   

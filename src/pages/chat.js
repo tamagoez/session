@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from '../supabaseClient'
 import React from 'react';
 // import { Link, Navigate } from 'react-router-dom';// 追加 Linkタブを読み込む
@@ -21,7 +21,16 @@ export default function Chat(props) {
   const navigate = useNavigate();
   const { cid } = useParams();
   const chid = cid
-  // const [messages, setMessages] = useState([]);
+  
+  const messagesEndRef = useRef(null)
+  const messages = useStore({ channelId })
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    })
+  }, [messages])
+  
   useEffect(() => {
     var session = supabase.auth.session();
     if (!session) {
@@ -30,14 +39,6 @@ export default function Chat(props) {
       console.log('channelID: ' + chid)
       const userid = session.user.id;
       console.log('userID: ' + userid)
-      CheckRole()
-      function CheckRole() {
-        console.log('id is ' + userid)
-      }
-      // setMessages(Getmes({ chid }));
-    }
-    return () => {
-      console.log('Component unmounted')
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -46,12 +47,7 @@ export default function Chat(props) {
     <div>
       <Submes id={chid} />
       <div>
-        // <div>
-        //   {messages.map((x) => (
-        //     <Message message={x} />
-        //    ))}
-        //   </div>
-        </div>
+      </div>
       <CoreChat chid={chid} />
     </div>
   )

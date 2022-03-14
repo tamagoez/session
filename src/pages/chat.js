@@ -23,15 +23,15 @@ export default function Chat(props) {
   const chid = cid
   
   const messagesEndRef = useRef(null)
-  // const messages = new Map();
-  const [messages, setMessages] = useState([])
-  useEffect(() => {
-    console.log('Getting log')
-    const mesresult = Getmes({ chid });
-    setMessages(mesresult)
+  const messages = Getmes({ chid });
+  // const [messages, setMessages] = useState([])
+  // useEffect(() => {
+  //  console.log('Getting log')
+  //  const mesresult = Getmes({ chid });
+  //  setMessages(mesresult)
     // setMessages(Getmes({ chid }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  //}, [])
   
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({

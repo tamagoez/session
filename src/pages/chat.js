@@ -23,7 +23,7 @@ export default function Chat(props) {
   const chid = cid
   
   const messagesEndRef = useRef(null)
-  const messages = useStore({ channelId })
+  const messages = Getmes({ chid })
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({
       block: 'start',

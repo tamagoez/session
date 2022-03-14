@@ -23,14 +23,13 @@ export default function Chat(props) {
   const chid = cid
   
   const messagesEndRef = useRef(null)
-  const messages = new Map();
-  // const [messages, setMessages] = useState([])
+  // const messages = new Map();
+  const [messages, setMessages] = useState([])
   useEffect(() => {
     console.log('Getting log')
-    // const mesresult = Getmes({ chid });
-    // setMessages(mesresult)
+    const mesresult = Getmes({ chid });
+    setMessages(mesresult)
     // setMessages(Getmes({ chid }));
-    // Getmes({ chid })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   

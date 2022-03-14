@@ -33,7 +33,8 @@ export default function Chat(props) {
       CheckRole()
       function CheckRole() {
         console.log('id is ' + userid)
-      } 
+      }
+      setMessages(Getmes({ chid }));
     }
     return () => {
       console.log('Component unmounted')

@@ -34,7 +34,7 @@ export default function Chat(props) {
       function CheckRole() {
         console.log('id is ' + userid)
       } 
-      setMessages = Getmes({ chid })
+      setMessages(Getmes({ chid }))
     }
     return () => {
       console.log('Component unmounted')
@@ -42,13 +42,6 @@ export default function Chat(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
-  const messagesEndRef = useRef(null)  
-  useEffect(() => {
-    messagesEndRef.current.scrollIntoView({
-      block: 'start',
-      behavior: 'smooth',
-    })
-  }, [messages])
     
   return (
     <div>
@@ -59,11 +52,22 @@ export default function Chat(props) {
             <Message message={x} />
            ))}
           </div>
-          <div ref={messagesEndRef} style={{ height: 0 }} />
+          <mER />
         </div>
       <CoreChat chid={chid} />
     </div>
   )
+}
+
+function mER() {
+  const messagesEndRef = useRef(null)  
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    })
+  }, [messages])
+  return (<div ref={messagesEndRef} style={{ height: 0 }} />);
 }
 
 function CoreChat(props) {
